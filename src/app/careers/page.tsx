@@ -39,7 +39,7 @@ export default function CareersPage() {
             </h1>
             <p className="mt-6 max-w-md text-lg text-muted">
               We&apos;re always hungry for people who love food, drinks and
-              telling a good story. Drop your details on the right — every
+              telling a good story. Drop your details below — every
               application lands straight with our team.
             </p>
           </div>
