@@ -250,6 +250,37 @@ export const contact = {
   address: "Digital Food Talk Pvt. Ltd., New Delhi, India",
 };
 
+export const instagram = {
+  handle: "foodtalkindia",
+  url: "https://instagram.com/foodtalkindia",
+  /** Shown until the Graph API token is wired up. Edit freely. */
+  fallbackFollowers: 100000,
+  fallbackPosts: [
+    "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&h=500&q=70",
+    "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&h=500&q=70",
+    "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=500&h=500&q=70",
+    "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=500&h=500&q=70",
+    "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&h=500&q=70",
+    "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=500&h=500&q=70",
+    "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=500&h=500&q=70",
+    "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=500&h=500&q=70",
+  ],
+};
+
+/** Audience & reach breakdown. Placeholder numbers — swap for real ones. */
+export const audience = {
+  eyebrow: "Audience & Reach",
+  headline: "A hungry crowd, everywhere you look.",
+  intro:
+    "Our community isn't one number — it's food lovers spread across every platform they scroll.",
+  channels: [
+    { platform: "Instagram", value: "1,00,000+", label: "followers" },
+    { platform: "YouTube", value: "250K+", label: "subscribers" },
+    { platform: "Monthly reach", value: "5M+", label: "across platforms" },
+    { platform: "Avg. engagement", value: "8.5%", label: "per post" },
+  ],
+};
+
 export const socials = [
   { label: "Instagram", handle: "@foodtalkindia", href: "https://instagram.com/foodtalkindia" },
   { label: "YouTube", handle: "Food Talk India", href: "https://youtube.com/@foodtalkindia" },
