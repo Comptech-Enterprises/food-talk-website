@@ -203,6 +203,12 @@ export const categories: Category[] = [
   },
 ];
 
+export const contact = {
+  email: "hello@foodtalk.in",
+  phone: "+91 98765 43210",
+  address: "Digital Food Talk Pvt. Ltd., New Delhi, India",
+};
+
 export const socials = [
   { label: "Instagram", handle: "@foodtalkindia", href: "https://instagram.com/foodtalkindia" },
   { label: "YouTube", handle: "Food Talk India", href: "https://youtube.com/@foodtalkindia" },

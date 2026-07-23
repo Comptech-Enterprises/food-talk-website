@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s · Food Talk India",
   },
   description:
-    "India's go-to for food, cocktails and culture with flavour. A digital media house born out of a simple love for food, drinks and all the conversations that follow around it.",
+    "Food Talk India is your go-to food media house for restaurant reviews, bar & cocktail guides, street food discoveries and dining trends across Delhi, Mumbai, Bangalore and beyond. Find the best places to eat and drink in India.",
   keywords: [
     "Food Talk India",
     "food media",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Food Talk India — We Eat. We Drink. We Talk.",
     description:
-      "India's go-to for food, cocktails and culture with flavour.",
+      "Restaurant reviews, cocktail guides, street food discoveries and dining trends across India — from the food media house that makes people fall in love with food.",
     type: "website",
     locale: "en_IN",
   },
