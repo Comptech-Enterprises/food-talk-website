@@ -5,10 +5,11 @@
  */
 
 export const nav = [
-  { label: "What We Do", href: "#what-we-do" },
-  { label: "Categories", href: "#categories" },
-  { label: "Newsletter", href: "#newsletter" },
-  { label: "Socials", href: "#socials" },
+  { label: "What We Do", href: "/#what-we-do" },
+  { label: "Categories", href: "/#categories" },
+  { label: "Newsletter", href: "/#newsletter" },
+  { label: "Socials", href: "/#socials" },
+  { label: "Careers", href: "/careers" },
 ] as const;
 
 export const hero = {

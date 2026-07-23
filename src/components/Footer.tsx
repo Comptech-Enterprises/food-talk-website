@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
         <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
           <div>
-            <a href="#top" className="text-fg" aria-label="Food Talk India — home">
+            <a href="/" className="text-fg" aria-label="Food Talk India — home">
               <Logo />
             </a>
             <p className="mt-6 max-w-sm text-2xl font-semibold leading-tight text-fg">
@@ -76,7 +76,7 @@ export default function Footer() {
               ))}
               <li>
                 <a
-                  href="#advertise"
+                  href="/#advertise"
                   className="group inline-flex items-center gap-2 font-semibold text-fg transition-colors hover:text-accent"
                 >
                   <span
@@ -129,22 +129,8 @@ export default function Footer() {
           </span>
         </div>
 
-        <div className="mt-10 flex flex-col gap-4 text-xs text-muted-dim sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 text-xs text-muted-dim">
           <p>© {new Date().getFullYear()} Digital Food Talk Pvt. Ltd. All rights reserved.</p>
-          <p className="flex gap-6">
-            <a href="#" className="transition-colors hover:text-fg">
-              Privacy
-            </a>
-            <a href="#" className="transition-colors hover:text-fg">
-              Terms
-            </a>
-            <a href="#advertise" className="transition-colors hover:text-fg">
-              Advertise
-            </a>
-            <a href="/careers" className="transition-colors hover:text-fg">
-              Careers
-            </a>
-          </p>
         </div>
       </div>
     </footer>
