@@ -4,6 +4,7 @@ import About from "@/components/About";
 import Timeline from "@/components/Timeline";
 import Pillars from "@/components/Pillars";
 import Categories from "@/components/Categories";
+import WhyUs from "@/components/WhyUs";
 import Newsletter from "@/components/Newsletter";
 import Marquee from "@/components/Marquee";
 import Footer from "@/components/Footer";
@@ -18,6 +19,7 @@ export default function Home() {
         {/*<Timeline />*/}
         <Pillars />
         <Categories />
+        <WhyUs />
         <Newsletter />
         <Marquee />
       </main>

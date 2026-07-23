@@ -27,6 +27,47 @@ export const about = {
   ],
 };
 
+export type Reason = {
+  id: string;
+  title: string;
+  copy: string;
+};
+
+export const whyUs = {
+  eyebrow: "Why Food Talk",
+  headline: "Tastemakers you can actually trust.",
+  intro:
+    "Anyone can post a food photo. We earn attention the harder way — by being honest, being everywhere, and telling stories worth your time.",
+  reasons: [
+    {
+      id: "honest",
+      title: "Straight-up honest",
+      copy: "No paid fluff, no fake five-stars. If a place isn't worth your money, we'll tell you — that's why people believe us.",
+    },
+    {
+      id: "ground",
+      title: "On the ground, always",
+      copy: "Real people eating real meals across India, not reviews written from a desk. We taste it before we talk about it.",
+    },
+    {
+      id: "stories",
+      title: "Stories, not listicles",
+      copy: "We turn food into something you want to watch, read and share — entertainment with real substance behind it.",
+    },
+    {
+      id: "local",
+      title: "Deep local knowledge",
+      copy: "City by city, lane by lane. From fine dining to the cart on the corner, we know where the good stuff hides.",
+    },
+  ] as Reason[],
+  stats: [
+    { value: "2M+", label: "Food lovers trust us" },
+    { value: "500+", label: "Places reviewed" },
+    { value: "12+", label: "Cities covered" },
+    { value: "0", label: "Paid-for reviews" },
+  ],
+};
+
 export type Milestone = {
   year: string;
   title: string;
