@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Timeline from "@/components/Timeline";
 import Pillars from "@/components/Pillars";
+import Categories from "@/components/Categories";
 import Newsletter from "@/components/Newsletter";
 import Marquee from "@/components/Marquee";
 import Footer from "@/components/Footer";
@@ -16,6 +17,7 @@ export default function Home() {
         <About />
         {/*<Timeline />*/}
         <Pillars />
+        <Categories />
         <Newsletter />
         <Marquee />
       </main>

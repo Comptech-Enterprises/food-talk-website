@@ -5,46 +5,6 @@ import type { MouseEvent } from "react";
 import { pillars } from "@/lib/content";
 import Reveal from "./Reveal";
 
-/** On-brand line icons for each pillar. */
-function PillarIcon({ id }: { id: string }) {
-  const common = {
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 1.6,
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-    className: "h-6 w-6",
-  };
-  switch (id) {
-    case "discover":
-      // compass — new places worth finding
-      return (
-        <svg {...common}>
-          <circle cx="12" cy="12" r="9" />
-          <polygon points="16.2 7.8 14.1 14.1 7.8 16.2 9.9 9.9" />
-        </svg>
-      );
-    case "guide":
-      // bookmark — reviews & know-how worth keeping
-      return (
-        <svg {...common}>
-          <path d="M6.5 3h11a1 1 0 0 1 1 1v17l-6.5-3.8L5.5 21V4a1 1 0 0 1 1-1z" />
-        </svg>
-      );
-    case "entertain":
-      // play — video & conversation
-      return (
-        <svg {...common}>
-          <circle cx="12" cy="12" r="9" />
-          <polygon points="10 8.4 16 12 10 15.6" fill="currentColor" stroke="none" />
-        </svg>
-      );
-    default:
-      return null;
-  }
-}
-
 function trackPointer(e: MouseEvent<HTMLElement>) {
   const el = e.currentTarget;
   const rect = el.getBoundingClientRect();
@@ -98,15 +58,10 @@ export default function Pillars() {
                   <span className="absolute left-5 top-5 rounded-full bg-bg/70 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-fg backdrop-blur">
                     {p.tag}
                   </span>
-
-                  {/* floating icon badge straddling image / content */}
-                  <span className="absolute -bottom-7 left-6 z-30 grid h-14 w-14 place-items-center rounded-2xl border border-line-strong bg-bg-card text-fg transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-[color:var(--accent-ink)]">
-                    <PillarIcon id={p.id} />
-                  </span>
                 </div>
 
                 {/* content */}
-                <div className="relative z-30 flex flex-1 flex-col p-7 pt-12">
+                <div className="relative z-30 flex flex-1 flex-col p-7">
                   <div className="mb-4 flex items-baseline justify-between">
                     <h3 className="display text-3xl transition-colors duration-300 group-hover:text-accent">
                       {p.title}

@@ -6,6 +6,7 @@
 
 export const nav = [
   { label: "What We Do", href: "#what-we-do" },
+  { label: "Categories", href: "#categories" },
   { label: "Newsletter", href: "#newsletter" },
   { label: "Socials", href: "#socials" },
 ] as const;
@@ -122,6 +123,83 @@ export const pillars: Pillar[] = [
     copy: "With fun videos and candid conversations, we blend entertainment with insightful content. Let's just say it's a meal with a generous side of chatter.",
     image:
       "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80",
+  },
+];
+
+export type Category = {
+  id: string;
+  name: string;
+  tagline: string;
+  tag: string;
+  views: string;
+  episodes: string;
+  image: string;
+};
+
+/**
+ * Signature content series ("IPs"), shown as vertical reel cards.
+ * Swap images/stats for real reel thumbnails when available.
+ */
+export const categories: Category[] = [
+  {
+    id: "on-the-radar",
+    name: "On the Radar",
+    tagline: "New spots before they blow up.",
+    tag: "Discover",
+    views: "1.2M",
+    episodes: "42 reels",
+    image:
+      "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=700&h=1100&q=80",
+  },
+  {
+    id: "top-10-delhi",
+    name: "Top 10 in Delhi",
+    tagline: "The city's best, ranked & rated.",
+    tag: "Guide",
+    views: "890K",
+    episodes: "28 reels",
+    image:
+      "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&h=1100&q=80",
+  },
+  {
+    id: "stirred",
+    name: "Stirred",
+    tagline: "Cocktails, bars & after dark.",
+    tag: "Drinks",
+    views: "2.1M",
+    episodes: "36 reels",
+    image:
+      "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=700&h=1100&q=80",
+  },
+  {
+    id: "hidden-gems",
+    name: "Hidden Gems",
+    tagline: "Holes-in-the-wall worth the detour.",
+    tag: "Discover",
+    views: "640K",
+    episodes: "19 reels",
+    image:
+      "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=700&h=1100&q=80",
+  },
+  {
+    id: "street-eats",
+    name: "Street Eats",
+    tagline: "Chaat, kebabs & everything between.",
+    tag: "Culture",
+    views: "3.4M",
+    episodes: "51 reels",
+    image:
+      "https://images.unsplash.com/photo-1601050690117-94f5f7a16e07?auto=format&fit=crop&w=700&h=1100&q=80",
+  },
+  {
+    id: "the-big-review",
+    name: "The Big Review",
+    tagline: "No filter. Honest verdicts only.",
+    tag: "Guide",
+    views: "1.5M",
+    episodes: "24 reels",
+    image:
+      "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&h=1100&q=80",
   },
 ];
 
