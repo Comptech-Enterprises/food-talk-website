@@ -53,7 +53,7 @@ export default function Navbar() {
 
         <div className="hidden md:block">
           <a
-            href="/#advertise"
+            href="/advertise"
             className="inline-flex items-center rounded-full border border-line-strong px-5 py-2.5 text-sm font-semibold text-fg transition-all hover:border-accent hover:bg-accent hover:text-[color:var(--accent-ink)]"
             style={{ borderColor: "var(--line-strong)" }}
           >
@@ -107,7 +107,7 @@ export default function Navbar() {
           ))}
           <li className="pt-2">
             <a
-              href="/#advertise"
+              href="/advertise"
               onClick={() => setOpen(false)}
               className="inline-flex w-full items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-bold text-[color:var(--accent-ink)]"
             >

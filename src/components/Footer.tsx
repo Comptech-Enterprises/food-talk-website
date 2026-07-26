@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Logo from "./Logo";
 import { contact, nav, socials } from "@/lib/content";
 
@@ -76,7 +77,7 @@ export default function Footer() {
               ))}
               <li>
                 <a
-                  href="/#advertise"
+                  href="/advertise"
                   className="group inline-flex items-center gap-2 font-semibold text-fg transition-colors hover:text-accent"
                 >
                   <span
@@ -116,17 +117,18 @@ export default function Footer() {
           </nav>
         </div>
 
-        {/* Partner wordmarks (from the original footer) */}
-        <div className="mt-16 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-line pt-10 text-muted-dim">
-          <span className="text-xs uppercase tracking-[0.2em]">
-            Part of the family
-          </span>
-          <span className="display text-lg tracking-[0.25em] text-muted">
-            ANTHEM
-          </span>
-          <span className="display text-lg tracking-[0.15em] text-muted">
-            EXPLORERS CLUB
-          </span>
+        {/* Parent brand */}
+        <div className="mt-16 flex items-center gap-4 border-t border-line pt-10">
+          <span className="text-sm text-muted">A unit of</span>
+          <a href="https://theanthem.in" target="_blank" rel="noopener noreferrer">
+            <Image
+              src="/anthem-logo.webp"
+              alt="Anthem"
+              width={3000}
+              height={2250}
+              className="h-12 w-auto invert"
+            />
+          </a>
         </div>
 
         <div className="mt-10 text-xs text-muted-dim">

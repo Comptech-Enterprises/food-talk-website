@@ -1,5 +1,6 @@
 import { about } from "@/lib/content";
 import Reveal from "./Reveal";
+import CountUp from "./CountUp";
 
 export default function About() {
   return (
@@ -24,20 +25,31 @@ export default function About() {
             {about.body}
           </p>
         </Reveal>
-
-        <Reveal delay={200}>
-          <dl className="grid grid-cols-3 gap-6 border-t border-line pt-8">
-            {about.stats.map((s) => (
-              <div key={s.label}>
-                <dt className="display text-3xl sm:text-4xl">{s.value}</dt>
-                <dd className="mt-1 text-xs leading-snug text-muted-dim">
-                  {s.label}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </Reveal>
       </div>
+
+      {/* Stats — big, bold, animated */}
+      <dl className="mt-16 grid grid-cols-3 gap-6 sm:gap-10">
+        {about.stats.map((s, i) => (
+          <Reveal key={s.label} delay={200 + i * 120}>
+            <div className="group relative rounded-2xl border border-line bg-bg-card px-6 py-8 text-center transition-all duration-500 hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 sm:px-8 sm:py-12">
+              <dt className="display text-5xl sm:text-6xl lg:text-7xl text-accent">
+                <CountUp value={s.value} />
+              </dt>
+              <dd className="mt-3 text-sm text-muted sm:text-base">
+                {s.label}
+              </dd>
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                style={{
+                  background:
+                    "radial-gradient(circle at 50% 50%, rgba(232,178,58,0.06), transparent 70%)",
+                }}
+              />
+            </div>
+          </Reveal>
+        ))}
+      </dl>
     </section>
   );
 }

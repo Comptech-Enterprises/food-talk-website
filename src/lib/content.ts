@@ -278,7 +278,6 @@ export const audience = {
     { platform: "Instagram", value: "1,00,000+", label: "followers" },
     { platform: "YouTube", value: "250K+", label: "subscribers" },
     { platform: "Monthly reach", value: "5M+", label: "across platforms" },
-    { platform: "Avg. engagement", value: "8.5%", label: "per post" },
   ],
 };
 
