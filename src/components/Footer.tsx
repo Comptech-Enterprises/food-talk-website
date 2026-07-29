@@ -4,14 +4,14 @@ import { contact, nav, socials } from "@/lib/content";
 
 const socialIcons: Record<string, React.ReactNode> = {
   Instagram: (
-    <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="3" width="18" height="18" rx="5" />
       <circle cx="12" cy="12" r="4" />
       <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
     </svg>
   ),
   YouTube: (
-    <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round">
+    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round">
       <rect x="2" y="5" width="20" height="14" rx="4" />
       <polygon points="10 8.5 16 12 10 15.5" fill="currentColor" stroke="none" />
     </svg>
@@ -119,7 +119,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     aria-label={s.label}
                     title={s.label}
-                    className="flex h-14 w-14 items-center justify-center rounded-full border border-line text-fg transition-colors hover:border-accent hover:bg-accent hover:text-[color:var(--accent-ink)]"
+                    className="flex h-12 w-12 items-center justify-center rounded-full border border-line text-fg transition-colors hover:border-accent hover:bg-accent hover:text-[color:var(--accent-ink)]"
                   >
                     {socialIcons[s.label]}
                   </a>
