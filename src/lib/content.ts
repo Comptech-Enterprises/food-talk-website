@@ -284,8 +284,6 @@ export const audience = {
 export const socials = [
   { label: "Instagram", handle: "@foodtalkindia", href: "https://instagram.com/foodtalkindia" },
   { label: "YouTube", handle: "Food Talk India", href: "https://youtube.com/@foodtalkindia" },
-  { label: "X / Twitter", handle: "@foodtalkindia", href: "https://x.com/foodtalkindia" },
-  { label: "Facebook", handle: "Food Talk India", href: "https://facebook.com/foodtalkindia" },
 ];
 
 /** Circular food photos for the footer marquee. */

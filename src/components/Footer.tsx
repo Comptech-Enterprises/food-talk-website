@@ -4,26 +4,16 @@ import { contact, nav, socials } from "@/lib/content";
 
 const socialIcons: Record<string, React.ReactNode> = {
   Instagram: (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="3" width="18" height="18" rx="5" />
       <circle cx="12" cy="12" r="4" />
       <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
     </svg>
   ),
   YouTube: (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round">
+    <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round">
       <rect x="2" y="5" width="20" height="14" rx="4" />
       <polygon points="10 8.5 16 12 10 15.5" fill="currentColor" stroke="none" />
-    </svg>
-  ),
-  "X / Twitter": (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z" />
-    </svg>
-  ),
-  Facebook: (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
-      <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z" />
     </svg>
   ),
 };
@@ -129,7 +119,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     aria-label={s.label}
                     title={s.label}
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-line text-fg transition-colors hover:border-accent hover:bg-accent hover:text-[color:var(--accent-ink)]"
+                    className="flex h-14 w-14 items-center justify-center rounded-full border border-line text-fg transition-colors hover:border-accent hover:bg-accent hover:text-[color:var(--accent-ink)]"
                   >
                     {socialIcons[s.label]}
                   </a>
