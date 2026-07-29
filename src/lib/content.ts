@@ -246,7 +246,7 @@ export const categories: Category[] = [
 ];
 
 export const contact = {
-  email: "hello@foodtalk.in",
+  email: "info@anthem.in",
   phone: "+91 98765 43210",
   address: "Digital Food Talk Pvt. Ltd., New Delhi, India",
 };

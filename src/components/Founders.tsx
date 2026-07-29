@@ -10,6 +10,7 @@ const founders = [
     role: "Co-Founder",
     bio: "Drives strategy and flawless execution — turning bold ideas into experiences that deliver. The one who makes sure every plan has a plate at the table.",
     quote: "Good food deserves a great story.",
+    href: "https://shuchir.com/",
   },
   {
     name: "Anjali Batra",
@@ -65,11 +66,24 @@ export default function Founders() {
 
         {/* founder cards */}
         <div className="grid gap-6 sm:grid-cols-2">
-          {founders.map((f, i) => (
+          {founders.map((f, i) => {
+            const Card = f.href ? "a" : "div";
+            const cardProps = f.href
+              ? {
+                  href: f.href,
+                  target: "_blank" as const,
+                  rel: "noopener noreferrer",
+                  "aria-label": `${f.name} — visit website`,
+                }
+              : {};
+            return (
             <Reveal key={f.name} delay={150 + i * 100} className="h-full">
-              <div
+              <Card
+                {...cardProps}
                 onMouseMove={trackPointer}
-                className="group relative flex h-full flex-col rounded-3xl border border-line bg-bg transition-all duration-500 hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/5 overflow-hidden"
+                className={`group relative flex h-full flex-col rounded-3xl border border-line bg-bg transition-all duration-500 hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/5 overflow-hidden${
+                  f.href ? " cursor-pointer" : ""
+                }`}
               >
                 {/* cursor glow */}
                 <div
@@ -122,9 +136,10 @@ export default function Founders() {
                     </p>
                   </blockquote>
                 </div>
-              </div>
+              </Card>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
