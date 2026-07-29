@@ -178,15 +178,13 @@ export default function AdvertisePage() {
               {/* masonry grid */}
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 {formats.map((f, i) => (
-                  <Reveal key={f.title} delay={100 + i * 120}>
+                  <Reveal key={f.title} delay={100 + i * 120} className="h-full">
                     <div
-                      className={`adv-format-card group relative overflow-hidden rounded-2xl border border-line bg-bg-card transition-all duration-500 hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 ${
-                        f.tall ? "p-8 sm:p-10" : "p-7 sm:p-8"
-                      }`}
+                      className="adv-format-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-bg-card p-8 transition-all duration-500 hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 sm:p-10"
                     >
                       {/* top accent line */}
                       <div className="absolute left-8 right-8 top-0 h-px bg-accent/0 transition-all duration-500 group-hover:bg-accent/30" />
-                      <div className="mb-5 inline-flex rounded-xl border border-line bg-bg-elevated p-3 transition-colors group-hover:border-accent/20">
+                      <div className="mb-5 inline-flex self-start rounded-xl border border-line bg-bg-elevated p-3 transition-colors group-hover:border-accent/20">
                         {f.icon}
                       </div>
                       <h3 className="display mb-3 text-lg sm:text-xl">{f.title}</h3>
