@@ -4,10 +4,8 @@ import About from "@/components/About";
 import Timeline from "@/components/Timeline";
 import FeaturedOn from "@/components/FeaturedOn";
 import Pillars from "@/components/Pillars";
-import Categories from "@/components/Categories";
 import Founders from "@/components/Founders";
 import InstagramFeed from "@/components/InstagramFeed";
-import Newsletter from "@/components/Newsletter";
 import Marquee from "@/components/Marquee";
 import Footer from "@/components/Footer";
 
@@ -21,10 +19,8 @@ export default function Home() {
         {/*<Timeline />*/}
         <FeaturedOn />
         <Pillars />
-        <Categories />
         <Founders />
         <InstagramFeed />
-        <Newsletter />
         <Marquee />
       </main>
       <Footer />

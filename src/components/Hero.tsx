@@ -55,13 +55,6 @@ export default function Hero() {
             What we do
             <span aria-hidden>→</span>
           </a>
-          <a
-            href="#newsletter"
-            className="inline-flex items-center gap-2 rounded-full border px-7 py-3.5 text-sm font-semibold text-fg transition-colors hover:border-accent hover:text-accent"
-            style={{ borderColor: "var(--line-strong)" }}
-          >
-            Join the newsletter
-          </a>
         </div>
       </div>
 

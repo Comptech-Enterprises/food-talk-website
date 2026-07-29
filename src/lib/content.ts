@@ -6,8 +6,6 @@
 
 export const nav = [
   { label: "What We Do", href: "/#what-we-do" },
-  { label: "Categories", href: "/#categories" },
-  { label: "Newsletter", href: "/#newsletter" },
   { label: "Socials", href: "/#socials" },
   { label: "Careers", href: "/careers" },
 ] as const;
@@ -168,83 +166,6 @@ export const pillars: Pillar[] = [
   },
 ];
 
-export type Category = {
-  id: string;
-  name: string;
-  tagline: string;
-  tag: string;
-  views: string;
-  episodes: string;
-  image: string;
-};
-
-/**
- * Signature content series ("IPs"), shown as vertical reel cards.
- * Swap images/stats for real reel thumbnails when available.
- */
-export const categories: Category[] = [
-  {
-    id: "on-the-radar",
-    name: "On the Radar",
-    tagline: "New spots before they blow up.",
-    tag: "Discover",
-    views: "1.2M",
-    episodes: "42 reels",
-    image:
-      "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=700&h=1100&q=80",
-  },
-  {
-    id: "top-10-delhi",
-    name: "Top 10 in Delhi",
-    tagline: "The city's best, ranked & rated.",
-    tag: "Guide",
-    views: "890K",
-    episodes: "28 reels",
-    image:
-      "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&h=1100&q=80",
-  },
-  {
-    id: "stirred",
-    name: "Stirred",
-    tagline: "Cocktails, bars & after dark.",
-    tag: "Drinks",
-    views: "2.1M",
-    episodes: "36 reels",
-    image:
-      "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=700&h=1100&q=80",
-  },
-  {
-    id: "hidden-gems",
-    name: "Hidden Gems",
-    tagline: "Holes-in-the-wall worth the detour.",
-    tag: "Discover",
-    views: "640K",
-    episodes: "19 reels",
-    image:
-      "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=700&h=1100&q=80",
-  },
-  {
-    id: "street-eats",
-    name: "Street Eats",
-    tagline: "Chaat, kebabs & everything between.",
-    tag: "Culture",
-    views: "3.4M",
-    episodes: "51 reels",
-    image:
-      "https://images.unsplash.com/photo-1601050690117-94f5f7a16e07?auto=format&fit=crop&w=700&h=1100&q=80",
-  },
-  {
-    id: "the-big-review",
-    name: "The Big Review",
-    tagline: "No filter. Honest verdicts only.",
-    tag: "Guide",
-    views: "1.5M",
-    episodes: "24 reels",
-    image:
-      "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&h=1100&q=80",
-  },
-];
-
 export const contact = {
   email: "info@anthem.in",
   phone: "+91 98765 43210",
@@ -265,6 +186,39 @@ export const instagram = {
     "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=500&h=500&q=70",
     "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=500&h=500&q=70",
     "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=500&h=500&q=70",
+  ],
+};
+
+export const youtube = {
+  handle: "Food Talk India",
+  url: "https://youtube.com/@foodtalkindia",
+  fallbackSubscribers: 250000,
+  /**
+   * Latest videos shown until real data is wired up.
+   * `href` should point at each specific video, e.g. https://youtu.be/<id>.
+   * Swap the thumbnails & links for real ones when available.
+   */
+  fallbackVideos: [
+    {
+      title: "Delhi's best-kept street food secrets",
+      href: "https://youtube.com/@foodtalkindia",
+      image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=640&h=360&q=70",
+    },
+    {
+      title: "We ranked every biryani in the city",
+      href: "https://youtube.com/@foodtalkindia",
+      image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=640&h=360&q=70",
+    },
+    {
+      title: "Inside Mumbai's hottest new bar",
+      href: "https://youtube.com/@foodtalkindia",
+      image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=640&h=360&q=70",
+    },
+    {
+      title: "The big review: is it worth the hype?",
+      href: "https://youtube.com/@foodtalkindia",
+      image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=640&h=360&q=70",
+    },
   ],
 };
 

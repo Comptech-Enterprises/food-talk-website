@@ -20,9 +20,9 @@ export default function Logo({ className = "", withWordmark = true }: LogoProps)
       />
       {withWordmark && (
         <span className="leading-none">
-          <span className="display block text-lg tracking-tight">FOOD</span>
+          <span className="display block text-lg tracking-tight">FOOD TALK</span>
           <span className="block text-[0.6rem] font-semibold tracking-[0.35em] text-muted">
-            TALK
+            INDIA
           </span>
         </span>
       )}

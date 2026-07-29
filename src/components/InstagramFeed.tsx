@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { audience, instagram } from "@/lib/content";
+import { audience, instagram, youtube } from "@/lib/content";
 import { getInstagramMedia, getInstagramProfile } from "@/lib/instagram";
 import Reveal from "./Reveal";
 import CountUp from "./CountUp";
@@ -142,7 +142,7 @@ export default async function InstagramFeed() {
           })}
         </dl>
 
-        {/* Instagram feed */}
+        {/* Instagram row */}
         <div className="mt-16">
           <Reveal className="mb-6 flex flex-wrap items-center justify-between gap-4">
             <div>
@@ -168,7 +168,7 @@ export default async function InstagramFeed() {
           </Reveal>
 
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
-            {posts.map((p) => (
+            {posts.slice(0, 4).map((p) => (
               <a
                 key={p.id}
                 href={p.permalink}
@@ -197,6 +197,62 @@ export default async function InstagramFeed() {
                     </svg>
                   </span>
                 )}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* YouTube row */}
+        <div className="mt-14">
+          <Reveal className="mb-6 flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <p className="display text-2xl">{youtube.handle}</p>
+              <p className="text-sm text-muted">
+                {youtube.fallbackSubscribers.toLocaleString("en-IN")}+ subscribers · Latest videos
+              </p>
+            </div>
+            <a
+              href={youtube.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-[#FF0000] px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+            >
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
+                <rect x="2" y="4.5" width="20" height="15" rx="4" />
+                <polygon points="10 8.5 16 12 10 15.5" fill="currentColor" stroke="none" />
+              </svg>
+              Subscribe
+            </a>
+          </Reveal>
+
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
+            {youtube.fallbackVideos.map((v) => (
+              <a
+                key={v.title}
+                href={v.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative aspect-square overflow-hidden rounded-xl border border-line bg-bg-card"
+              >
+                <Image
+                  src={v.image}
+                  alt={v.title}
+                  fill
+                  sizes="(min-width: 640px) 25vw, 50vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                {/* play button */}
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FF0000] text-white shadow-lg transition-transform duration-300 group-hover:scale-110">
+                    <svg viewBox="0 0 24 24" className="ml-0.5 h-5 w-5" fill="currentColor">
+                      <polygon points="8 5 19 12 8 19" />
+                    </svg>
+                  </span>
+                </span>
+                <p className="absolute inset-x-0 bottom-0 line-clamp-2 p-3 text-xs font-semibold text-white">
+                  {v.title}
+                </p>
               </a>
             ))}
           </div>
