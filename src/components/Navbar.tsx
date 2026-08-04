@@ -32,48 +32,40 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-      <nav className="relative mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
-        {/* Hamburger + Menu label (all breakpoints) */}
+      <nav className="relative mx-auto flex h-20 max-w-7xl items-center gap-4 px-5 sm:px-8">
+        {/* Hamburger toggle */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="relative z-50 flex items-center gap-3 text-fg"
+          className="relative z-50 flex h-7 w-7 shrink-0 flex-col items-center justify-center gap-1.5 text-fg"
         >
-          <span className="flex h-6 w-7 flex-col items-center justify-center gap-1.5">
-            <span
-              className={`h-0.5 w-7 bg-fg transition-transform duration-300 ${
-                open ? "translate-y-2 rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`h-0.5 w-7 bg-fg transition-opacity duration-200 ${
-                open ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`h-0.5 w-7 bg-fg transition-transform duration-300 ${
-                open ? "-translate-y-2 -rotate-45" : ""
-              }`}
-            />
-          </span>
-          <span className="text-lg font-semibold">
-            {open ? "Close" : "Menu"}
-          </span>
+          <span
+            className={`h-0.5 w-7 bg-fg transition-transform duration-300 ${
+              open ? "translate-y-2 rotate-45" : ""
+            }`}
+          />
+          <span
+            className={`h-0.5 w-7 bg-fg transition-opacity duration-200 ${
+              open ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`h-0.5 w-7 bg-fg transition-transform duration-300 ${
+              open ? "-translate-y-2 -rotate-45" : ""
+            }`}
+          />
         </button>
 
-        {/* Centered logo */}
+        {/* Logo (next to hamburger) */}
         <a
           href="/"
           aria-label="Food Talk India — home"
-          className="absolute left-1/2 -translate-x-1/2 text-fg"
+          className="relative z-50 text-fg"
         >
           <Logo />
         </a>
-
-        {/* Spacer keeps the logo optically centered */}
-        <span aria-hidden className="w-7 sm:w-24" />
       </nav>
       </header>
 
