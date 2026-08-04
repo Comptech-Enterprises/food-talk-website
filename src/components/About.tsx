@@ -28,14 +28,14 @@ export default function About() {
       </div>
 
       {/* Stats — big, bold, animated */}
-      <dl className="mt-16 grid grid-cols-3 gap-6 sm:gap-10">
+      <dl className="mt-16 grid grid-cols-3 gap-3 sm:gap-10">
         {about.stats.map((s, i) => (
           <Reveal key={s.label} delay={200 + i * 120}>
-            <div className="group relative rounded-2xl border border-line bg-bg-card px-6 py-8 text-center transition-all duration-500 hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 sm:px-8 sm:py-12">
-              <dt className="display text-5xl sm:text-6xl lg:text-7xl text-accent">
+            <div className="group relative h-full rounded-2xl border border-line bg-bg-card px-3 py-6 text-center transition-all duration-500 hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 sm:px-8 sm:py-12">
+              <dt className="display text-3xl text-accent sm:text-6xl lg:text-7xl">
                 <CountUp value={s.value} />
               </dt>
-              <dd className="mt-3 text-sm text-muted sm:text-base">
+              <dd className="mt-2 text-xs leading-snug text-muted sm:mt-3 sm:text-base">
                 {s.label}
               </dd>
               <div
