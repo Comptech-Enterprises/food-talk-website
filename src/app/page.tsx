@@ -6,7 +6,6 @@ import FeaturedOn from "@/components/FeaturedOn";
 import Pillars from "@/components/Pillars";
 import Founders from "@/components/Founders";
 import InstagramFeed from "@/components/InstagramFeed";
-import Marquee from "@/components/Marquee";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -21,7 +20,6 @@ export default function Home() {
         <Pillars />
         <Founders />
         <InstagramFeed />
-        <Marquee />
       </main>
       <Footer />
     </>
