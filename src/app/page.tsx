@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Timeline from "@/components/Timeline";
 import FeaturedOn from "@/components/FeaturedOn";
+import FeaturedVideo from "@/components/FeaturedVideo";
 import Pillars from "@/components/Pillars";
 import Founders from "@/components/Founders";
 import InstagramFeed from "@/components/InstagramFeed";
@@ -17,6 +18,7 @@ export default function Home() {
         <About />
         {/*<Timeline />*/}
         <FeaturedOn />
+        <FeaturedVideo />
         <Pillars />
         <Founders />
         <InstagramFeed />
