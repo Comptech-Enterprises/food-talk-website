@@ -34,21 +34,6 @@ export default function Footer() {
               India&apos;s go-to for food, cocktails and culture with flavour.
             </p>
 
-            <a
-              href="/profile.pdf"
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-7 inline-flex items-center gap-2.5 rounded-full border border-line-strong px-6 py-3 text-sm font-semibold text-fg transition-colors hover:border-accent hover:bg-accent hover:text-[color:var(--accent-ink)]"
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 3v12" />
-                <path d="m7 10 5 5 5-5" />
-                <path d="M5 21h14" />
-              </svg>
-              Download Company Profile
-            </a>
-
             <div className="mt-8 space-y-2 text-sm">
               <a
                 href={`mailto:${contact.email}`}
