@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="film-grain relative flex min-h-[100svh] items-center overflow-hidden"
+      className="film-grain relative flex min-h-[100svh] items-start overflow-hidden sm:items-center"
     >
       {/* Full-bleed food photography */}
       <Image
@@ -20,7 +20,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-bg/85 via-bg/45 to-bg" />
       <div className="absolute inset-0 bg-gradient-to-r from-bg/70 to-transparent" />
 
-      <div className="relative mx-auto w-full max-w-7xl px-5 pt-28 sm:px-8">
+      <div className="relative mx-auto w-full max-w-7xl px-5 pt-56 sm:px-8 sm:pt-28">
         <p className="eyebrow mb-6 flex items-center gap-3">
           <span className="h-px w-10 bg-accent" />
           Food · Cocktails · Culture
