@@ -1,6 +1,5 @@
 import { about } from "@/lib/content";
 import Reveal from "./Reveal";
-import CountUp from "./CountUp";
 
 export default function About() {
   return (
@@ -26,30 +25,6 @@ export default function About() {
           </p>
         </Reveal>
       </div>
-
-      {/* Stats — big, bold, animated */}
-      <dl className="mt-16 grid grid-cols-3 gap-3 sm:gap-10">
-        {about.stats.map((s, i) => (
-          <Reveal key={s.label} delay={200 + i * 120}>
-            <div className="group relative h-full rounded-2xl border border-line bg-bg-card px-3 py-6 text-center transition-all duration-500 hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 sm:px-8 sm:py-12">
-              <dt className="display text-3xl text-accent sm:text-6xl lg:text-7xl">
-                <CountUp value={s.value} />
-              </dt>
-              <dd className="mt-2 text-xs leading-snug text-muted sm:mt-3 sm:text-base">
-                {s.label}
-              </dd>
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                style={{
-                  background:
-                    "radial-gradient(circle at 50% 50%, rgba(232,178,58,0.06), transparent 70%)",
-                }}
-              />
-            </div>
-          </Reveal>
-        ))}
-      </dl>
     </section>
   );
 }

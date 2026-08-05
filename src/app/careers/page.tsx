@@ -9,33 +9,6 @@ export const metadata: Metadata = {
     "Apply to join Food Talk India. Tell us about yourself and become part of the team behind India's go-to food, cocktails and culture media house.",
 };
 
-const perks = [
-  {
-    icon: "01",
-    title: "Creative freedom",
-    description:
-      "Pitch it, shoot it, ship it. Good ideas win here, no matter who they come from — every voice at the table counts.",
-  },
-  {
-    icon: "02",
-    title: "Eat on the job",
-    description:
-      "Tastings, new openings, festival runs — the field work is deliciously literal. Your feed becomes your office.",
-  },
-  {
-    icon: "03",
-    title: "A team that gets it",
-    description:
-      "Work with people as obsessed with food, drinks and storytelling as you are. No explaining why the right shot matters.",
-  },
-  {
-    icon: "04",
-    title: "Build a brand people love",
-    description:
-      "Millions follow what we make. You won't push content into a void — you'll see real people engage with your work every single day.",
-  },
-];
-
 export default function CareersPage() {
   return (
     <>
@@ -100,27 +73,6 @@ export default function CareersPage() {
                 </p>
               </div>
             </Reveal>
-          </div>
-
-          {/* perks grid */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:gap-8">
-            {perks.map((perk, i) => (
-              <Reveal key={perk.icon} delay={50 * i} className="h-full">
-                <div className="group relative flex h-full gap-5 rounded-2xl border border-line bg-bg-elevated p-6 transition-all hover:-translate-y-1 hover:border-accent/30 sm:p-8">
-                  <span className="shrink-0 display text-3xl font-bold text-accent/20 transition-colors group-hover:text-accent/50">
-                    {perk.icon}
-                  </span>
-                  <div>
-                    <h3 className="mb-2 display text-lg font-semibold">
-                      {perk.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-muted">
-                      {perk.description}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>

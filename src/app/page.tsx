@@ -4,7 +4,7 @@ import About from "@/components/About";
 import Timeline from "@/components/Timeline";
 import FeaturedOn from "@/components/FeaturedOn";
 import FeaturedVideo from "@/components/FeaturedVideo";
-import Pillars from "@/components/Pillars";
+import InstagramPosts from "@/components/InstagramPosts";
 import Founders from "@/components/Founders";
 import InstagramFeed from "@/components/InstagramFeed";
 import Footer from "@/components/Footer";
@@ -19,7 +19,7 @@ export default function Home() {
         {/*<Timeline />*/}
         <FeaturedOn />
         <FeaturedVideo />
-        <Pillars />
+        <InstagramPosts />
         <Founders />
         <InstagramFeed />
       </main>
