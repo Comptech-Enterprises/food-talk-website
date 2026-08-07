@@ -22,7 +22,7 @@ export default function Footer() {
   return (
     <footer id="socials" className="scroll-mt-24 border-t border-line bg-bg">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
-        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr]">
           <div>
             <a href="/" className="text-fg" aria-label="Food Talk India — home">
               <Logo />
@@ -57,6 +57,7 @@ export default function Footer() {
             </div>
           </div>
 
+          <div className="grid grid-cols-[1fr_auto] gap-12 sm:gap-20">
           <nav aria-label="Site">
             <p className="eyebrow mb-5">Explore</p>
             <ul className="space-y-3">
@@ -95,7 +96,7 @@ export default function Footer() {
 
           <nav aria-label="Social channels">
             <p className="eyebrow mb-5">Find us</p>
-            <ul className="flex flex-row gap-3 sm:flex-col">
+            <ul className="flex flex-col gap-3">
               {socials.map((s) => (
                 <li key={s.label}>
                   <a
@@ -112,6 +113,7 @@ export default function Footer() {
               ))}
             </ul>
           </nav>
+          </div>
         </div>
 
         {/* Parent brand */}
