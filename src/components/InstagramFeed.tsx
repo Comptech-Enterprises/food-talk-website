@@ -80,12 +80,17 @@ export default async function InstagramFeed() {
         </Reveal>
 
         {/* Platform cards — large icons as hero */}
-        <dl className="mt-14 grid grid-cols-2 gap-5 sm:gap-6 lg:grid-cols-3">
+        <dl className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {platformCards.map((p, i) => {
             const channel = channels.find((c) => c.platform === p.key);
             if (!channel) return null;
             return (
-              <Reveal key={p.key} delay={100 + i * 120} className="h-full">
+              <Reveal
+                key={p.key}
+                delay={100 + i * 120}
+                /* odd card out: center it across both columns at sm */
+                className="h-full sm:last:col-span-2 sm:last:w-[calc(50%-0.75rem)] sm:last:justify-self-center lg:last:col-span-1 lg:last:w-auto lg:last:justify-self-stretch"
+              >
                 <div
                   className="platform-card group relative flex h-full flex-col items-center rounded-3xl border border-line bg-bg-card px-6 pb-8 pt-10 text-center transition-all duration-500 hover:border-line-strong hover:shadow-2xl hover:shadow-black/40 overflow-hidden sm:px-8 sm:pt-14 sm:pb-10"
                   style={{ "--float-delay": p.floatDelay } as React.CSSProperties}
