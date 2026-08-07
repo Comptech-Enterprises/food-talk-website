@@ -187,6 +187,36 @@ export const instagram = {
     "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=500&h=500&q=70",
     "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=500&h=500&q=70",
   ],
+  /**
+   * Three hand-picked reels shown on the home page.
+   * `src` is a self-hosted file under /public; `permalink` is the reel on
+   * Instagram that the tile links out to.
+   */
+  reels: {
+    eyebrow: "On the grid",
+    headline: "Straight from our feed.",
+    intro:
+      "Three of the reels our community couldn't stop sharing — tap any of them to watch on Instagram.",
+    items: [
+      {
+        src: "/instagram/insta-1.mp4",
+        permalink: "https://www.instagram.com/reel/DbpjfwZSn61/",
+        caption: "Reel one",
+      },
+      {
+        src: "/instagram/insta-2.mp4",
+        permalink: "https://www.instagram.com/reel/Dbf6w2bSrCA/",
+        caption: "Reel two",
+        // opening seconds are a motion-blurred hand; 8s is a clean face shot
+        posterTime: 8,
+      },
+      {
+        src: "/instagram/insta3.mp4",
+        permalink: "https://www.instagram.com/reel/DbdBj3Ny2hb/",
+        caption: "Reel three",
+      },
+    ],
+  },
 };
 
 export const youtube = {
