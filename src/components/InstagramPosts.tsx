@@ -19,12 +19,13 @@ export default function InstagramPosts() {
           <p className="mt-6 text-lg text-muted">{reels.intro}</p>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* swipeable strip on phones, grid from sm up */}
+        <div className="-mx-5 mt-14 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
           {reels.items.map((reel, i) => (
             <Reveal
               key={reel.src}
               delay={100 + i * 120}
-              className="h-full sm:last:col-span-2 sm:last:w-[calc(50%-0.75rem)] sm:last:justify-self-center lg:last:col-span-1 lg:last:w-auto lg:last:justify-self-stretch"
+              className="w-[70%] shrink-0 snap-center sm:h-full sm:w-auto sm:last:col-span-2 sm:last:w-[calc(50%-0.75rem)] sm:last:justify-self-center lg:last:col-span-1 lg:last:w-auto lg:last:justify-self-stretch"
             >
               <ReelCard {...reel} />
             </Reveal>
