@@ -1,6 +1,7 @@
 import { instagram } from "@/lib/content";
 import Reveal from "./Reveal";
 import ReelCard from "./ReelCard";
+import ReelStrip from "./ReelStrip";
 
 const { reels, url, handle } = instagram;
 
@@ -19,8 +20,7 @@ export default function InstagramPosts() {
           <p className="mt-6 text-lg text-muted">{reels.intro}</p>
         </Reveal>
 
-        {/* swipeable strip on phones, grid from sm up */}
-        <div className="-mx-5 mt-14 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
+        <ReelStrip>
           {reels.items.map((reel, i) => (
             <Reveal
               key={reel.src}
@@ -30,7 +30,7 @@ export default function InstagramPosts() {
               <ReelCard {...reel} />
             </Reveal>
           ))}
-        </div>
+        </ReelStrip>
 
         <Reveal delay={460} className="mt-12 flex justify-center">
           <a
