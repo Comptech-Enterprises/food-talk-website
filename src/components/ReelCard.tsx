@@ -1,14 +1,18 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 type ReelCardProps = {
   src: string;
   permalink: string;
   caption: string;
-  /** Seconds into the clip to freeze on. Defaults to the opening frame. */
+  /** Seconds into the clip to start from. Defaults to the opening frame. */
   posterTime?: number;
 };
 
 /**
- * Reel tile: shows the video's opening frame and opens the original reel on
- * Instagram when clicked. Nothing plays in place.
+ * Reel tile: loops silently while on screen and opens the original reel on
+ * Instagram when clicked.
  */
 export default function ReelCard({
   src,
@@ -16,6 +20,28 @@ export default function ReelCard({
   caption,
   posterTime = 0.1,
 }: ReelCardProps) {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.35 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <a
       href={permalink}
@@ -25,9 +51,11 @@ export default function ReelCard({
       className="group relative block aspect-[9/16] w-full overflow-hidden rounded-3xl border border-line bg-bg-card transition-colors duration-500 hover:border-line-strong"
     >
       <video
-        // the media fragment tells the browser which frame to paint
+        ref={videoRef}
+        // the media fragment picks the frame shown before playback starts
         src={`${src}#t=${posterTime}`}
         muted
+        loop
         playsInline
         preload="metadata"
         tabIndex={-1}
