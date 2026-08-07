@@ -115,15 +115,15 @@ export default function Footer() {
         </div>
 
         {/* Parent brand */}
-        <div className="mt-16 flex items-center gap-4 border-t border-line pt-10">
+        <div className="mt-16 flex flex-wrap items-center gap-x-4 gap-y-3 border-t border-line pt-10">
           <span className="text-sm text-muted">A unit of</span>
           <a href="https://theanthem.in" target="_blank" rel="noopener noreferrer">
             <Image
               src="/anthem-logo.webp"
               alt="Anthem"
-              width={3000}
-              height={2250}
-              className="h-12 w-auto invert"
+              width={750}
+              height={333}
+              className="h-9 w-auto max-w-full invert sm:h-12"
             />
           </a>
         </div>
