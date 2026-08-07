@@ -95,7 +95,7 @@ export default function Footer() {
 
           <nav aria-label="Social channels">
             <p className="eyebrow mb-5">Find us</p>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-row gap-3 sm:flex-col">
               {socials.map((s) => (
                 <li key={s.label}>
                   <a
