@@ -57,7 +57,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-[1fr_auto] gap-12 sm:gap-20">
+          <div className="grid grid-cols-[1fr_auto] gap-4 sm:gap-6">
           <nav aria-label="Site">
             <p className="eyebrow mb-5">Explore</p>
             <ul className="space-y-3">
