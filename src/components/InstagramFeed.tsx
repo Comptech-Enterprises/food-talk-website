@@ -71,13 +71,31 @@ export default async function InstagramFeed() {
   return (
     <section id="audience" className="scroll-mt-24 border-t border-line bg-bg">
       <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
-        <Reveal className="max-w-2xl">
-          <p className="eyebrow mb-5">{audience.eyebrow}</p>
-          <h2 className="display text-[clamp(2rem,4.5vw,3.5rem)]">
-            {audience.headline}
-          </h2>
-          <p className="mt-6 text-lg text-muted">{audience.intro}</p>
-        </Reveal>
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+          <Reveal className="max-w-2xl">
+            <p className="eyebrow mb-5">{audience.eyebrow}</p>
+            <h2 className="display text-[clamp(2rem,4.5vw,3.5rem)]">
+              {audience.headline}
+            </h2>
+            <p className="mt-6 text-lg text-muted">{audience.intro}</p>
+          </Reveal>
+
+          <Reveal delay={80} className="shrink-0 sm:mt-2">
+            <a
+              href="https://instagram.com/foodtalkindia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2.5 rounded-full border border-pink-500/40 px-5 py-2.5 text-sm font-semibold text-pink-500 transition-all hover:border-pink-500 hover:bg-pink-500 hover:text-white hover:shadow-[0_0_24px_rgba(225,48,108,0.2)]"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="4.5" />
+                <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
+              </svg>
+              Follow
+            </a>
+          </Reveal>
+        </div>
 
         {/* Platform cards — large icons as hero */}
         <dl className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
