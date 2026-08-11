@@ -80,7 +80,7 @@ export default async function InstagramFeed() {
             <p className="mt-6 text-lg text-muted">{audience.intro}</p>
           </Reveal>
 
-          <Reveal delay={80} className="shrink-0 sm:mt-2">
+          {/*<Reveal delay={80} className="shrink-0 sm:mt-2">
             <a
               href="https://instagram.com/foodtalkindia"
               target="_blank"
@@ -94,7 +94,7 @@ export default async function InstagramFeed() {
               </svg>
               Follow
             </a>
-          </Reveal>
+          </Reveal>*/}
         </div>
 
         {/* Platform cards — large icons as hero */}
