@@ -111,7 +111,7 @@ body {
   }
 }
 .marquee-track {
-  animation: marquee-x 45s linear infinite;
+  animation: marquee-x 10s linear infinite;
   will-change: transform;
 }
 .marquee:hover .marquee-track {
@@ -135,7 +135,45 @@ body {
   }
 }
 
+/* Platform icon animations */
+@keyframes platform-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes platform-glow-pulse {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(1.15); }
+}
+@keyframes platform-ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes count-up-fade {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.platform-card {
+  --float-delay: 0s;
+}
+.platform-card .platform-icon-wrap {
+  animation: platform-float 4s ease-in-out var(--float-delay) infinite;
+}
+.platform-card .platform-glow {
+  animation: platform-glow-pulse 4s ease-in-out var(--float-delay) infinite;
+}
+.platform-card .platform-ring {
+  animation: platform-ring-spin 20s linear infinite;
+}
+.reveal.is-visible .platform-card .platform-stat {
+  animation: count-up-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .platform-card .platform-icon-wrap,
+  .platform-card .platform-glow,
+  .platform-card .platform-ring {
+    animation: none;
+  }
   .marquee-track {
     animation: none;
   }

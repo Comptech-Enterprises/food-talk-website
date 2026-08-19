@@ -24,19 +24,6 @@ export default function About() {
             {about.body}
           </p>
         </Reveal>
-
-        <Reveal delay={200}>
-          <dl className="grid grid-cols-3 gap-6 border-t border-line pt-8">
-            {about.stats.map((s) => (
-              <div key={s.label}>
-                <dt className="display text-3xl sm:text-4xl">{s.value}</dt>
-                <dd className="mt-1 text-xs leading-snug text-muted-dim">
-                  {s.label}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </Reveal>
       </div>
     </section>
   );

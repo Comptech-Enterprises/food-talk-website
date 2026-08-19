@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
-import { nav } from "@/lib/content";
+import { nav, socials } from "@/lib/content";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,98 +24,123 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open
-          ? "bg-bg/85 backdrop-blur-md border-b border-line"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
-        <a href="/" className="text-fg" aria-label="Food Talk India — home">
-          <Logo />
-        </a>
-
-        {/* Desktop links */}
-        <ul className="hidden items-center gap-10 md:flex">
-          {nav.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                className="group relative text-sm font-semibold text-fg/90 transition-colors hover:text-fg"
-              >
-                {item.label}
-                <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="hidden md:block">
-          <a
-            href="/#advertise"
-            className="inline-flex items-center rounded-full border border-line-strong px-5 py-2.5 text-sm font-semibold text-fg transition-all hover:border-accent hover:bg-accent hover:text-[color:var(--accent-ink)]"
-            style={{ borderColor: "var(--line-strong)" }}
-          >
-            Advertise With Us
-          </a>
-        </div>
-
-        {/* Mobile toggle */}
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+          scrolled || open
+            ? "bg-bg/85 backdrop-blur-md border-b border-line"
+            : "bg-transparent"
+        }`}
+      >
+      <nav className="relative mx-auto flex h-20 max-w-7xl items-center gap-4 px-5 sm:px-8">
+        {/* Hamburger toggle */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+          className="relative z-50 flex h-7 w-7 shrink-0 flex-col items-center justify-center gap-1.5 text-fg"
         >
           <span
-            className={`h-0.5 w-6 bg-fg transition-transform duration-300 ${
+            className={`h-0.5 w-7 bg-fg transition-transform duration-300 ${
               open ? "translate-y-2 rotate-45" : ""
             }`}
           />
           <span
-            className={`h-0.5 w-6 bg-fg transition-opacity duration-200 ${
+            className={`h-0.5 w-7 bg-fg transition-opacity duration-200 ${
               open ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`h-0.5 w-6 bg-fg transition-transform duration-300 ${
+            className={`h-0.5 w-7 bg-fg transition-transform duration-300 ${
               open ? "-translate-y-2 -rotate-45" : ""
             }`}
           />
         </button>
-      </nav>
 
-      {/* Mobile sheet */}
+        {/* Logo (next to hamburger) */}
+        <a
+          href="/"
+          aria-label="Food Talk India — home"
+          className="relative z-50 text-fg"
+        >
+          <Logo />
+        </a>
+      </nav>
+      </header>
+
+      {/* Backdrop */}
       <div
-        className={`md:hidden overflow-hidden border-line transition-[max-height] duration-400 ease-out ${
-          open ? "max-h-96 border-t" : "max-h-0"
+        onClick={() => setOpen(false)}
+        aria-hidden
+        className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
+          open ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      />
+
+      {/* Left slide-in drawer */}
+      <div
+        className={`fixed inset-y-0 left-0 z-40 flex w-[88%] max-w-sm flex-col overflow-y-auto border-r border-line bg-bg shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <ul className="flex flex-col gap-1 px-5 py-4">
-          {nav.map((item) => (
+        {/* accent glow */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-24 top-0 h-64 w-64 rounded-full bg-accent/20 blur-3xl"
+        />
+
+        <p className="eyebrow relative px-7 pt-28">Menu</p>
+
+        <ul className="relative flex flex-1 flex-col px-7 pt-4">
+          {nav.map((item, i) => (
             <li key={item.href}>
               <a
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="block py-3 text-2xl font-bold display tracking-tight"
+                style={{
+                  transitionDelay: open ? `${120 + i * 70}ms` : "0ms",
+                }}
+                className={`group flex items-center gap-4 border-b border-line py-5 transition-all duration-500 ${
+                  open ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0"
+                }`}
               >
-                {item.label}
+                <span className="h-8 w-0.5 origin-top scale-y-0 bg-accent transition-transform duration-300 group-hover:scale-y-100" />
+                <span className="display text-3xl font-bold tracking-tight transition-colors group-hover:text-accent">
+                  {item.label}
+                </span>
+                <span className="ml-auto text-muted opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                  →
+                </span>
               </a>
             </li>
           ))}
-          <li className="pt-2">
-            <a
-              href="/#advertise"
-              onClick={() => setOpen(false)}
-              className="inline-flex w-full items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-bold text-[color:var(--accent-ink)]"
-            >
-              Advertise With Us
-            </a>
-          </li>
         </ul>
+
+        <div className="relative px-7 pb-10 pt-6">
+          <a
+            href="/advertise"
+            onClick={() => setOpen(false)}
+            className="inline-flex w-full items-center justify-center rounded-full bg-accent px-5 py-3.5 text-sm font-bold text-[color:var(--accent-ink)] transition-transform hover:-translate-y-0.5"
+          >
+            Advertise With Us
+          </a>
+
+          <div className="mt-6 flex items-center gap-6">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-semibold uppercase tracking-[0.2em] text-muted transition-colors hover:text-fg"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
-    </header>
+    </>
   );
 }

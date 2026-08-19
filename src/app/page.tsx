@@ -2,12 +2,11 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Timeline from "@/components/Timeline";
-import Pillars from "@/components/Pillars";
-import Categories from "@/components/Categories";
-import WhyUs from "@/components/WhyUs";
+import FeaturedOn from "@/components/FeaturedOn";
+import FeaturedVideo from "@/components/FeaturedVideo";
+import InstagramPosts from "@/components/InstagramPosts";
+import Founders from "@/components/Founders";
 import InstagramFeed from "@/components/InstagramFeed";
-import Newsletter from "@/components/Newsletter";
-import Marquee from "@/components/Marquee";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -18,12 +17,11 @@ export default function Home() {
         <Hero />
         <About />
         {/*<Timeline />*/}
-        <Pillars />
-        <Categories />
-        <WhyUs />
+        <FeaturedOn />
+        <FeaturedVideo />
+        <InstagramPosts />
+        <Founders />
         <InstagramFeed />
-        <Newsletter />
-        <Marquee />
       </main>
       <Footer />
     </>

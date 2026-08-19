@@ -1,11 +1,28 @@
+import Image from "next/image";
 import Logo from "./Logo";
 import { contact, nav, socials } from "@/lib/content";
+
+const socialIcons: Record<string, React.ReactNode> = {
+  Instagram: (
+    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+  YouTube: (
+    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round">
+      <rect x="2" y="5" width="20" height="14" rx="4" />
+      <polygon points="10 8.5 16 12 10 15.5" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+};
 
 export default function Footer() {
   return (
     <footer id="socials" className="scroll-mt-24 border-t border-line bg-bg">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
-        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr]">
           <div>
             <a href="/" className="text-fg" aria-label="Food Talk India — home">
               <Logo />
@@ -16,21 +33,6 @@ export default function Footer() {
             <p className="mt-3 max-w-sm text-sm text-muted">
               India&apos;s go-to for food, cocktails and culture with flavour.
             </p>
-
-            <a
-              href="/profile.pdf"
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-7 inline-flex items-center gap-2.5 rounded-full border border-line-strong px-6 py-3 text-sm font-semibold text-fg transition-colors hover:border-accent hover:bg-accent hover:text-[color:var(--accent-ink)]"
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 3v12" />
-                <path d="m7 10 5 5 5-5" />
-                <path d="M5 21h14" />
-              </svg>
-              Download Company Profile
-            </a>
 
             <div className="mt-8 space-y-2 text-sm">
               <a
@@ -55,6 +57,7 @@ export default function Footer() {
             </div>
           </div>
 
+          <div className="grid grid-cols-[1fr_auto] gap-4 sm:gap-6">
           <nav aria-label="Site">
             <p className="eyebrow mb-5">Explore</p>
             <ul className="space-y-3">
@@ -62,11 +65,11 @@ export default function Footer() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="group inline-flex items-center gap-2 font-semibold text-fg transition-colors hover:text-accent"
+                    className="group relative inline-flex items-center font-semibold text-fg transition-colors hover:text-accent"
                   >
                     <span
                       aria-hidden
-                      className="text-accent opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0"
+                      className="absolute right-full mr-2 text-accent opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0"
                     >
                       →
                     </span>
@@ -76,12 +79,12 @@ export default function Footer() {
               ))}
               <li>
                 <a
-                  href="/#advertise"
-                  className="group inline-flex items-center gap-2 font-semibold text-fg transition-colors hover:text-accent"
+                  href="/advertise"
+                  className="group relative inline-flex items-center font-semibold text-fg transition-colors hover:text-accent"
                 >
                   <span
                     aria-hidden
-                    className="text-accent opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0"
+                    className="absolute right-full mr-2 text-accent opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0"
                   >
                     →
                   </span>
@@ -93,40 +96,38 @@ export default function Footer() {
 
           <nav aria-label="Social channels">
             <p className="eyebrow mb-5">Find us</p>
-            <ul className="space-y-3">
+            <ul className="flex flex-col gap-3">
               {socials.map((s) => (
                 <li key={s.label}>
                   <a
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-between border-b border-line pb-3 text-fg transition-colors hover:text-accent"
+                    aria-label={s.label}
+                    title={s.label}
+                    className="flex h-16 w-16 items-center justify-center rounded-full border border-line text-fg transition-colors hover:border-accent hover:bg-accent hover:text-[color:var(--accent-ink)]"
                   >
-                    <span className="font-semibold">{s.label}</span>
-                    <span className="flex items-center gap-2 text-sm text-muted group-hover:text-accent">
-                      {s.handle}
-                      <span aria-hidden className="transition-transform group-hover:translate-x-1">
-                        ↗
-                      </span>
-                    </span>
+                    {socialIcons[s.label]}
                   </a>
                 </li>
               ))}
             </ul>
           </nav>
+          </div>
         </div>
 
-        {/* Partner wordmarks (from the original footer) */}
-        <div className="mt-16 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-line pt-10 text-muted-dim">
-          <span className="text-xs uppercase tracking-[0.2em]">
-            Part of the family
-          </span>
-          <span className="display text-lg tracking-[0.25em] text-muted">
-            ANTHEM
-          </span>
-          <span className="display text-lg tracking-[0.15em] text-muted">
-            EXPLORERS CLUB
-          </span>
+        {/* Parent brand */}
+        <div className="mt-16 flex flex-wrap items-center gap-x-4 gap-y-3 border-t border-line pt-10">
+          <span className="text-sm text-muted">A unit of</span>
+          <a href="https://theanthem.in" target="_blank" rel="noopener noreferrer">
+            <Image
+              src="/anthem-logo.webp"
+              alt="Anthem"
+              width={750}
+              height={333}
+              className="h-9 w-auto max-w-full invert sm:h-12"
+            />
+          </a>
         </div>
 
         <div className="mt-10 text-xs text-muted-dim">
