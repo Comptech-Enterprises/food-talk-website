@@ -267,7 +267,16 @@ export const audience = {
   ],
 };
 
-export const founders = [
+export type Founder = {
+  name: string;
+  image: string;
+  role: string;
+  bio: string;
+  quote: string;
+  href?: string;
+};
+
+export const founders: Founder[] = [
   {
     name: "Shuchir Suri",
     image: "/founders/Shuchir.webp",
@@ -283,7 +292,7 @@ export const founders = [
     bio: "Leads creative with a consumer-first approach, crafting stories that resonate and stick. The voice behind the brand people love to follow.",
     quote: "If it doesn't move you, it doesn't make the cut.",
   },
-] as const;
+];
 
 export const socials = [
   { label: "Instagram", handle: "@foodtalkindia", href: "https://instagram.com/foodtalkindia" },
