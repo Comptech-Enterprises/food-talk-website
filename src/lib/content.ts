@@ -8,7 +8,6 @@ export const nav = [
   { label: "What We Do", href: "/#what-we-do" },
   { label: "Newsletter", href: "/newsletter" },
   { label: "Socials", href: "/#socials" },
-  { label: "Caveman", href: "/caveman" },
   { label: "Careers", href: "/careers" },
 ] as const;
 
