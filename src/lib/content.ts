@@ -6,7 +6,9 @@
 
 export const nav = [
   { label: "What We Do", href: "/#what-we-do" },
+  { label: "Newsletter", href: "/newsletter" },
   { label: "Socials", href: "/#socials" },
+  { label: "Founders", href: "/founders" },
   { label: "Careers", href: "/careers" },
 ] as const;
 
@@ -264,6 +266,24 @@ export const audience = {
     { platform: "Monthly reach", value: "5M+", label: "across platforms" },
   ],
 };
+
+export const founders = [
+  {
+    name: "Shuchir Suri",
+    image: "/founders/Shuchir.webp",
+    role: "Founder",
+    bio: "Drives strategy and flawless execution — turning bold ideas into experiences that deliver. The one who makes sure every plan has a plate at the table.",
+    quote: "Good food deserves a great story.",
+    href: "https://shuchir.com/",
+  },
+  {
+    name: "Anjali Batra",
+    image: "/founders/Anjali-Batra.webp",
+    role: "Co-Founder & Creative Director",
+    bio: "Leads creative with a consumer-first approach, crafting stories that resonate and stick. The voice behind the brand people love to follow.",
+    quote: "If it doesn't move you, it doesn't make the cut.",
+  },
+] as const;
 
 export const socials = [
   { label: "Instagram", handle: "@foodtalkindia", href: "https://instagram.com/foodtalkindia" },
