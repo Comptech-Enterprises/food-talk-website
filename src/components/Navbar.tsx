@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -15,11 +16,15 @@ export default function Navbar() {
   return (
     <nav className="absolute top-0 left-0 right-0 z-50">
       <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
-        <Link
-          href="/"
-          className="font-display text-lg md:text-xl font-black tracking-tight text-white uppercase"
-        >
-          Food Talk India
+        <Link href="/">
+          <Image
+            src="/logo.webp"
+            alt="Food Talk India"
+            width={120}
+            height={40}
+            className="h-12 md:h-14 w-auto brightness-0 invert"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -28,7 +33,7 @@ export default function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="font-display text-sm font-bold tracking-wider text-white hover:text-white/70 transition-colors"
+              className="font-display text-base md:text-lg font-bold tracking-wider text-white hover:text-white/70 transition-colors"
             >
               {link.label}
             </Link>

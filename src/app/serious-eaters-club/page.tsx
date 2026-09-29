@@ -79,7 +79,7 @@ export default function SeriousEatersClub() {
         <section className="py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6">
             <Reveal>
-              <p className="eyebrow text-red mb-4">ABOUT</p>
+              <p className="section-title text-red mb-6">ABOUT</p>
             </Reveal>
 
             <div className="grid md:grid-cols-2 gap-10 items-start">
@@ -118,7 +118,7 @@ export default function SeriousEatersClub() {
         <section className="border-t border-line py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6">
             <Reveal>
-              <p className="eyebrow text-red mb-10">OUR EXPERIENCES</p>
+              <p className="section-title text-red mb-10">OUR EXPERIENCES</p>
             </Reveal>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

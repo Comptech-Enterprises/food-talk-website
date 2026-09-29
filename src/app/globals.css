@@ -81,6 +81,15 @@ body {
   text-transform: uppercase;
 }
 
+.section-title {
+  font-family: var(--font-archivo), sans-serif;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 @keyframes marquee-x {
   from {
     transform: translateX(0);

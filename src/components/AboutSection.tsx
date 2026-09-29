@@ -6,7 +6,12 @@ export default function AboutSection() {
     <section id="about" className="scroll-mt-20 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
-          <p className="eyebrow mb-4">ABOUT US</p>
+          <div className="flex items-center gap-3.5 mb-8">
+            <span className="h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full bg-accent shrink-0" />
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-black tracking-wide text-muted uppercase">
+              ABOUT US
+            </h2>
+          </div>
         </Reveal>
 
         <div className="grid md:grid-cols-2 gap-10 items-start">

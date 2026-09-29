@@ -37,13 +37,18 @@ export default function ExperiencesSection() {
     <section id="experiences" className="scroll-mt-20 border-t border-line py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
-          <p className="eyebrow mb-10">OUR EXPERIENCES</p>
+          <div className="flex items-center gap-3.5 mb-10">
+            <span className="h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full bg-accent shrink-0" />
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-black tracking-wide text-muted uppercase">
+              OUR EXPERIENCES
+            </h2>
+          </div>
         </Reveal>
 
         <div className="grid md:grid-cols-3 gap-8">
           {EXPERIENCES.map((exp, i) => (
-            <Reveal key={exp.title} delay={i * 100}>
-              <div className="flex flex-col">
+            <Reveal key={exp.title} delay={i * 100} className="flex">
+              <div className="flex flex-col h-full">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
                   <Image
                     src={exp.image}
@@ -57,7 +62,7 @@ export default function ExperiencesSection() {
                   {exp.title}
                 </h3>
                 <p className="mt-2 text-sm italic text-muted">{exp.tagline}</p>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
+                <p className="mt-3 text-sm leading-relaxed text-muted flex-1">
                   {exp.description}
                 </p>
                 <div className="mt-5">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const FOOTER_LINKS = [
@@ -10,11 +11,18 @@ export default function Footer() {
   return (
     <footer className="bg-bg-dark text-fg-light">
       <div className="mx-auto max-w-7xl px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
+        <div className="flex flex-col items-start gap-3">
+          <Image
+            src="/logo.webp"
+            alt="Food Talk India"
+            width={80}
+            height={80}
+            className="h-12 w-auto brightness-0 invert"
+          />
           <p className="font-display text-lg font-black tracking-tight uppercase">
             Food Talk India
           </p>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-gray-400 -mt-2">
             FOOD. PEOPLE. EXPERIENCES.
           </p>
         </div>

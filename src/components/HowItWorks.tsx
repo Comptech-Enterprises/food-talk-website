@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Reveal from "./Reveal";
 
 const STEPS = [
@@ -38,30 +41,89 @@ const STEPS = [
   },
 ];
 
+function StepCard({ step, centered }: { step: typeof STEPS[number]; centered?: boolean }) {
+  return (
+    <div className={`flex flex-col items-center text-center ${centered ? "py-12" : ""}`}>
+      <div className="flex items-center gap-4">
+        <span className="font-display text-6xl md:text-7xl font-black text-accent italic">
+          {step.number}
+        </span>
+        <span className="text-fg [&_svg]:h-14 [&_svg]:w-14 md:[&_svg]:h-16 md:[&_svg]:w-16">{step.icon}</span>
+      </div>
+      <p className="font-display text-lg md:text-xl font-bold tracking-wider uppercase whitespace-pre-line mt-5">
+        {step.label}
+      </p>
+    </div>
+  );
+}
+
+const FADE_MS = 600;
+
+function fade(visible: boolean) {
+  return {
+    opacity: visible ? 1 : 0,
+    transition: `opacity ${FADE_MS}ms ease ${visible ? FADE_MS : 0}ms`,
+    pointerEvents: visible ? ("auto" as const) : ("none" as const),
+  };
+}
+
 export default function HowItWorks() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [phase, setPhase] = useState(-1);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          observer.disconnect();
+          setPhase(0);
+          setTimeout(() => setPhase(1), 2000);
+          setTimeout(() => setPhase(2), 4000);
+          setTimeout(() => setPhase(3), 6000);
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="border-t border-line py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
-          <h2 className="display text-[clamp(2rem,5vw,4rem)]">HOW IT WORKS</h2>
+          <div className="flex items-center gap-3.5 mb-10">
+            <span className="h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full bg-accent shrink-0" />
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-black tracking-wide text-muted uppercase">
+              HOW IT WORKS
+            </h2>
+          </div>
         </Reveal>
 
-        <div className="mt-12 grid md:grid-cols-3 gap-8">
+        <div ref={ref} className="mt-12 grid">
           {STEPS.map((step, i) => (
-            <Reveal key={step.number} delay={i * 100}>
-              <div className="flex items-start gap-4 md:flex-col md:items-center md:text-center">
-                <div className="flex items-center gap-3">
-                  <span className="font-display text-4xl font-black text-accent italic">
-                    {step.number}
-                  </span>
-                  <span className="text-fg">{step.icon}</span>
-                </div>
-                <p className="font-display text-sm font-bold tracking-wider uppercase whitespace-pre-line mt-3">
-                  {step.label}
-                </p>
-              </div>
-            </Reveal>
+            <div
+              key={step.number}
+              className="col-start-1 row-start-1 flex items-center justify-center"
+              style={fade(phase === i)}
+              aria-hidden={phase !== i}
+            >
+              <StepCard step={step} />
+            </div>
           ))}
+
+          <div
+            className="col-start-1 row-start-1 grid md:grid-cols-3 gap-8"
+            style={fade(phase >= 3)}
+          >
+            {STEPS.map((step) => (
+              <StepCard key={step.number} step={step} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
