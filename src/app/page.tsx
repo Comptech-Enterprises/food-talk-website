@@ -1,13 +1,12 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Timeline from "@/components/Timeline";
-import FeaturedOn from "@/components/FeaturedOn";
-import FeaturedVideo from "@/components/FeaturedVideo";
-import InstagramPosts from "@/components/InstagramPosts";
-import Founders from "@/components/Founders";
-import InstagramFeed from "@/components/InstagramFeed";
 import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
+import AboutSection from "@/components/AboutSection";
+import ExperiencesSection from "@/components/ExperiencesSection";
+import HowItWorks from "@/components/HowItWorks";
+import NewsletterCTA from "@/components/NewsletterCTA";
+import BrandMarquee from "@/components/BrandMarquee";
+import WorkWithUs from "@/components/WorkWithUs";
 
 export default function Home() {
   return (
@@ -15,13 +14,12 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <About />
-        {/*<Timeline />*/}
-        <FeaturedOn />
-        <FeaturedVideo />
-        <InstagramPosts />
-        <Founders />
-        <InstagramFeed />
+        <AboutSection />
+        <ExperiencesSection />
+        <HowItWorks />
+        <NewsletterCTA />
+        <BrandMarquee />
+        <WorkWithUs />
       </main>
       <Footer />
     </>

@@ -1,137 +1,76 @@
-import Image from "next/image";
-import Logo from "./Logo";
-import { contact, nav, socials } from "@/lib/content";
+import Link from "next/link";
 
-const socialIcons: Record<string, React.ReactNode> = {
-  Instagram: (
-    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  ),
-  YouTube: (
-    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round">
-      <rect x="2" y="5" width="20" height="14" rx="4" />
-      <polygon points="10 8.5 16 12 10 15.5" fill="currentColor" stroke="none" />
-    </svg>
-  ),
-};
+const FOOTER_LINKS = [
+  { label: "ABOUT US", href: "/#about" },
+  { label: "OUR EXPERIENCES", href: "/#experiences" },
+  { label: "WORK WITH US", href: "/#work-with-us" },
+];
 
 export default function Footer() {
   return (
-    <footer id="socials" className="scroll-mt-24 border-t border-line bg-bg">
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
-        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr]">
-          <div>
-            <a href="/" className="text-fg" aria-label="Food Talk India — home">
-              <Logo />
-            </a>
-            <p className="mt-6 max-w-sm text-2xl font-semibold leading-tight text-fg">
-              We eat. We drink. We talk.
-            </p>
-            <p className="mt-3 max-w-sm text-sm text-muted">
-              India&apos;s go-to for food, cocktails and culture with flavour.
-            </p>
-
-            <div className="mt-8 space-y-2 text-sm">
-              <a
-                href={`mailto:${contact.email}`}
-                className="flex items-center gap-2.5 text-fg transition-colors hover:text-accent"
-              >
-                <svg viewBox="0 0 24 24" className="h-4 w-4 text-muted" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="m3 7 9 6 9-6" />
-                </svg>
-                {contact.email}
-              </a>
-              <a
-                href={`tel:${contact.phone.replace(/\s/g, "")}`}
-                className="flex items-center gap-2.5 text-fg transition-colors hover:text-accent"
-              >
-                <svg viewBox="0 0 24 24" className="h-4 w-4 text-muted" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" />
-                </svg>
-                {contact.phone}
-              </a>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-[1fr_auto] gap-4 sm:gap-6">
-          <nav aria-label="Site">
-            <p className="eyebrow mb-5">Explore</p>
-            <ul className="space-y-3">
-              {nav.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className="group relative inline-flex items-center font-semibold text-fg transition-colors hover:text-accent"
-                  >
-                    <span
-                      aria-hidden
-                      className="absolute right-full mr-2 text-accent opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0"
-                    >
-                      →
-                    </span>
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-              <li>
-                <a
-                  href="/advertise"
-                  className="group relative inline-flex items-center font-semibold text-fg transition-colors hover:text-accent"
-                >
-                  <span
-                    aria-hidden
-                    className="absolute right-full mr-2 text-accent opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0"
-                  >
-                    →
-                  </span>
-                  Advertise With Us
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-          <nav aria-label="Social channels">
-            <p className="eyebrow mb-5">Find us</p>
-            <ul className="flex flex-col gap-3">
-              {socials.map((s) => (
-                <li key={s.label}>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={s.label}
-                    title={s.label}
-                    className="flex h-16 w-16 items-center justify-center rounded-full border border-line text-fg transition-colors hover:border-accent hover:bg-accent hover:text-[color:var(--accent-ink)]"
-                  >
-                    {socialIcons[s.label]}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          </div>
+    <footer className="bg-bg-dark text-fg-light">
+      <div className="mx-auto max-w-7xl px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <p className="font-display text-lg font-black tracking-tight uppercase">
+            Food Talk India
+          </p>
+          <p className="text-xs text-gray-400 mt-1">
+            FOOD. PEOPLE. EXPERIENCES.
+          </p>
         </div>
 
-        {/* Parent brand */}
-        <div className="mt-16 flex flex-wrap items-center gap-x-4 gap-y-3 border-t border-line pt-10">
-          <span className="text-sm text-muted">A unit of</span>
-          <a href="https://theanthem.in" target="_blank" rel="noopener noreferrer">
-            <Image
-              src="/anthem-logo.webp"
-              alt="Anthem"
-              width={750}
-              height={333}
-              className="h-9 w-auto max-w-full invert sm:h-12"
-            />
+        <div className="flex items-center gap-8">
+          {FOOTER_LINKS.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-xs font-bold tracking-wider text-gray-300 hover:text-white transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-4">
+          {/* Instagram */}
+          <a
+            href="https://instagram.com/foodtalkindia"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="text-gray-300 hover:text-white transition-colors"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+            </svg>
           </a>
-        </div>
-
-        <div className="mt-10 text-xs text-muted-dim">
-          <p>© {new Date().getFullYear()} Digital Food Talk Pvt. Ltd. All rights reserved.</p>
+          {/* YouTube */}
+          <a
+            href="https://youtube.com/@foodtalkindia"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+            className="text-gray-300 hover:text-white transition-colors"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="4" />
+              <polygon points="10 8 16 12 10 16" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+          {/* LinkedIn */}
+          <a
+            href="https://linkedin.com/company/foodtalkindia"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="text-gray-300 hover:text-white transition-colors"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+          </a>
         </div>
       </div>
     </footer>

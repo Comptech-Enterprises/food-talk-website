@@ -19,23 +19,15 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://foodtalk.in"),
   title: {
-    default: "Food Talk India — We Eat. We Drink. We Talk.",
+    default: "Food Talk India — Food. People. Experiences.",
     template: "%s · Food Talk India",
   },
   description:
-    "Food Talk India is your go-to food media house for restaurant reviews, bar & cocktail guides, street food discoveries and dining trends across Delhi, Mumbai, Bangalore and beyond. Find the best places to eat and drink in India.",
-  keywords: [
-    "Food Talk India",
-    "food media",
-    "restaurant reviews",
-    "cocktails",
-    "food culture",
-    "India dining",
-  ],
+    "Food Talk India is a food experiences platform bringing people together around food, drinks and culture.",
   openGraph: {
-    title: "Food Talk India — We Eat. We Drink. We Talk.",
+    title: "Food Talk India — Food. People. Experiences.",
     description:
-      "Restaurant reviews, cocktail guides, street food discoveries and dining trends across India — from the food media house that makes people fall in love with food.",
+      "A food experiences platform bringing people together around food, drinks and culture.",
     type: "website",
     locale: "en_IN",
   },

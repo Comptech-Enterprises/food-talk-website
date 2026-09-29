@@ -1,34 +1,29 @@
 @import "tailwindcss";
 
-/* ============================================================
-   Food Talk — design tokens
-   Faithful to the original: near-black canvas, pure-white type,
-   ghost outlines. A single warm accent (borrowed from the
-   mustard/amber in the hero photography) is used sparingly.
-   ============================================================ */
 :root {
-  --bg: #0d0d0d;
-  --bg-elevated: #161616;
-  --bg-card: #1a1a1a;
-  --fg: #ffffff;
-  --muted: #9a9a9a;
-  --muted-dim: #6b6b6b;
-  --line: rgba(255, 255, 255, 0.14);
-  --line-strong: rgba(255, 255, 255, 0.3);
-  --accent: #e8b23a; /* warm amber */
+  --bg: #f5f0e8;
+  --bg-dark: #0d0d0d;
+  --fg: #0d0d0d;
+  --fg-light: #ffffff;
+  --muted: #6b6b6b;
+  --line: rgba(0, 0, 0, 0.15);
+  --line-dark: rgba(255, 255, 255, 0.15);
+  --accent: #c8e600;
   --accent-ink: #0d0d0d;
+  --red: #e63b2e;
 }
 
 @theme inline {
   --color-bg: var(--bg);
-  --color-bg-elevated: var(--bg-elevated);
-  --color-bg-card: var(--bg-card);
+  --color-bg-dark: var(--bg-dark);
   --color-fg: var(--fg);
+  --color-fg-light: var(--fg-light);
   --color-muted: var(--muted);
-  --color-muted-dim: var(--muted-dim);
   --color-line: var(--line);
-  --color-line-strong: var(--line-strong);
+  --color-line-dark: var(--line-dark);
   --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-red: var(--red);
 
   --font-display: var(--font-archivo);
   --font-sans: var(--font-inter);
@@ -57,7 +52,6 @@ body {
   color: var(--accent-ink);
 }
 
-/* Thin, unobtrusive scrollbar that suits the dark canvas */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -65,43 +59,28 @@ body {
   background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: #ccc;
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #383838;
+  background: #aaa;
 }
 
-/* Utilities ------------------------------------------------- */
 .display {
   font-family: var(--font-display), system-ui, sans-serif;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: -0.02em;
   line-height: 0.95;
+  text-transform: uppercase;
 }
 
 .eyebrow {
   font-size: 0.75rem;
-  letter-spacing: 0.28em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--muted);
 }
 
-/* Fine grain / vignette overlay used over hero imagery */
-.film-grain::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.03) 1px,
-    transparent 1px
-  );
-  background-size: 3px 3px;
-  mix-blend-mode: overlay;
-}
-
-/* Marquee -------------------------------------------------- */
 @keyframes marquee-x {
   from {
     transform: translateX(0);
@@ -111,17 +90,10 @@ body {
   }
 }
 .marquee-track {
-  animation: marquee-x 10s linear infinite;
+  animation: marquee-x 20s linear infinite;
   will-change: transform;
 }
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-.marquee-reverse {
-  animation-direction: reverse;
-}
 
-/* Reveal-on-scroll (progressive enhancement; visible by default) */
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;
@@ -135,45 +107,7 @@ body {
   }
 }
 
-/* Platform icon animations */
-@keyframes platform-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-@keyframes platform-glow-pulse {
-  0%, 100% { opacity: 0.15; transform: scale(1); }
-  50% { opacity: 0.35; transform: scale(1.15); }
-}
-@keyframes platform-ring-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-@keyframes count-up-fade {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: none; }
-}
-.platform-card {
-  --float-delay: 0s;
-}
-.platform-card .platform-icon-wrap {
-  animation: platform-float 4s ease-in-out var(--float-delay) infinite;
-}
-.platform-card .platform-glow {
-  animation: platform-glow-pulse 4s ease-in-out var(--float-delay) infinite;
-}
-.platform-card .platform-ring {
-  animation: platform-ring-spin 20s linear infinite;
-}
-.reveal.is-visible .platform-card .platform-stat {
-  animation: count-up-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .platform-card .platform-icon-wrap,
-  .platform-card .platform-glow,
-  .platform-card .platform-ring {
-    animation: none;
-  }
   .marquee-track {
     animation: none;
   }
