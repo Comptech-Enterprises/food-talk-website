@@ -6,7 +6,7 @@ import { useState } from "react";
 const NAV_LINKS = [
   { label: "ABOUT US", href: "/#about" },
   { label: "OUR EXPERIENCES", href: "/#experiences" },
-  { label: "WORK WITH US", href: "/#work-with-us", accent: true },
+  { label: "WORK WITH US", href: "/#work-with-us" },
 ];
 
 export default function Navbar() {
@@ -23,26 +23,16 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) =>
-            link.accent ? (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="font-display text-xs font-bold tracking-wider text-accent-ink bg-accent px-5 py-2.5 rounded-full hover:brightness-110 transition-all"
-              >
-                {link.label}
-              </Link>
-            ) : (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="font-display text-xs font-bold tracking-wider text-white hover:text-accent transition-colors"
-              >
-                {link.label}
-              </Link>
-            )
-          )}
+        <div className="hidden md:flex items-center gap-10">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="font-display text-sm font-bold tracking-wider text-white hover:text-white/70 transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
 
         {/* Mobile hamburger */}
