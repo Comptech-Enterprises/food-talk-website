@@ -10,8 +10,11 @@ const NAV_LINKS = [
   { label: "WORK WITH US", href: "/#work-with-us" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ tone = "light" }: { tone?: "light" | "dark" }) {
   const [open, setOpen] = useState(false);
+  const onDark = tone === "light" || open;
+  const ink = onDark ? "text-white" : "text-fg";
+  const bar = onDark ? "bg-white" : "bg-fg";
 
   return (
     <nav className="absolute top-0 left-0 right-0 z-50">
@@ -22,7 +25,7 @@ export default function Navbar() {
             alt="Food Talk India"
             width={120}
             height={40}
-            className="h-12 md:h-14 w-auto brightness-0 invert"
+            className={`h-12 md:h-14 w-auto brightness-0 ${onDark ? "invert" : ""}`}
             priority
           />
         </Link>
@@ -33,7 +36,7 @@ export default function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="font-display text-base md:text-lg font-bold tracking-wider text-white hover:text-white/70 transition-colors"
+              className={`font-display text-base md:text-lg font-bold tracking-wider ${ink} hover:opacity-70 transition-opacity`}
             >
               {link.label}
             </Link>
@@ -48,17 +51,17 @@ export default function Navbar() {
           className="md:hidden flex flex-col gap-1.5 z-50"
         >
           <span
-            className={`h-0.5 w-6 bg-white transition-transform duration-300 ${
+            className={`h-0.5 w-6 ${bar} transition-transform duration-300 ${
               open ? "translate-y-2 rotate-45" : ""
             }`}
           />
           <span
-            className={`h-0.5 w-6 bg-white transition-opacity duration-200 ${
+            className={`h-0.5 w-6 ${bar} transition-opacity duration-200 ${
               open ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`h-0.5 w-6 bg-white transition-transform duration-300 ${
+            className={`h-0.5 w-6 ${bar} transition-transform duration-300 ${
               open ? "-translate-y-2 -rotate-45" : ""
             }`}
           />

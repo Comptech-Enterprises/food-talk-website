@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsletterCTA from "@/components/NewsletterCTA";
 import Reveal from "@/components/Reveal";
+import Parallax from "@/components/Parallax";
+import LineReveal from "@/components/LineReveal";
 
 export const metadata: Metadata = {
   title: "Serious Eaters Club",
@@ -49,65 +51,77 @@ export default function SeriousEatersClub() {
       <main className="flex-1">
         {/* Hero */}
         <section className="relative h-[70vh] min-h-[500px] overflow-hidden flex items-end">
-          <Image
-            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2000&q=80"
-            alt="Candlelit dinner table"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
+          <Parallax className="absolute inset-0" speed={0.35} scale={1.3}>
+            <Image
+              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2000&q=80"
+              alt="Candlelit dinner table"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover kenburns"
+            />
+          </Parallax>
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20" />
 
-          <div className="relative mx-auto max-w-7xl w-full px-6 pb-12">
-            <h1 className="display text-[clamp(3rem,10vw,7rem)] text-white leading-[0.9]">
-              SERIOUS
-              <br />
-              <span className="text-red italic">EATERS</span>
-              <br />
-              CLUB
-            </h1>
-            <p className="mt-4 text-lg text-white/80 max-w-md">
-              A curated dining series
-              <br />
-              by Food Talk India.
-            </p>
-          </div>
+          <Parallax className="relative mx-auto max-w-7xl w-full px-6 pb-12" speed={-0.18} fadeOut>
+            <LineReveal
+              as="h1"
+              immediate
+              delay={200}
+              className="display text-[clamp(3rem,10vw,7rem)] text-white leading-[0.9]"
+              lines={[
+                "SERIOUS",
+                <span key="eaters" className="text-red italic">
+                  EATERS
+                </span>,
+                "CLUB",
+              ]}
+            />
+            <Reveal delay={900}>
+              <p className="mt-4 text-lg text-white/80 max-w-md">
+                A curated dining series
+                <br />
+                by Food Talk India.
+              </p>
+            </Reveal>
+          </Parallax>
         </section>
 
         {/* About */}
         <section className="py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6">
-            <Reveal>
+            <Reveal variant="left">
               <p className="section-title text-red mb-6">ABOUT</p>
             </Reveal>
 
             <div className="grid md:grid-cols-2 gap-10 items-start">
-              <Reveal>
-                <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-black leading-[1.05]">
-                  A dining series
-                  <br />
-                  that celebrates
-                  <br />
-                  bold flavours.
-                </h2>
-                <p className="mt-8 max-w-lg text-base leading-relaxed text-muted">
-                  Each dinner is led by a strong culinary point of view, whether a
-                  chef&apos;s philosophy, a lesser-known cuisine, or a rare technique.
-                  We bring together exceptional food, memorable drinks and great
-                  people for unforgettable evenings.
-                </p>
-              </Reveal>
+              <div>
+                <LineReveal
+                  as="h2"
+                  className="font-display text-[clamp(2rem,5vw,3.5rem)] font-black leading-[1.05]"
+                  lines={["A dining series", "that celebrates", "bold flavours."]}
+                />
+                <Reveal delay={400}>
+                  <p className="mt-8 max-w-lg text-base leading-relaxed text-muted">
+                    Each dinner is led by a strong culinary point of view, whether a
+                    chef&apos;s philosophy, a lesser-known cuisine, or a rare technique.
+                    We bring together exceptional food, memorable drinks and great
+                    people for unforgettable evenings.
+                  </p>
+                </Reveal>
+              </div>
 
-              <Reveal delay={150}>
+              <Reveal variant="mask" delay={150}>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
-                  <Image
-                    src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
-                    alt="Chef preparing herbs"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
-                  />
+                  <Parallax className="absolute inset-0" speed={0.14} scale={1.3}>
+                    <Image
+                      src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+                      alt="Chef preparing herbs"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  </Parallax>
                 </div>
               </Reveal>
             </div>
@@ -117,22 +131,28 @@ export default function SeriousEatersClub() {
         {/* Past Experiences */}
         <section className="border-t border-line py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6">
-            <Reveal>
+            <Reveal variant="left">
               <p className="section-title text-red mb-10">OUR EXPERIENCES</p>
             </Reveal>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {PAST_DINNERS.map((dinner, i) => (
-                <Reveal key={dinner.title} delay={i * 80}>
-                  <div className="flex flex-col">
+                <Reveal key={dinner.title} delay={i * 150}>
+                  <div className="group flex flex-col">
                     <div className="relative aspect-square overflow-hidden rounded-sm">
-                      <Image
-                        src={dinner.image}
-                        alt={dinner.title}
-                        fill
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                        className="object-cover"
-                      />
+                      <Parallax
+                        className="absolute inset-0"
+                        speed={i % 2 === 0 ? 0.1 : 0.2}
+                        scale={1.3}
+                      >
+                        <Image
+                          src={dinner.image}
+                          alt={dinner.title}
+                          fill
+                          sizes="(max-width: 768px) 50vw, 25vw"
+                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                        />
+                      </Parallax>
                     </div>
                     <h3 className="font-display text-sm font-black mt-4 whitespace-pre-line leading-tight">
                       {dinner.title}
@@ -145,7 +165,7 @@ export default function SeriousEatersClub() {
               ))}
             </div>
 
-            <Reveal>
+            <Reveal variant="right">
               <p className="mt-10 text-right font-display text-2xl md:text-3xl font-black text-red italic uppercase tracking-tight">
                 AND MANY MORE.
               </p>

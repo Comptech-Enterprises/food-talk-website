@@ -1,28 +1,34 @@
 import Image from "next/image";
+import LineReveal from "./LineReveal";
+import Parallax from "./Parallax";
+import Reveal from "./Reveal";
 
 const CITIES = ["Delhi-NCR", "Mumbai", "Bangalore"];
 
 export default function NewsletterCTA() {
   return (
     <section className="relative min-h-screen w-full flex items-center overflow-hidden py-20 md:py-28">
-      <Image
-        src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=2000&q=80"
-        alt="Wine glasses clinking in warm light"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
+      <Parallax className="absolute inset-0" speed={0.28} scale={1.35}>
+        <Image
+          src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=2000&q=80"
+          alt="Wine glasses clinking in warm light"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+      </Parallax>
       <div className="absolute inset-0 bg-black/50" />
 
       <div className="relative mx-auto max-w-7xl px-6 w-full">
-        <h2 className="display text-[clamp(2.5rem,6vw,4.5rem)] text-white leading-[1.05] mb-8">
-          GET ACCESS TO
-          <br />
-          OUR EXPERIENCES.
-        </h2>
+        <LineReveal
+          as="h2"
+          className="display text-[clamp(2.5rem,6vw,4.5rem)] text-white leading-[1.05] mb-8"
+          lines={["GET ACCESS TO", "OUR EXPERIENCES."]}
+        />
 
-        <div className="max-w-2xl border border-white/20 rounded-2xl bg-white/10 backdrop-blur-xl p-10 sm:p-14 md:p-16">
+        <Reveal variant="scale" delay={300} className="max-w-2xl">
+        <div className="border border-white/20 rounded-2xl bg-white/10 backdrop-blur-xl p-10 sm:p-14 md:p-16">
           <p className="text-white/85 text-base sm:text-lg tracking-wide mb-8 font-medium">
             1,00,000 subscribers and growing.
           </p>
@@ -85,6 +91,7 @@ export default function NewsletterCTA() {
             </button>
           </form>
         </div>
+        </Reveal>
       </div>
     </section>
   );

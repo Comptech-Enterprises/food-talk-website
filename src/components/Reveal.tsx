@@ -8,6 +8,7 @@ type RevealProps = {
   className?: string;
   /** Stagger delay in ms. */
   delay?: number;
+  variant?: "up" | "left" | "right" | "scale" | "mask";
 };
 
 /**
@@ -19,6 +20,7 @@ export default function Reveal({
   as: Tag = "div",
   className = "",
   delay = 0,
+  variant = "up",
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
   const [shown, setShown] = useState(false);
@@ -42,6 +44,7 @@ export default function Reveal({
   return (
     <Tag
       ref={ref}
+      data-variant={variant}
       className={`reveal ${shown ? "is-visible" : ""} ${className}`}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >
