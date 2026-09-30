@@ -41,6 +41,22 @@ export default function Reveal({
     return () => observer.disconnect();
   }, []);
 
+  // A fully clip-pathed element reports zero intersection, so the observed
+  // node must stay unclipped and the wipe lives on an inner wrapper.
+  if (variant === "mask") {
+    return (
+      <Tag ref={ref} className={className}>
+        <div
+          data-variant="mask"
+          className={`reveal ${shown ? "is-visible" : ""}`}
+          style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+        >
+          {children}
+        </div>
+      </Tag>
+    );
+  }
+
   return (
     <Tag
       ref={ref}

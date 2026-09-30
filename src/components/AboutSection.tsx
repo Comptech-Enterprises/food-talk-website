@@ -8,7 +8,7 @@ export default function AboutSection() {
     <section id="about" className="scroll-mt-20 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal variant="left">
-          <div className="flex items-center gap-3.5 mb-8">
+          <div className="flex items-center justify-center md:justify-start gap-3.5 mb-8">
             <span className="h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full bg-accent shrink-0" />
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-black tracking-wide text-muted uppercase">
               ABOUT US
@@ -20,11 +20,11 @@ export default function AboutSection() {
           <div>
             <LineReveal
               as="h2"
-              className="display text-[clamp(2.5rem,6vw,5rem)] leading-[0.95]"
+              className="display text-[clamp(2.5rem,6vw,5rem)] leading-[0.95] text-center md:text-left"
               lines={["A FOOD", "EXPERIENCES", "PLATFORM."]}
             />
             <Reveal delay={400}>
-              <p className="mt-8 max-w-lg text-base leading-relaxed text-muted">
+              <p className="mt-8 max-w-lg mx-auto md:mx-0 text-center md:text-left text-base leading-relaxed text-muted">
                 Bringing people together around food, drinks and culture. We curate
                 experiences that celebrate the people, places and ideas behind them,
                 and create spaces where great food, memorable drinks and meaningful

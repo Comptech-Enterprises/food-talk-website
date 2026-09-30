@@ -10,8 +10,8 @@ const FOOTER_LINKS = [
 export default function Footer() {
   return (
     <footer className="bg-bg-dark text-fg-light">
-      <div className="mx-auto max-w-7xl px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div className="flex flex-col items-start gap-3">
+      <div className="mx-auto max-w-7xl px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+        <div className="flex flex-col items-center md:items-start gap-3">
           <Image
             src="/logo.webp"
             alt="Food Talk India"
@@ -27,7 +27,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="flex items-center gap-8">
+        <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
           {FOOTER_LINKS.map((link) => (
             <Link
               key={link.label}

@@ -96,7 +96,7 @@ export default function HowItWorks() {
     <section className="border-t border-line py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
-          <div className="flex items-center gap-3.5 mb-10">
+          <div className="flex items-center justify-center md:justify-start gap-3.5 mb-10">
             <span className="h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full bg-accent shrink-0" />
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-black tracking-wide text-muted uppercase">
               HOW IT WORKS

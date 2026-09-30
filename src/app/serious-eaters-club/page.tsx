@@ -91,18 +91,18 @@ export default function SeriousEatersClub() {
         <section className="py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6">
             <Reveal variant="left">
-              <p className="section-title text-red mb-6">ABOUT</p>
+              <p className="section-title text-red mb-6 text-center md:text-left">ABOUT</p>
             </Reveal>
 
             <div className="grid md:grid-cols-2 gap-10 items-start">
               <div>
                 <LineReveal
                   as="h2"
-                  className="font-display text-[clamp(2rem,5vw,3.5rem)] font-black leading-[1.05]"
+                  className="font-display text-[clamp(2rem,5vw,3.5rem)] font-black leading-[1.05] text-center md:text-left"
                   lines={["A dining series", "that celebrates", "bold flavours."]}
                 />
                 <Reveal delay={400}>
-                  <p className="mt-8 max-w-lg text-base leading-relaxed text-muted">
+                  <p className="mt-8 max-w-lg mx-auto md:mx-0 text-center md:text-left text-base leading-relaxed text-muted">
                     Each dinner is led by a strong culinary point of view, whether a
                     chef&apos;s philosophy, a lesser-known cuisine, or a rare technique.
                     We bring together exceptional food, memorable drinks and great
@@ -132,13 +132,13 @@ export default function SeriousEatersClub() {
         <section className="border-t border-line py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6">
             <Reveal variant="left">
-              <p className="section-title text-red mb-10">OUR EXPERIENCES</p>
+              <p className="section-title text-red mb-10 text-center md:text-left">OUR EXPERIENCES</p>
             </Reveal>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {PAST_DINNERS.map((dinner, i) => (
                 <Reveal key={dinner.title} delay={i * 150}>
-                  <div className="group flex flex-col">
+                  <div className="group flex flex-col text-center md:text-left">
                     <div className="relative aspect-square overflow-hidden rounded-sm">
                       <Parallax
                         className="absolute inset-0"
@@ -166,7 +166,7 @@ export default function SeriousEatersClub() {
             </div>
 
             <Reveal variant="right">
-              <p className="mt-10 text-right font-display text-2xl md:text-3xl font-black text-red italic uppercase tracking-tight">
+              <p className="mt-10 text-center md:text-right font-display text-2xl md:text-3xl font-black text-red italic uppercase tracking-tight">
                 AND MANY MORE.
               </p>
             </Reveal>

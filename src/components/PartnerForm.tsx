@@ -16,11 +16,11 @@ export default function PartnerForm() {
 
   if (sent) {
     return (
-      <div className="py-10">
+      <div className="py-10 text-center lg:text-left">
         <p className="display text-[clamp(2rem,5vw,3.5rem)]">
           THANK <span className="italic text-red">YOU.</span>
         </p>
-        <p className="mt-4 text-lg text-muted max-w-md">
+        <p className="mt-4 text-lg text-muted max-w-md mx-auto lg:mx-0">
           We have your details and will be in touch soon.
         </p>
       </div>

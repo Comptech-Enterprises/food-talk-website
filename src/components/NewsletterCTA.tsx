@@ -23,11 +23,11 @@ export default function NewsletterCTA() {
       <div className="relative mx-auto max-w-7xl px-6 w-full">
         <LineReveal
           as="h2"
-          className="display text-[clamp(2.5rem,6vw,4.5rem)] text-white leading-[1.05] mb-8"
+          className="display text-[clamp(2rem,6vw,4.5rem)] text-white leading-[1.05] mb-8 text-center md:text-left"
           lines={["GET ACCESS TO", "OUR EXPERIENCES."]}
         />
 
-        <Reveal variant="scale" delay={300} className="max-w-2xl">
+        <Reveal variant="scale" delay={300} className="max-w-2xl mx-auto md:mx-0">
         <div className="border border-white/20 rounded-2xl bg-white/10 backdrop-blur-xl p-10 sm:p-14 md:p-16">
           <p className="text-white/85 text-base sm:text-lg tracking-wide mb-8 font-medium">
             1,00,000 subscribers and growing.
@@ -58,7 +58,7 @@ export default function NewsletterCTA() {
                   type="tel"
                   placeholder="Phone number"
                   required
-                  className="flex-1 bg-transparent border-b-2 border-white/40 text-white py-4 text-base sm:text-lg placeholder:text-white/50 focus:outline-none focus:border-accent transition-colors"
+                  className="flex-1 min-w-0 bg-transparent border-b-2 border-white/40 text-white py-4 text-base sm:text-lg placeholder:text-white/50 focus:outline-none focus:border-accent transition-colors"
                 />
               </div>
             </div>
