@@ -50,7 +50,7 @@ export default function LineReveal({
   return (
     <Tag ref={ref} className={className}>
       {lines.map((line, i) => (
-        <span key={i} className="block overflow-hidden py-[0.1em] -my-[0.1em]">
+        <span key={i} className="block overflow-y-clip py-[0.1em] -my-[0.1em]">
           <span
             className="block"
             style={{

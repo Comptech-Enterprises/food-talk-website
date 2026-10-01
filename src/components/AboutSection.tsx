@@ -22,10 +22,10 @@ export default function AboutSection() {
         </Reveal>
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
-          <div>
+          <div className="@container">
             <LineReveal
               as="h2"
-              className="display text-[clamp(2.5rem,6vw,5rem)] leading-[0.95] text-center md:text-left"
+              className="display text-[length:min(5rem,12cqw)] leading-[0.95] text-center md:text-left"
               lines={["A FOOD", "EXPERIENCES", "PLATFORM."]}
             />
             <Reveal delay={400}>
