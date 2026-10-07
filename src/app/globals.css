@@ -10,7 +10,6 @@
   --line-dark: rgba(255, 255, 255, 0.15);
   --accent: #c8e600;
   --accent-ink: #0d0d0d;
-  --red: #e63b2e;
 }
 
 @theme inline {
@@ -23,7 +22,6 @@
   --color-line-dark: var(--line-dark);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
-  --color-red: var(--red);
 
   --font-display: var(--font-archivo);
   --font-sans: var(--font-inter);
@@ -31,8 +29,10 @@
   --breakpoint-xs: 30rem;
 }
 
-* {
-  border-color: var(--line);
+@layer base {
+  * {
+    border-color: var(--line);
+  }
 }
 
 html {

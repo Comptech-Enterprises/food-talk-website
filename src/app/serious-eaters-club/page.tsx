@@ -71,7 +71,7 @@ export default function SeriousEatersClub() {
               className="display text-[clamp(3rem,10vw,7rem)] text-white leading-[0.9]"
               lines={[
                 "SERIOUS",
-                <span key="eaters" className="text-red italic">
+                <span key="eaters" className="text-accent italic">
                   EATERS
                 </span>,
                 "CLUB",
@@ -88,21 +88,24 @@ export default function SeriousEatersClub() {
         </section>
 
         {/* About */}
-        <section className="py-16 md:py-24">
+        <section className="py-20 md:py-32">
           <div className="mx-auto max-w-7xl px-6">
             <Reveal variant="left">
-              <p className="section-title text-red mb-6 text-center md:text-left">ABOUT</p>
+              <p className="section-title mb-6 text-center md:text-left">ABOUT</p>
             </Reveal>
 
-            <div className="grid md:grid-cols-2 gap-10 items-start">
-              <div>
+            <div className="mt-10 md:mt-14 grid md:grid-cols-12 gap-10 md:gap-16 items-end">
+              <div className="@container md:col-span-7">
                 <LineReveal
                   as="h2"
-                  className="font-display text-[clamp(2rem,5vw,3.5rem)] font-black leading-[1.05] text-center md:text-left"
+                  className="font-display text-[length:min(4.5rem,9.5cqw)] font-black leading-[1.05] text-center md:text-left"
                   lines={["A dining series", "that celebrates", "bold flavours."]}
                 />
+              </div>
+
+              <div className="md:col-span-5">
                 <Reveal delay={400}>
-                  <p className="mt-8 max-w-lg mx-auto md:mx-0 text-center md:text-left text-base leading-relaxed text-muted">
+                  <p className="max-w-md mx-auto md:mx-0 text-center md:text-left text-lg leading-relaxed text-muted">
                     Each dinner is led by a strong culinary point of view, whether a
                     chef&apos;s philosophy, a lesser-known cuisine, or a rare technique.
                     We bring together exceptional food, memorable drinks and great
@@ -110,20 +113,6 @@ export default function SeriousEatersClub() {
                   </p>
                 </Reveal>
               </div>
-
-              <Reveal variant="mask" delay={150}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
-                  <Parallax className="absolute inset-0" speed={0.14} scale={1.3}>
-                    <Image
-                      src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
-                      alt="Chef preparing herbs"
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover"
-                    />
-                  </Parallax>
-                </div>
-              </Reveal>
             </div>
           </div>
         </section>
@@ -132,7 +121,7 @@ export default function SeriousEatersClub() {
         <section className="border-t border-line py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6">
             <Reveal variant="left">
-              <p className="section-title text-red mb-10 text-center md:text-left">OUR EXPERIENCES</p>
+              <p className="section-title mb-10 text-center md:text-left">OUR EXPERIENCES</p>
             </Reveal>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -166,7 +155,7 @@ export default function SeriousEatersClub() {
             </div>
 
             <Reveal variant="right">
-              <p className="mt-10 text-center md:text-right font-display text-2xl md:text-3xl font-black text-red italic uppercase tracking-tight">
+              <p className="mt-10 text-center md:text-right font-display text-2xl md:text-3xl font-black italic uppercase tracking-tight">
                 AND MANY MORE.
               </p>
             </Reveal>

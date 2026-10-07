@@ -18,7 +18,7 @@ export default function WorkWithUs() {
               href="/vendors"
               className="block border border-fg bg-fg text-bg py-8 text-center text-lg md:text-xl font-bold tracking-wider hover:bg-transparent hover:text-fg transition-colors"
             >
-              FOR VENDORS
+              CONTACT US
             </Link>
           </Reveal>
           <Reveal variant="scale" delay={300}>
@@ -29,7 +29,7 @@ export default function WorkWithUs() {
               href="/brand-partners"
               className="block border border-fg bg-fg text-bg py-8 text-center text-lg md:text-xl font-bold tracking-wider hover:bg-transparent hover:text-fg transition-colors"
             >
-              FOR BRAND PARTNERS
+              WORK WITH US
             </Link>
           </Reveal>
         </div>

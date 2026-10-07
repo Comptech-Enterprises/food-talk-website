@@ -1,34 +1,18 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import type { FormEvent } from "react";
 
 const INPUT =
   "w-full bg-transparent border-b-2 border-fg/25 py-4 text-lg placeholder:text-muted/60 focus:outline-none focus:border-fg transition-colors";
 const LABEL = "block text-xs font-bold tracking-[0.15em] uppercase text-muted mb-1";
 
 export default function PartnerForm() {
-  const [sent, setSent] = useState(false);
-
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSent(true);
-  }
-
-  if (sent) {
-    return (
-      <div className="py-10 text-center lg:text-left">
-        <p className="display text-[clamp(2rem,5vw,3.5rem)]">
-          THANK <span className="italic text-red">YOU.</span>
-        </p>
-        <p className="mt-4 text-lg text-muted max-w-md mx-auto lg:mx-0">
-          We have your details and will be in touch soon.
-        </p>
-      </div>
-    );
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-8">
+    <form onSubmit={onSubmit} noValidate className="space-y-8">
       <div>
         <label htmlFor="name" className={LABEL}>
           Name

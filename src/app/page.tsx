@@ -5,8 +5,8 @@ import AboutSection from "@/components/AboutSection";
 import ExperiencesSection from "@/components/ExperiencesSection";
 import HowItWorks from "@/components/HowItWorks";
 import NewsletterCTA from "@/components/NewsletterCTA";
-import BrandMarquee from "@/components/BrandMarquee";
 import WorkWithUs from "@/components/WorkWithUs";
+import PartnerLogos from "@/components/PartnerLogos";
 
 export default function Home() {
   return (
@@ -16,10 +16,10 @@ export default function Home() {
         <Hero />
         <AboutSection />
         <ExperiencesSection />
-        <HowItWorks />
         <NewsletterCTA />
-        <BrandMarquee />
+        <HowItWorks />
         <WorkWithUs />
+        <PartnerLogos />
       </main>
       <Footer />
     </>
