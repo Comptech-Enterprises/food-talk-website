@@ -6,8 +6,6 @@ import NewsletterCTA from "@/components/NewsletterCTA";
 import Reveal from "@/components/Reveal";
 import Parallax from "@/components/Parallax";
 import LineReveal from "@/components/LineReveal";
-import Doodle from "@/components/Doodle";
-import RotatingBadge from "@/components/RotatingBadge";
 
 export const metadata: Metadata = {
   title: "Serious Eaters Club",
@@ -90,10 +88,8 @@ export default function SeriousEatersClub() {
         </section>
 
         {/* About */}
-        <section className="relative overflow-hidden py-16 md:py-24">
-          <Doodle kind="flame" className="hidden md:block top-14 md:left-[48%] h-16 w-16 text-red/70" speed={-0.1} rotate={12} />
-          <Doodle kind="cocktail" className="left-[3%] bottom-8 h-11 w-11 md:left-[47%] md:bottom-5 md:h-16 md:w-16 text-fg/35" speed={0.14} rotate={-10} />
-          <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <section className="py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-6">
             <Reveal variant="left">
               <p className="section-title text-red mb-6 text-center md:text-left">ABOUT</p>
             </Reveal>
@@ -115,7 +111,6 @@ export default function SeriousEatersClub() {
                 </Reveal>
               </div>
 
-              <div className="relative">
               <Reveal variant="mask" delay={150}>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
                   <Parallax className="absolute inset-0" speed={0.14} scale={1.3}>
@@ -129,8 +124,6 @@ export default function SeriousEatersClub() {
                   </Parallax>
                 </div>
               </Reveal>
-              <RotatingBadge className="absolute -top-8 -right-1 z-10 w-28 md:-top-12 md:-right-4 md:w-40" />
-              </div>
             </div>
           </div>
         </section>

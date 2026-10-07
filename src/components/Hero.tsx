@@ -1,42 +1,19 @@
 import HeroVideo from "./HeroVideo";
-import LineReveal from "./LineReveal";
 import Parallax from "./Parallax";
-import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[70vh] md:min-h-[78vh] overflow-hidden flex flex-col justify-end pt-24 sm:pt-28 pb-10 sm:pb-12 md:pb-14">
+    <section
+      aria-label="Food Talk India"
+      className="relative h-[85vh] min-h-[480px] overflow-hidden bg-bg-dark"
+    >
       <Parallax className="absolute inset-0" speed={0.3} scale={1.15}>
         <HeroVideo
           src="/6222582-hd_1920_1080_24fps.mp4"
           poster="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2000&q=80"
         />
       </Parallax>
-      <div className="absolute inset-0 bg-black/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/25" />
-
-      <Parallax className="relative mx-auto max-w-7xl w-full px-6" speed={-0.18} fadeOut>
-        <LineReveal
-          as="h1"
-          immediate
-          delay={200}
-          className="font-display text-[clamp(3.5rem,10vw,8.5rem)] font-black uppercase leading-[0.88] tracking-tighter text-white drop-shadow-2xl"
-          lines={[
-            "FOOD",
-            <span key="talk" className="italic text-[var(--red)]">
-              TALK
-            </span>,
-            "INDIA",
-          ]}
-        />
-        <Reveal delay={900}>
-          <p className="mt-4 sm:mt-5 text-white/90 text-base sm:text-lg md:text-xl max-w-lg font-light leading-snug drop-shadow-md">
-            A curated food experiences
-            <br />
-            platform by Food Talk India.
-          </p>
-        </Reveal>
-      </Parallax>
+      <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/70 via-black/15 to-transparent" />
     </section>
   );
 }

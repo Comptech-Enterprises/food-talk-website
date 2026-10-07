@@ -8,9 +8,9 @@ const STEPS = [
     number: "01",
     label: "SIGN UP TO\nOUR NEWSLETTER",
     icon: (
-      <svg viewBox="0 0 40 40" className="h-10 w-10 draw" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect pathLength={1} x="4" y="8" width="32" height="24" rx="3" />
-        <path pathLength={1} d="M4 12l16 10 16-10" />
+      <svg viewBox="0 0 40 40" className="h-10 w-10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="8" width="32" height="24" rx="3" />
+        <path d="M4 12l16 10 16-10" />
       </svg>
     ),
   },
@@ -18,12 +18,12 @@ const STEPS = [
     number: "02",
     label: "GET EARLY ACCESS\nTO EVERY EXPERIENCE",
     icon: (
-      <svg viewBox="0 0 40 40" className="h-10 w-10 draw" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path pathLength={1} d="M12 6c0 0-4 6-4 12s4 12 4 12" />
-        <path pathLength={1} d="M28 6c0 0 4 6 4 12s-4 12-4 12" />
-        <path pathLength={1} d="M16 10c0 0-2 4-2 8s2 8 2 8" />
-        <path pathLength={1} d="M24 10c0 0 2 4 2 8s-2 8-2 8" />
-        <line pathLength={1} x1="6" y1="20" x2="34" y2="20" />
+      <svg viewBox="0 0 40 40" className="h-10 w-10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 6c0 0-4 6-4 12s4 12 4 12" />
+        <path d="M28 6c0 0 4 6 4 12s-4 12-4 12" />
+        <path d="M16 10c0 0-2 4-2 8s2 8 2 8" />
+        <path d="M24 10c0 0 2 4 2 8s-2 8-2 8" />
+        <line x1="6" y1="20" x2="34" y2="20" />
       </svg>
     ),
   },
@@ -31,19 +31,19 @@ const STEPS = [
     number: "03",
     label: "BOOK YOUR SPOT.",
     icon: (
-      <svg viewBox="0 0 40 40" className="h-10 w-10 draw" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path pathLength={1} d="M12 34V18l-4 4" />
-        <path pathLength={1} d="M28 34V18l4 4" />
-        <path pathLength={1} d="M12 18c0-4 3-8 8-8s8 4 8 8" />
-        <circle pathLength={1} cx="20" cy="6" r="2" />
+      <svg viewBox="0 0 40 40" className="h-10 w-10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 34V18l-4 4" />
+        <path d="M28 34V18l4 4" />
+        <path d="M12 18c0-4 3-8 8-8s8 4 8 8" />
+        <circle cx="20" cy="6" r="2" />
       </svg>
     ),
   },
 ];
 
-function StepCard({ step, centered, drawn }: { step: typeof STEPS[number]; centered?: boolean; drawn?: boolean }) {
+function StepCard({ step, centered }: { step: typeof STEPS[number]; centered?: boolean }) {
   return (
-    <div className={`flex flex-col items-center text-center ${centered ? "py-12" : ""} ${drawn ? "is-drawn" : ""}`}>
+    <div className={`flex flex-col items-center text-center ${centered ? "py-12" : ""}`}>
       <div className="flex items-center gap-4">
         <span className="font-display text-6xl md:text-7xl font-black text-accent italic">
           {step.number}
@@ -112,7 +112,7 @@ export default function HowItWorks() {
               style={fade(phase === i)}
               aria-hidden={phase !== i}
             >
-              <StepCard step={step} drawn={phase === i} />
+              <StepCard step={step} />
             </div>
           ))}
 
@@ -121,7 +121,7 @@ export default function HowItWorks() {
             style={fade(phase >= 3)}
           >
             {STEPS.map((step) => (
-              <StepCard key={step.number} step={step} drawn={phase >= 3} />
+              <StepCard key={step.number} step={step} />
             ))}
           </div>
         </div>
