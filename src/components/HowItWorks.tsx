@@ -22,10 +22,10 @@ export default function HowItWorks() {
           {STEPS.map((step, i) => (
             <Reveal key={step} as="li" delay={i * 100}>
               <div className="border-t-2 border-fg pt-2.5 sm:pt-4 md:pt-5 text-left">
-                <span className="font-display text-[10px] sm:text-xs md:text-sm font-bold text-muted">
+                <span className="font-display text-xs sm:text-sm md:text-base font-bold text-muted">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-1 sm:mt-2 md:mt-3 font-display text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-xl font-black uppercase leading-[1.15] tracking-tight">
+                <h3 className="mt-1 sm:mt-2 md:mt-3 font-display text-[13px] xs:text-sm sm:text-base md:text-lg lg:text-2xl font-black uppercase leading-[1.12] tracking-tight">
                   {step}
                 </h3>
               </div>
