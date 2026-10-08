@@ -5,9 +5,9 @@ export default function Hero() {
   return (
     <section
       aria-label="Food Talk India"
-      className="relative h-[85vh] min-h-[480px] overflow-hidden bg-bg-dark"
+      className="relative aspect-[16/10] sm:aspect-auto sm:h-[80vh] md:h-[85vh] sm:min-h-[480px] w-full overflow-hidden bg-bg-dark"
     >
-      <Parallax className="absolute inset-0" speed={0.3} scale={1.15}>
+      <Parallax className="absolute inset-0" speed={0.2} scale={1.05}>
         <HeroVideo
           src="/6222582-hd_1920_1080_24fps.mp4"
           poster="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1280&q=60"
