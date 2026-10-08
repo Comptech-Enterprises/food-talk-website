@@ -11,20 +11,20 @@ export default function WorkWithUs() {
           lines={["WORK WITH US"]}
         />
 
-        <div className="mt-12 flex flex-col md:flex-row items-center gap-6">
-          <div className="w-full md:flex-1">
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto">
+          <div className="w-full sm:flex-1">
             <Link
               href="/vendors"
-              className="block border border-fg bg-fg text-bg py-8 text-center text-lg md:text-xl font-bold tracking-wider hover:bg-transparent hover:text-fg transition-colors"
+              className="block border border-fg bg-fg text-bg py-3.5 px-6 text-center text-sm sm:text-base font-bold tracking-wider hover:bg-transparent hover:text-fg transition-colors"
             >
               CONTACT US
             </Link>
           </div>
-          <div className="h-px w-16 md:h-12 md:w-px bg-fg/30" />
-          <div className="w-full md:flex-1">
+          <div className="hidden sm:block h-8 w-px bg-fg/30" />
+          <div className="w-full sm:flex-1">
             <Link
               href="/brand-partners"
-              className="block border border-fg bg-fg text-bg py-8 text-center text-lg md:text-xl font-bold tracking-wider hover:bg-transparent hover:text-fg transition-colors"
+              className="block border border-fg bg-fg text-bg py-3.5 px-6 text-center text-sm sm:text-base font-bold tracking-wider hover:bg-transparent hover:text-fg transition-colors"
             >
               WORK WITH US
             </Link>
