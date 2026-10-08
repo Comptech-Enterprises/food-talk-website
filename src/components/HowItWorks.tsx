@@ -18,14 +18,14 @@ export default function HowItWorks() {
           lines={["HOW IT WORKS"]}
         />
 
-        <ol className="mt-8 sm:mt-12 md:mt-16 grid grid-cols-4 gap-2.5 sm:gap-4 md:gap-6 lg:gap-8">
+        <ol className="mt-8 sm:mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 md:gap-6 lg:gap-8">
           {STEPS.map((step, i) => (
             <Reveal key={step} as="li" delay={i * 100}>
-              <div className="border-t-2 border-fg pt-2.5 sm:pt-4 md:pt-5 text-left">
-                <span className="font-display text-xs sm:text-sm md:text-base font-bold text-muted">
+              <div className="border-t-2 border-fg pt-3 sm:pt-4 md:pt-5 flex items-baseline gap-3 md:block text-left">
+                <span className="font-display text-sm sm:text-base font-bold text-muted shrink-0">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-1 sm:mt-2 md:mt-3 font-display text-[13px] xs:text-sm sm:text-base md:text-lg lg:text-2xl font-black uppercase leading-[1.12] tracking-tight">
+                <h3 className="mt-0 md:mt-2 font-display text-base sm:text-lg md:text-lg lg:text-xl xl:text-2xl font-black uppercase tracking-tight">
                   {step}
                 </h3>
               </div>
