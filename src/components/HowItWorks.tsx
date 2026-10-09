@@ -56,8 +56,8 @@ export default function HowItWorks() {
                   i !== 0 ? "md:border-l md:border-line" : "md:pl-0"
                 }`}
               >
-                {/* Stylized Lime Italic Number */}
-                <span className="font-serif italic font-black text-5xl sm:text-6xl text-[#c8e600] shrink-0 leading-none transition-transform duration-300 group-hover:scale-110">
+                {/* Stylized Italic Number */}
+                <span className="font-serif italic font-black text-5xl sm:text-6xl text-accent shrink-0 leading-none transition-transform duration-300 group-hover:scale-110">
                   {step.num}
                 </span>
 

@@ -71,7 +71,7 @@ export default function ExperiencesSection() {
                 </p>
 
                 {/* Description */}
-                <p className="mt-3 text-xs sm:text-sm text-fg/70 leading-relaxed font-serif flex-1">
+                <p className="mt-3 text-xs sm:text-sm text-muted leading-relaxed font-normal flex-1">
                   {exp.description}
                 </p>
 
@@ -85,7 +85,7 @@ export default function ExperiencesSection() {
                       {exp.cta.label}
                     </Link>
                   ) : (
-                    <span className="inline-block border border-fg/30 px-6 py-2 text-xs font-bold tracking-wider uppercase text-fg/60">
+                    <span className="inline-block border border-line px-6 py-2 text-xs font-bold tracking-wider uppercase text-muted-2">
                       {exp.cta.label}
                     </span>
                   )}
@@ -97,7 +97,7 @@ export default function ExperiencesSection() {
 
         {/* Bottom Note */}
         <Reveal delay={450}>
-          <p className="mt-12 text-right font-display text-xs sm:text-sm font-black tracking-wider uppercase text-fg">
+          <p className="mt-12 text-right font-display text-xs sm:text-sm font-bold tracking-wider uppercase text-muted">
             AND MANY MORE TO COME.
           </p>
         </Reveal>
