@@ -28,7 +28,7 @@ export default function Navbar({ tone = "light" }: { tone?: "light" | "dark" }) 
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-bg-dark/85 backdrop-blur-lg border-b border-white/10 py-3 shadow-lg"
+          ? "bg-black/85 backdrop-blur-xl border-b border-line py-3.5 shadow-2xl"
           : "bg-transparent py-5 sm:py-6"
       }`}
     >
@@ -39,7 +39,7 @@ export default function Navbar({ tone = "light" }: { tone?: "light" | "dark" }) 
             alt="Food Talk India"
             width={120}
             height={40}
-            className={`h-12 md:h-14 w-auto brightness-0 ${onDark ? "invert" : ""}`}
+            className="h-10 sm:h-12 w-auto brightness-0 invert"
             priority
           />
         </Link>
@@ -48,19 +48,19 @@ export default function Navbar({ tone = "light" }: { tone?: "light" | "dark" }) 
         <div className="hidden md:flex items-center gap-8">
           <Link
             href="/#about"
-            className={`font-display text-xs md:text-sm font-semibold tracking-wider ${ink} hover:text-accent transition-colors`}
+            className="font-display text-xs md:text-sm font-semibold tracking-wider text-muted hover:text-white transition-colors"
           >
             ABOUT US
           </Link>
           <Link
             href="/#experiences"
-            className={`font-display text-xs md:text-sm font-semibold tracking-wider ${ink} hover:text-accent transition-colors`}
+            className="font-display text-xs md:text-sm font-semibold tracking-wider text-muted hover:text-white transition-colors"
           >
             OUR EXPERIENCES
           </Link>
           <Link
             href="/#work-with-us"
-            className="bg-accent text-white px-5 py-2 rounded-full font-display text-xs font-bold tracking-wider uppercase hover:bg-accent-deep hover:shadow-[0_2px_15px_rgba(139,127,232,0.4)] active:scale-95 transition-all"
+            className="bg-accent text-black px-5 py-2 rounded-full font-display text-xs font-bold tracking-wider uppercase hover:bg-accent-soft hover:shadow-[0_0_20px_var(--accent-glow)] active:scale-95 transition-all"
           >
             WORK WITH US
           </Link>

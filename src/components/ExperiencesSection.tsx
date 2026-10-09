@@ -48,12 +48,12 @@ export default function ExperiencesSection() {
         />
 
         {/* 3-Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 lg:gap-8">
           {EXPERIENCES.map((exp, i) => (
             <Reveal key={exp.title} delay={i * 150}>
-              <article className="group flex flex-col h-full text-left transition-all duration-300">
+              <article className="group flex flex-col h-full text-left transition-all duration-300 rounded-2xl border border-line bg-surface p-5 sm:p-6 hover:border-accent/40 hover:bg-surface-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
                 {/* Image */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden mb-5 bg-black/10">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl mb-5 bg-black/40">
                   <Image
                     src={exp.image}
                     alt={exp.title}
@@ -61,16 +61,16 @@ export default function ExperiencesSection() {
                     sizes="(min-width: 768px) 33vw, 100vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
                 </div>
 
                 {/* Title */}
-                <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight uppercase text-fg group-hover:text-accent transition-colors">
+                <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight uppercase text-white group-hover:text-accent transition-colors">
                   {exp.title}<span className="text-accent opacity-0 group-hover:opacity-100 transition-opacity">.</span>
                 </h3>
 
                 {/* Tagline */}
-                <p className="mt-2 font-serif italic text-sm sm:text-base text-fg/85">
+                <p className="mt-2 font-serif italic text-sm sm:text-base text-accent-soft/90">
                   {exp.tagline}
                 </p>
 
@@ -84,12 +84,12 @@ export default function ExperiencesSection() {
                   {exp.cta.href ? (
                     <Link
                       href={exp.cta.href}
-                      className="inline-block border border-line px-6 py-2 text-xs font-bold tracking-wider uppercase text-fg hover:border-accent hover:text-accent hover:shadow-[0_0_12px_rgba(139,127,232,0.3)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 bg-white/40"
+                      className="inline-block border border-line bg-surface-3 px-6 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase text-white hover:border-accent hover:text-accent hover:shadow-[0_0_15px_var(--accent-glow)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
                     >
                       {exp.cta.label}
                     </Link>
                   ) : (
-                    <span className="inline-block border border-line px-6 py-2 text-xs font-bold tracking-wider uppercase text-muted-2">
+                    <span className="inline-block border border-line/60 bg-surface px-6 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase text-muted-2">
                       {exp.cta.label}
                     </span>
                   )}

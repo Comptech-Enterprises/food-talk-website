@@ -43,11 +43,11 @@ export default function NewsletterCTA() {
                 type="email"
                 placeholder="Your email address"
                 required
-                className="bg-white text-fg px-4 py-3 sm:py-3.5 text-xs sm:text-sm font-medium placeholder:text-muted-2 focus:outline-none rounded-none flex-1 min-w-0 font-sans"
+                className="bg-surface/90 border border-line text-white px-5 py-3 sm:py-3.5 text-xs sm:text-sm font-medium placeholder:text-muted-2 focus:outline-none focus:border-accent focus:bg-surface-2 rounded-none flex-1 min-w-0 font-sans transition-colors"
               />
               <button
                 type="submit"
-                className="bg-accent text-white px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-accent-deep hover:shadow-[0_0_20px_rgba(139,127,232,0.5)] active:scale-95 transition-all cursor-pointer shrink-0 rounded-none mt-2 sm:mt-0 font-display"
+                className="bg-accent text-black px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider hover:bg-accent-soft hover:shadow-[0_0_20px_var(--accent-glow)] active:scale-95 transition-all cursor-pointer shrink-0 rounded-none mt-2 sm:mt-0 font-display"
               >
                 SIGN UP
               </button>
