@@ -1,16 +1,17 @@
 "use client";
 
+import LineReveal from "./LineReveal";
 import Reveal from "./Reveal";
 
 export default function WorkWithUs() {
   return (
-    <section id="work-with-us" className="scroll-mt-20 py-16 md:py-24 border-b border-line">
+    <section id="work-with-us" className="scroll-mt-20 py-16 md:py-24 border-b border-line overflow-hidden">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16">
-        <Reveal>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-left text-fg mb-10 md:mb-14">
-            WORK WITH US
-          </h2>
-        </Reveal>
+        <LineReveal
+          as="h2"
+          className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-left text-fg mb-10 md:mb-14"
+          lines={["WORK WITH US"]}
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-0">
           {/* Column 1: Venues and Vendors */}

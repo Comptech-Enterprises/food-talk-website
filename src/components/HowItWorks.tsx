@@ -1,3 +1,4 @@
+import LineReveal from "./LineReveal";
 import Reveal from "./Reveal";
 
 const STEPS = [
@@ -39,13 +40,13 @@ const STEPS = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-16 md:py-24 border-b border-line">
+    <section className="py-16 md:py-24 border-b border-line overflow-hidden">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16">
-        <Reveal>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-left text-fg mb-12 md:mb-16">
-            HOW IT WORKS
-          </h2>
-        </Reveal>
+        <LineReveal
+          as="h2"
+          className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-left text-fg mb-12 md:mb-16"
+          lines={["HOW IT WORKS"]}
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
           {STEPS.map((step, i) => (

@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import LineReveal from "./LineReveal";
+import Parallax from "./Parallax";
 import Reveal from "./Reveal";
 
 export default function NewsletterCTA() {
@@ -9,8 +11,8 @@ export default function NewsletterCTA() {
       id="newsletter"
       className="relative min-h-[360px] sm:min-h-[420px] md:min-h-[480px] w-full flex items-center overflow-hidden py-16 md:py-24"
     >
-      {/* Background Image */}
-      <div className="absolute inset-0">
+      {/* Background Image with Parallax */}
+      <Parallax className="absolute inset-0" speed={0.18} scale={1.2}>
         <Image
           src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=2000&q=80"
           alt="Wine glasses clinking in warm light"
@@ -18,16 +20,16 @@ export default function NewsletterCTA() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/60 md:bg-black/50" />
-      </div>
+      </Parallax>
+      <div className="absolute inset-0 bg-black/60 md:bg-black/50 pointer-events-none" />
 
       <div className="relative mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16 w-full">
         <div className="max-w-2xl text-left">
-          <Reveal>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.95] tracking-tight text-white">
-              GET ACCESS TO<br />OUR EXPERIENCES.
-            </h2>
-          </Reveal>
+          <LineReveal
+            as="h2"
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.95] tracking-tight text-white"
+            lines={["GET ACCESS TO", "OUR EXPERIENCES."]}
+          />
 
           <Reveal delay={200}>
             <form

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
   { label: "ABOUT US", href: "/#about" },
@@ -12,13 +12,27 @@ const NAV_LINKS = [
 
 export default function Navbar({ tone = "light" }: { tone?: "light" | "dark" }) {
   const [open, setOpen] = useState(false);
-  const onDark = tone === "light" || open;
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const onDark = tone === "light" || open || scrolled;
   const ink = onDark ? "text-white" : "text-fg";
   const bar = onDark ? "bg-white" : "bg-fg";
 
   return (
-    <nav className="absolute top-0 left-0 right-0 z-50">
-      <div className="mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16 py-6 flex items-center justify-between">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-bg-dark/85 backdrop-blur-lg border-b border-white/10 py-3 shadow-lg"
+          : "bg-transparent py-5 sm:py-6"
+      }`}
+    >
+      <div className="mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16 flex items-center justify-between">
         <Link href="/">
           <Image
             src="/logo.webp"
