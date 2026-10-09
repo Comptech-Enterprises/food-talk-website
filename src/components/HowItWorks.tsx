@@ -1,37 +1,76 @@
-import LineReveal from "./LineReveal";
 import Reveal from "./Reveal";
 
 const STEPS = [
-  "Sign up to our mailer",
-  "Get access to events and experiences",
-  "Book your spot",
-  "Show up",
+  {
+    num: "01",
+    title: "SIGN UP TO\nOUR NEWSLETTER",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-8 h-8 sm:w-10 sm:h-10 text-fg" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect width="20" height="16" x="2" y="4" rx="2" />
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+      </svg>
+    ),
+  },
+  {
+    num: "02",
+    title: "GET EARLY ACCESS\nTO EVERY EXPERIENCE",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-8 h-8 sm:w-10 sm:h-10 text-fg" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+        <path d="M13 5v2" />
+        <path d="M13 17v2" />
+        <path d="M13 11v2" />
+      </svg>
+    ),
+  },
+  {
+    num: "03",
+    title: "BOOK YOUR SPOT.",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-8 h-8 sm:w-10 sm:h-10 text-fg" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M8 22h8" />
+        <path d="M7 10h10" />
+        <path d="M12 15v7" />
+        <path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z" />
+      </svg>
+    ),
+  },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="border-t border-line py-14 sm:py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <LineReveal
-          as="h2"
-          className="display text-[clamp(1.75rem,5vw,4.5rem)] text-left"
-          lines={["HOW IT WORKS"]}
-        />
+    <section className="py-16 md:py-24 border-b border-line">
+      <div className="mx-auto max-w-7xl px-6">
+        <Reveal>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-left text-fg mb-12 md:mb-16">
+            HOW IT WORKS
+          </h2>
+        </Reveal>
 
-        <ol className="mt-8 sm:mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
           {STEPS.map((step, i) => (
-            <Reveal key={step} as="li" delay={i * 100}>
-              <div className="border-t-2 border-fg pt-3 sm:pt-4 md:pt-5 flex items-baseline gap-3 md:block text-left">
-                <span className="font-display text-sm sm:text-base font-bold text-muted shrink-0">
-                  {String(i + 1).padStart(2, "0")}
+            <Reveal key={step.num} delay={i * 150} className="h-full">
+              <div
+                className={`flex items-center gap-4 sm:gap-6 md:px-8 lg:px-12 py-4 ${
+                  i !== 0 ? "md:border-l md:border-line" : "md:pl-0"
+                }`}
+              >
+                {/* Stylized Lime Italic Number */}
+                <span className="font-serif italic font-black text-5xl sm:text-6xl text-[#c8e600] shrink-0 leading-none">
+                  {step.num}
                 </span>
-                <h3 className="mt-0 md:mt-2 font-display text-base sm:text-lg md:text-lg lg:text-xl xl:text-2xl font-black uppercase tracking-tight">
-                  {step}
-                </h3>
+
+                {/* Icon & Title */}
+                <div className="flex flex-col items-start gap-2">
+                  <div className="text-fg mb-1">{step.icon}</div>
+                  <h3 className="font-display text-xs sm:text-sm md:text-sm font-black uppercase tracking-tight leading-tight text-fg whitespace-pre-line text-left">
+                    {step.title}
+                  </h3>
+                </div>
               </div>
             </Reveal>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );

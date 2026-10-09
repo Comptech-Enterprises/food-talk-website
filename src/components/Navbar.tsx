@@ -31,16 +31,25 @@ export default function Navbar({ tone = "light" }: { tone?: "light" | "dark" }) 
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-10">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className={`font-display text-base md:text-lg font-bold tracking-wider ${ink} hover:opacity-70 transition-opacity`}
-            >
-              {link.label}
-            </Link>
-          ))}
+        <div className="hidden md:flex items-center gap-8">
+          <Link
+            href="/#about"
+            className={`font-display text-xs md:text-sm font-bold tracking-wider ${ink} hover:opacity-70 transition-opacity`}
+          >
+            ABOUT US
+          </Link>
+          <Link
+            href="/#experiences"
+            className={`font-display text-xs md:text-sm font-bold tracking-wider ${ink} hover:opacity-70 transition-opacity`}
+          >
+            OUR EXPERIENCES
+          </Link>
+          <Link
+            href="/#work-with-us"
+            className="bg-[#c8e600] text-black px-4 py-2 rounded-full font-display text-xs font-black tracking-wider uppercase hover:brightness-105 active:scale-95 transition-all shadow-sm"
+          >
+            WORK WITH US
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
