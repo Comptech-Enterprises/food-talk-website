@@ -37,9 +37,9 @@ export default function ExperiencesSection() {
     <section id="experiences" className="scroll-mt-20 py-16 md:py-24 border-b border-line">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16">
         <Reveal>
-          <p className="font-display text-xs md:text-sm font-bold tracking-[0.15em] uppercase text-fg mb-10 text-left">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-left text-fg mb-10 md:mb-14">
             OUR EXPERIENCES
-          </p>
+          </h2>
         </Reveal>
 
         {/* 3-Card Grid */}
