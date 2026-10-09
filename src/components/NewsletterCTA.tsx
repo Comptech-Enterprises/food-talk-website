@@ -28,7 +28,10 @@ export default function NewsletterCTA() {
           <LineReveal
             as="h2"
             className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.95] tracking-tight text-white"
-            lines={["GET ACCESS TO", "OUR EXPERIENCES."]}
+            lines={[
+              "GET ACCESS TO",
+              <span key="highlight" className="text-gradient">OUR EXPERIENCES.</span>,
+            ]}
           />
 
           <Reveal delay={200}>
@@ -40,11 +43,11 @@ export default function NewsletterCTA() {
                 type="email"
                 placeholder="Your email address"
                 required
-                className="bg-white text-fg px-4 py-3 sm:py-3.5 text-xs sm:text-sm font-medium placeholder:text-muted/70 focus:outline-none rounded-none flex-1 min-w-0"
+                className="bg-white text-fg px-4 py-3 sm:py-3.5 text-xs sm:text-sm font-medium placeholder:text-muted-2 focus:outline-none rounded-none flex-1 min-w-0 font-sans"
               />
               <button
                 type="submit"
-                className="bg-[#c8e600] text-black px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-black uppercase tracking-wider hover:brightness-105 active:scale-95 transition-all cursor-pointer shrink-0 rounded-none mt-2 sm:mt-0"
+                className="bg-accent text-white px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-accent-deep hover:shadow-[0_0_20px_rgba(139,127,232,0.5)] active:scale-95 transition-all cursor-pointer shrink-0 rounded-none mt-2 sm:mt-0 font-display"
               >
                 SIGN UP
               </button>

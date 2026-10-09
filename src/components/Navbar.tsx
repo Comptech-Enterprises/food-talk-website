@@ -48,19 +48,19 @@ export default function Navbar({ tone = "light" }: { tone?: "light" | "dark" }) 
         <div className="hidden md:flex items-center gap-8">
           <Link
             href="/#about"
-            className={`font-display text-xs md:text-sm font-bold tracking-wider ${ink} hover:opacity-70 transition-opacity`}
+            className={`font-display text-xs md:text-sm font-semibold tracking-wider ${ink} hover:text-accent transition-colors`}
           >
             ABOUT US
           </Link>
           <Link
             href="/#experiences"
-            className={`font-display text-xs md:text-sm font-bold tracking-wider ${ink} hover:opacity-70 transition-opacity`}
+            className={`font-display text-xs md:text-sm font-semibold tracking-wider ${ink} hover:text-accent transition-colors`}
           >
             OUR EXPERIENCES
           </Link>
           <Link
             href="/#work-with-us"
-            className="bg-[#c8e600] text-black px-4 py-2 rounded-full font-display text-xs font-black tracking-wider uppercase hover:brightness-105 active:scale-95 transition-all shadow-sm"
+            className="bg-accent text-white px-5 py-2 rounded-full font-display text-xs font-bold tracking-wider uppercase hover:bg-accent-deep hover:shadow-[0_2px_15px_rgba(139,127,232,0.4)] active:scale-95 transition-all"
           >
             WORK WITH US
           </Link>

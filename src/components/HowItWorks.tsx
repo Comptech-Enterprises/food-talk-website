@@ -45,7 +45,11 @@ export default function HowItWorks() {
         <LineReveal
           as="h2"
           className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-left text-fg mb-12 md:mb-16"
-          lines={["HOW IT WORKS"]}
+          lines={[
+            <span>
+              HOW IT <span className="text-gradient">WORKS</span>
+            </span>,
+          ]}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
@@ -56,17 +60,17 @@ export default function HowItWorks() {
                   i !== 0 ? "md:border-l md:border-line" : "md:pl-0"
                 }`}
               >
-                {/* Stylized Italic Number */}
-                <span className="font-serif italic font-black text-5xl sm:text-6xl text-accent shrink-0 leading-none transition-transform duration-300 group-hover:scale-110">
+                {/* Stylized Number with Anthem text-gradient */}
+                <span className="font-display font-extrabold text-5xl sm:text-6xl text-gradient shrink-0 leading-none transition-transform duration-300 group-hover:scale-110">
                   {step.num}
                 </span>
 
                 {/* Icon & Title */}
                 <div className="flex flex-col items-start gap-2">
-                  <div className="text-fg mb-1 transition-transform duration-300 group-hover:rotate-6">
+                  <div className="text-fg mb-1 transition-transform duration-300 group-hover:rotate-6 group-hover:text-accent">
                     {step.icon}
                   </div>
-                  <h3 className="font-display text-xs sm:text-sm md:text-sm font-black uppercase tracking-tight leading-tight text-fg whitespace-pre-line text-left">
+                  <h3 className="font-display text-xs sm:text-sm md:text-sm font-bold uppercase tracking-tight leading-tight text-fg group-hover:text-accent transition-colors whitespace-pre-line text-left">
                     {step.title}
                   </h3>
                 </div>

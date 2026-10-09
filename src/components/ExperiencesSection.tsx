@@ -40,7 +40,11 @@ export default function ExperiencesSection() {
         <LineReveal
           as="h2"
           className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-left text-fg mb-10 md:mb-14"
-          lines={["OUR EXPERIENCES"]}
+          lines={[
+            <span>
+              OUR <span className="text-gradient">EXPERIENCES</span>
+            </span>,
+          ]}
         />
 
         {/* 3-Card Grid */}
@@ -61,17 +65,17 @@ export default function ExperiencesSection() {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-display text-xl sm:text-2xl font-black tracking-tight uppercase text-fg group-hover:text-black transition-colors">
-                  {exp.title}
+                <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight uppercase text-fg group-hover:text-accent transition-colors">
+                  {exp.title}<span className="text-accent opacity-0 group-hover:opacity-100 transition-opacity">.</span>
                 </h3>
 
                 {/* Tagline */}
-                <p className="mt-2 font-serif italic text-sm sm:text-base text-fg/90">
+                <p className="mt-2 font-serif italic text-sm sm:text-base text-fg/85">
                   {exp.tagline}
                 </p>
 
                 {/* Description */}
-                <p className="mt-3 text-xs sm:text-sm text-muted leading-relaxed font-normal flex-1">
+                <p className="mt-3 text-xs sm:text-sm text-muted leading-relaxed font-sans flex-1">
                   {exp.description}
                 </p>
 
@@ -80,7 +84,7 @@ export default function ExperiencesSection() {
                   {exp.cta.href ? (
                     <Link
                       href={exp.cta.href}
-                      className="inline-block border border-fg px-6 py-2 text-xs font-bold tracking-wider uppercase text-fg hover:bg-fg hover:text-bg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 shadow-sm"
+                      className="inline-block border border-line px-6 py-2 text-xs font-bold tracking-wider uppercase text-fg hover:border-accent hover:text-accent hover:shadow-[0_0_12px_rgba(139,127,232,0.3)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 bg-white/40"
                     >
                       {exp.cta.label}
                     </Link>

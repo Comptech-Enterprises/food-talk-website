@@ -10,7 +10,7 @@ export default function AboutSection() {
           {/* Left Column */}
           <div className="md:col-span-6 flex flex-col justify-center text-left">
             <Reveal variant="left">
-              <p className="font-display text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-muted mb-3 flex items-center gap-2">
+              <p className="font-display text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-3 flex items-center gap-2">
                 <span className="w-5 h-0.5 bg-accent inline-block" />
                 ABOUT US
               </p>
@@ -19,13 +19,17 @@ export default function AboutSection() {
             <LineReveal
               as="h2"
               className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.95] tracking-tight text-fg"
-              lines={["A FOOD", "EXPERIENCES", "PLATFORM."]}
+              lines={[
+                "A FOOD",
+                <span key="highlight" className="text-gradient">EXPERIENCES</span>,
+                "PLATFORM.",
+              ]}
             />
 
             <Reveal delay={250} variant="up">
-              <p className="mt-6 text-base sm:text-lg leading-relaxed text-muted font-normal">
-                Bringing people together around food, drinks and culture. We curate
-                experiences that celebrate the people, places and ideas behind them,
+              <p className="mt-6 text-base sm:text-lg leading-relaxed text-muted font-normal font-sans">
+                Bringing people together around <span className="text-fg font-medium">food, drinks and culture</span>. We curate
+                experiences that celebrate the <span className="text-accent font-medium">people, places and ideas</span> behind them,
                 and create spaces where great food, memorable drinks and meaningful
                 connections come together.
               </p>

@@ -31,8 +31,9 @@
   --color-accent-deep: var(--accent-deep);
   --color-accent-ink: var(--accent-ink);
 
-  --font-display: var(--font-archivo);
-  --font-sans: var(--font-inter);
+  --font-display: var(--font-poppins);
+  --font-body: var(--font-roboto);
+  --font-sans: var(--font-roboto);
 
   --breakpoint-xs: 30rem;
 }
