@@ -51,18 +51,20 @@ export default function HowItWorks() {
           {STEPS.map((step, i) => (
             <Reveal key={step.num} delay={i * 150} className="h-full">
               <div
-                className={`flex items-center gap-4 sm:gap-6 md:px-8 lg:px-12 py-4 ${
+                className={`group flex items-center gap-4 sm:gap-6 md:px-8 lg:px-12 py-4 transition-transform duration-300 hover:-translate-y-1 ${
                   i !== 0 ? "md:border-l md:border-line" : "md:pl-0"
                 }`}
               >
                 {/* Stylized Lime Italic Number */}
-                <span className="font-serif italic font-black text-5xl sm:text-6xl text-[#c8e600] shrink-0 leading-none">
+                <span className="font-serif italic font-black text-5xl sm:text-6xl text-[#c8e600] shrink-0 leading-none transition-transform duration-300 group-hover:scale-110">
                   {step.num}
                 </span>
 
                 {/* Icon & Title */}
                 <div className="flex flex-col items-start gap-2">
-                  <div className="text-fg mb-1">{step.icon}</div>
+                  <div className="text-fg mb-1 transition-transform duration-300 group-hover:rotate-6">
+                    {step.icon}
+                  </div>
                   <h3 className="font-display text-xs sm:text-sm md:text-sm font-black uppercase tracking-tight leading-tight text-fg whitespace-pre-line text-left">
                     {step.title}
                   </h3>

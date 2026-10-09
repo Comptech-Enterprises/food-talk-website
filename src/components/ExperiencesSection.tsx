@@ -46,20 +46,21 @@ export default function ExperiencesSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 lg:gap-10">
           {EXPERIENCES.map((exp, i) => (
             <Reveal key={exp.title} delay={i * 150}>
-              <article className="flex flex-col h-full text-left">
+              <article className="group flex flex-col h-full text-left transition-all duration-300">
                 {/* Image */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden mb-5">
+                <div className="relative aspect-[16/10] w-full overflow-hidden mb-5 bg-black/10">
                   <Image
                     src={exp.image}
                     alt={exp.title}
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"
-                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
                 </div>
 
                 {/* Title */}
-                <h3 className="font-display text-xl sm:text-2xl font-black tracking-tight uppercase text-fg">
+                <h3 className="font-display text-xl sm:text-2xl font-black tracking-tight uppercase text-fg group-hover:text-black transition-colors">
                   {exp.title}
                 </h3>
 
@@ -78,7 +79,7 @@ export default function ExperiencesSection() {
                   {exp.cta.href ? (
                     <Link
                       href={exp.cta.href}
-                      className="inline-block border border-fg px-6 py-2 text-xs font-bold tracking-wider uppercase text-fg hover:bg-fg hover:text-bg transition-colors"
+                      className="inline-block border border-fg px-6 py-2 text-xs font-bold tracking-wider uppercase text-fg hover:bg-fg hover:text-bg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 shadow-sm"
                     >
                       {exp.cta.label}
                     </Link>

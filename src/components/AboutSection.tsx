@@ -33,13 +33,13 @@ export default function AboutSection() {
           {/* Right Column: Plating Image */}
           <div className="md:col-span-6">
             <Reveal delay={300}>
-              <div className="relative aspect-[16/10] sm:aspect-[4/3] md:aspect-[16/10] w-full overflow-hidden rounded-none shadow-md">
+              <div className="group relative aspect-[16/10] sm:aspect-[4/3] md:aspect-[16/10] w-full overflow-hidden rounded-none shadow-md bg-black/10">
                 <Image
                   src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80"
                   alt="Chef plating food with microgreens"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                 />
               </div>
             </Reveal>
