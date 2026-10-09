@@ -40,7 +40,7 @@ const STEPS = [
 export default function HowItWorks() {
   return (
     <section className="py-16 md:py-24 border-b border-line">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16">
         <Reveal>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-left text-fg mb-12 md:mb-16">
             HOW IT WORKS

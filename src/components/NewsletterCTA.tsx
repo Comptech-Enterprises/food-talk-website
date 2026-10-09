@@ -21,7 +21,7 @@ export default function NewsletterCTA() {
         <div className="absolute inset-0 bg-black/60 md:bg-black/50" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 w-full">
+      <div className="relative mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16 w-full">
         <div className="max-w-2xl text-left">
           <Reveal>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.95] tracking-tight text-white">

@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 export default function AboutSection() {
   return (
     <section id="about" className="scroll-mt-20 py-16 md:py-24 border-b border-line">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16">
         <div className="grid md:grid-cols-12 gap-10 md:gap-14 items-center">
           {/* Left Column */}
           <div className="md:col-span-6 flex flex-col justify-center text-left">

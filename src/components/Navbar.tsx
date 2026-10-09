@@ -18,7 +18,7 @@ export default function Navbar({ tone = "light" }: { tone?: "light" | "dark" }) 
 
   return (
     <nav className="absolute top-0 left-0 right-0 z-50">
-      <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
+      <div className="mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16 py-6 flex items-center justify-between">
         <Link href="/">
           <Image
             src="/logo.webp"

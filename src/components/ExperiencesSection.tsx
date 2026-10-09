@@ -35,7 +35,7 @@ const EXPERIENCES = [
 export default function ExperiencesSection() {
   return (
     <section id="experiences" className="scroll-mt-20 py-16 md:py-24 border-b border-line">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16">
         <Reveal>
           <p className="font-display text-xs md:text-sm font-bold tracking-[0.15em] uppercase text-fg mb-10 text-left">
             OUR EXPERIENCES
