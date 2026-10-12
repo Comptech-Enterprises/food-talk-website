@@ -4,17 +4,16 @@ export default function Hero() {
   return (
     <section
       aria-label="Food Talk India"
-      className="relative w-full bg-bg-dark pt-24 sm:pt-28 md:pt-32 pb-10 sm:pb-16 flex flex-col items-center justify-center overflow-hidden"
+      className="relative h-[78vh] sm:h-[84vh] md:h-[88vh] min-h-[500px] w-full overflow-hidden bg-bg-dark select-none"
     >
-      {/* Subtle ambient lighting */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-accent/5 blur-[150px]"
-      />
+      {/* 3-Section Cinematic Video Hero */}
+      <HeroVideo />
 
-      <div className="relative z-10 w-full flex items-center justify-center px-4">
-        <HeroVideo />
-      </div>
+      {/* Top subtle vignette for transparent navbar clarity */}
+      <div className="absolute top-0 left-0 right-0 h-32 sm:h-36 bg-gradient-to-b from-black/75 via-black/30 to-transparent pointer-events-none z-20" />
+
+      {/* Bottom subtle blend into following page sections */}
+      <div className="absolute bottom-0 left-0 right-0 h-28 sm:h-36 bg-gradient-to-t from-bg-dark via-bg-dark/40 to-transparent pointer-events-none z-20" />
     </section>
   );
 }
