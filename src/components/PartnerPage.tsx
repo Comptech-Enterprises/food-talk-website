@@ -8,7 +8,7 @@ type PartnerPageProps = {
   eyebrow: string;
   title: string[];
   intro: string;
-  points: { title: string; text: string }[];
+  points?: { title: string; text: string }[];
 };
 
 export default function PartnerPage({ eyebrow, title, intro, points }: PartnerPageProps) {
@@ -33,23 +33,25 @@ export default function PartnerPage({ eyebrow, title, intro, points }: PartnerPa
                 <p className="mt-6 max-w-lg mx-auto lg:mx-0 text-center lg:text-left text-lg text-muted">{intro}</p>
               </Reveal>
 
-              <ul className="mt-12 space-y-8">
-                {points.map((point, i) => (
-                  <Reveal key={point.title} as="li" variant="left" delay={700 + i * 150}>
-                    <div className="flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left gap-2 lg:gap-5">
-                      <span className="font-display text-3xl font-black italic text-fg leading-none pt-1">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div>
-                        <h2 className="font-display text-lg font-black tracking-wide uppercase">
-                          {point.title}
-                        </h2>
-                        <p className="mt-1 max-w-md mx-auto lg:mx-0 text-muted leading-relaxed">{point.text}</p>
+              {points && points.length > 0 && (
+                <ul className="mt-12 space-y-8">
+                  {points.map((point, i) => (
+                    <Reveal key={point.title} as="li" variant="left" delay={700 + i * 150}>
+                      <div className="flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left gap-2 lg:gap-5">
+                        <span className="font-display text-3xl font-black italic text-fg leading-none pt-1">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <div>
+                          <h2 className="font-display text-lg font-black tracking-wide uppercase">
+                            {point.title}
+                          </h2>
+                          <p className="mt-1 max-w-md mx-auto lg:mx-0 text-muted leading-relaxed">{point.text}</p>
+                        </div>
                       </div>
-                    </div>
-                  </Reveal>
-                ))}
-              </ul>
+                    </Reveal>
+                  ))}
+                </ul>
+              )}
             </div>
 
             <Reveal variant="right" delay={300}>

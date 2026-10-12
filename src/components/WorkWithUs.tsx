@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Reveal from "./Reveal";
 
 export default function WorkWithUs() {
@@ -11,8 +10,8 @@ export default function WorkWithUs() {
     >
       <div className="relative mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16 flex justify-center">
         <Reveal>
-          <Link
-            href="/brand-partners"
+          <a
+            href="/"
             className="group inline-flex items-center gap-3 bg-accent text-black px-9 sm:px-12 py-4 sm:py-5 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-xl hover:bg-accent-soft hover:shadow-[0_0_25px_var(--accent-glow)] hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer font-display"
           >
             <span>Partner with Us</span>
@@ -29,7 +28,7 @@ export default function WorkWithUs() {
                 d="M14 5l7 7m0 0l-7 7m7-7H3"
               />
             </svg>
-          </Link>
+          </a>
         </Reveal>
       </div>
     </section>

@@ -48,9 +48,9 @@ export default function SeriousEatersClub() {
   return (
     <>
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 bg-bg">
         {/* Hero */}
-        <section className="relative h-[70vh] min-h-[500px] overflow-hidden flex items-end">
+        <section className="relative min-h-[580px] sm:min-h-[640px] md:h-[85vh] md:min-h-[680px] overflow-hidden flex flex-col justify-end pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 border-b border-line">
           <Parallax className="absolute inset-0" speed={0.35} scale={1.3}>
             <Image
               src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2000&q=80"
@@ -61,24 +61,24 @@ export default function SeriousEatersClub() {
               className="object-cover kenburns"
             />
           </Parallax>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/35 pointer-events-none" />
 
-          <Parallax className="relative mx-auto max-w-7xl w-full px-6 pb-12" speed={-0.18} fadeOut>
+          <Parallax className="relative mx-auto max-w-[1600px] w-full px-6 sm:px-10 md:px-14 lg:px-16" speed={-0.18} fadeOut>
             <LineReveal
               as="h1"
               immediate
               delay={200}
-              className="display text-[clamp(3rem,10vw,7rem)] text-white leading-[0.9]"
+              className="font-display text-[clamp(2.5rem,6.5vw,5.5rem)] font-black uppercase tracking-tight text-white leading-[0.95]"
               lines={[
                 "SERIOUS",
-                <span key="eaters" className="text-accent italic">
+                <span key="eaters" className="text-gradient">
                   EATERS
                 </span>,
                 "CLUB",
               ]}
             />
-            <Reveal delay={900}>
-              <p className="mt-4 text-lg text-white/80 max-w-md">
+            <Reveal delay={600}>
+              <p className="mt-4 text-base sm:text-lg text-white/80 max-w-md font-sans">
                 A curated dining series
                 <br />
                 by Food Talk India.
@@ -88,24 +88,27 @@ export default function SeriousEatersClub() {
         </section>
 
         {/* About */}
-        <section className="py-20 md:py-32">
-          <div className="mx-auto max-w-7xl px-6">
+        <section className="py-20 md:py-28 border-b border-line bg-bg">
+          <div className="mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16">
             <Reveal variant="left">
-              <p className="section-title mb-6 text-center md:text-left">ABOUT</p>
+              <p className="font-display text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 flex items-center gap-2">
+                <span className="w-5 h-0.5 bg-accent inline-block" />
+                ABOUT
+              </p>
             </Reveal>
 
-            <div className="mt-10 md:mt-14 grid md:grid-cols-12 gap-10 md:gap-16 items-end">
-              <div className="@container md:col-span-7">
+            <div className="mt-8 md:mt-12 grid md:grid-cols-12 gap-10 md:gap-16 items-end">
+              <div className="md:col-span-7">
                 <LineReveal
                   as="h2"
-                  className="font-display text-[length:min(4.5rem,9.5cqw)] font-black leading-[1.05] text-center md:text-left"
-                  lines={["A dining series", "that celebrates", "bold flavours."]}
+                  className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.95] tracking-tight text-white"
+                  lines={["A DINING SERIES", "THAT CELEBRATES", <span key="highlight" className="text-gradient">BOLD FLAVOURS.</span>]}
                 />
               </div>
 
               <div className="md:col-span-5">
-                <Reveal delay={400}>
-                  <p className="max-w-md mx-auto md:mx-0 text-center md:text-left text-lg leading-relaxed text-muted">
+                <Reveal delay={300}>
+                  <p className="max-w-md text-base sm:text-lg leading-relaxed text-muted font-sans">
                     Each dinner is led by a strong culinary point of view, whether a
                     chef&apos;s philosophy, a lesser-known cuisine, or a rare technique.
                     We bring together exceptional food, memorable drinks and great
@@ -118,35 +121,38 @@ export default function SeriousEatersClub() {
         </section>
 
         {/* Past Experiences */}
-        <section className="border-t border-line py-16 md:py-24">
-          <div className="mx-auto max-w-7xl px-6">
+        <section className="py-16 md:py-24 border-b border-line bg-bg">
+          <div className="mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16">
             <Reveal variant="left">
-              <p className="section-title mb-10 text-center md:text-left">OUR EXPERIENCES</p>
+              <p className="font-display text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 flex items-center gap-2">
+                <span className="w-5 h-0.5 bg-accent inline-block" />
+                PAST EXPERIENCES
+              </p>
             </Reveal>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <LineReveal
+              as="h2"
+              className="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase leading-[0.95] tracking-tight text-white mb-10 md:mb-14"
+              lines={["PAST", <span key="experiences" className="text-gradient">EXPERIENCES.</span>]}
+            />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {PAST_DINNERS.map((dinner, i) => (
                 <Reveal key={dinner.title} delay={i * 150}>
-                  <div className="group flex flex-col text-center md:text-left">
-                    <div className="relative aspect-square overflow-hidden rounded-sm">
-                      <Parallax
-                        className="absolute inset-0"
-                        speed={i % 2 === 0 ? 0.1 : 0.2}
-                        scale={1.3}
-                      >
-                        <Image
-                          src={dinner.image}
-                          alt={dinner.title}
-                          fill
-                          sizes="(max-width: 768px) 50vw, 25vw"
-                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                        />
-                      </Parallax>
+                  <div className="group flex flex-col text-left rounded-2xl border border-line bg-surface p-5 hover:border-accent/40 hover:bg-surface-2 transition-all duration-300">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-black/40 mb-4">
+                      <Image
+                        src={dinner.image}
+                        alt={dinner.title}
+                        fill
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                      />
                     </div>
-                    <h3 className="font-display text-sm font-black mt-4 whitespace-pre-line leading-tight">
+                    <h3 className="font-display text-base font-bold text-white group-hover:text-accent transition-colors leading-tight uppercase">
                       {dinner.title}
                     </h3>
-                    <p className="mt-2 text-xs leading-relaxed text-muted">
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted font-sans">
                       {dinner.description}
                     </p>
                   </div>
@@ -154,9 +160,9 @@ export default function SeriousEatersClub() {
               ))}
             </div>
 
-            <Reveal variant="right">
-              <p className="mt-10 text-center md:text-right font-display text-2xl md:text-3xl font-black italic uppercase tracking-tight">
-                AND MANY MORE.
+            <Reveal variant="right" delay={400}>
+              <p className="mt-12 text-right font-display text-xs sm:text-sm font-bold tracking-wider uppercase text-muted">
+                AND MANY MORE TO COME.
               </p>
             </Reveal>
           </div>
