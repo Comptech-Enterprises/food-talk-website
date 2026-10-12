@@ -1,116 +1,72 @@
 "use client";
 
+import Link from "next/link";
 import LineReveal from "./LineReveal";
 import Reveal from "./Reveal";
 
 export default function WorkWithUs() {
   return (
-    <section id="work-with-us" className="scroll-mt-20 py-16 md:py-24 border-b border-line overflow-hidden">
-      <div className="mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16">
-        <LineReveal
-          as="h2"
-          className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-left text-white mb-10 md:mb-14"
-          lines={[
-            <span>
-              WORK <span className="text-gradient">WITH US</span>
-            </span>,
-          ]}
-        />
+    <section
+      id="work-with-us"
+      className="relative scroll-mt-20 py-20 md:py-28 border-b border-line overflow-hidden bg-bg"
+    >
+      {/* Ambient background glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-20 left-1/3 h-96 w-96 rounded-full bg-accent/10 blur-[130px]"
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-0">
-          {/* Column 1: Venues and Vendors */}
-          <div className="md:pr-8 lg:pr-12">
-            <Reveal delay={100}>
-              <h3 className="font-display text-sm sm:text-base font-bold tracking-tight uppercase text-left text-white mb-4">
-                VENUES AND VENDORS PARTNERSHIPS
-              </h3>
+      <div className="relative mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12">
+          {/* Left: Title & Subtext */}
+          <div className="max-w-2xl text-left">
+            <Reveal variant="left">
+              <p className="font-display text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 flex items-center gap-2">
+                <span className="w-5 h-0.5 bg-accent inline-block" />
+                PARTNERSHIPS
+              </p>
+            </Reveal>
 
-              <form onSubmit={(e) => e.preventDefault()} className="space-y-3">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  required
-                  className="w-full bg-surface border border-line px-4 py-3 text-xs sm:text-sm font-sans placeholder:text-muted-2 text-white rounded-lg focus:outline-none focus:bg-surface-2 focus:border-accent focus:ring-1 focus:ring-accent transition-all"
-                />
-                <input
-                  type="text"
-                  placeholder="Business / Venue Name"
-                  required
-                  className="w-full bg-surface border border-line px-4 py-3 text-xs sm:text-sm font-sans placeholder:text-muted-2 text-white rounded-lg focus:outline-none focus:bg-surface-2 focus:border-accent focus:ring-1 focus:ring-accent transition-all"
-                />
-                <input
-                  type="text"
-                  placeholder="What do you offer?"
-                  required
-                  className="w-full bg-surface border border-line px-4 py-3 text-xs sm:text-sm font-sans placeholder:text-muted-2 text-white rounded-lg focus:outline-none focus:bg-surface-2 focus:border-accent focus:ring-1 focus:ring-accent transition-all"
-                />
-                <input
-                  type="email"
-                  placeholder="Email"
-                  required
-                  className="w-full bg-surface border border-line px-4 py-3 text-xs sm:text-sm font-sans placeholder:text-muted-2 text-white rounded-lg focus:outline-none focus:bg-surface-2 focus:border-accent focus:ring-1 focus:ring-accent transition-all"
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone"
-                  required
-                  className="w-full bg-surface border border-line px-4 py-3 text-xs sm:text-sm font-sans placeholder:text-muted-2 text-white rounded-lg focus:outline-none focus:bg-surface-2 focus:border-accent focus:ring-1 focus:ring-accent transition-all"
-                />
-                <button
-                  type="submit"
-                  className="w-full bg-accent text-black py-3.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider rounded-lg hover:bg-accent-soft hover:shadow-[0_0_20px_var(--accent-glow)] active:scale-[0.99] transition-all cursor-pointer mt-2 font-display"
-                >
-                  SUBMIT
-                </button>
-              </form>
+            <LineReveal
+              as="h2"
+              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight uppercase text-left text-white"
+              lines={[
+                <span>
+                  WORK <span className="text-gradient">WITH US</span>
+                </span>,
+              ]}
+            />
+
+            <Reveal delay={200}>
+              <p className="mt-6 text-base sm:text-lg text-muted max-w-xl leading-relaxed font-sans">
+                Put your brand in front of people who care deeply about food, drink and culture.
+                From curated chef-led dinners to large-scale culinary festivals, we shape partnerships that belong in the room.
+              </p>
             </Reveal>
           </div>
 
-          {/* Column 2: Brand Partnerships */}
-          <div className="md:border-l md:border-line md:pl-8 lg:pl-12">
-            <Reveal delay={250}>
-              <h3 className="font-display text-sm sm:text-base font-bold tracking-tight uppercase text-left text-white mb-4">
-                BRAND PARTNERSHIPS
-              </h3>
-
-              <form onSubmit={(e) => e.preventDefault()} className="space-y-3">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  required
-                  className="w-full bg-surface border border-line px-4 py-3 text-xs sm:text-sm font-sans placeholder:text-muted-2 text-white rounded-lg focus:outline-none focus:bg-surface-2 focus:border-accent focus:ring-1 focus:ring-accent transition-all"
-                />
-                <input
-                  type="text"
-                  placeholder="Brand / Company Name"
-                  required
-                  className="w-full bg-surface border border-line px-4 py-3 text-xs sm:text-sm font-sans placeholder:text-muted-2 text-white rounded-lg focus:outline-none focus:bg-surface-2 focus:border-accent focus:ring-1 focus:ring-accent transition-all"
-                />
-                <input
-                  type="text"
-                  placeholder="What are you looking to do?"
-                  required
-                  className="w-full bg-surface border border-line px-4 py-3 text-xs sm:text-sm font-sans placeholder:text-muted-2 text-white rounded-lg focus:outline-none focus:bg-surface-2 focus:border-accent focus:ring-1 focus:ring-accent transition-all"
-                />
-                <input
-                  type="email"
-                  placeholder="Email"
-                  required
-                  className="w-full bg-surface border border-line px-4 py-3 text-xs sm:text-sm font-sans placeholder:text-muted-2 text-white rounded-lg focus:outline-none focus:bg-surface-2 focus:border-accent focus:ring-1 focus:ring-accent transition-all"
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone"
-                  required
-                  className="w-full bg-surface border border-line px-4 py-3 text-xs sm:text-sm font-sans placeholder:text-muted-2 text-white rounded-lg focus:outline-none focus:bg-surface-2 focus:border-accent focus:ring-1 focus:ring-accent transition-all"
-                />
-                <button
-                  type="submit"
-                  className="w-full bg-accent text-black py-3.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider rounded-lg hover:bg-accent-soft hover:shadow-[0_0_20px_var(--accent-glow)] active:scale-[0.99] transition-all cursor-pointer mt-2 font-display"
+          {/* Right: Work with Brands CTA Button */}
+          <div className="shrink-0 pt-2 md:pt-0 text-left">
+            <Reveal delay={300}>
+              <Link
+                href="/brand-partners"
+                className="group inline-flex items-center gap-3 bg-accent text-black px-8 sm:px-10 py-4 sm:py-4.5 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-xl hover:bg-accent-soft hover:shadow-[0_0_25px_var(--accent-glow)] hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer font-display"
+              >
+                <span>Work with Brands</span>
+                <svg
+                  className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  SUBMIT
-                </button>
-              </form>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2.5"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </Link>
             </Reveal>
           </div>
         </div>
