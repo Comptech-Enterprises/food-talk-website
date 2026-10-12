@@ -15,28 +15,28 @@ export const metadata: Metadata = {
 
 const PAST_DINNERS = [
   {
-    title: "Zuru Zuru –\nTsukemen Dinner",
+    title: "Tsukemen Dinner",
     description:
       "An Izakaya style takeover where steaming bowls of tsukemen ramen, set the tone for everything that came after.",
     image:
       "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80",
   },
   {
-    title: "Mahabelly –\nToddy Shop Night",
+    title: "Toddy Shop Night",
     description:
       "Kerala’s Toddy Shops are famous for their pours, but this time it was the fiery, soulful food that did the talking.",
     image:
       "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80",
   },
   {
-    title: "H-Man –\nA Whole Damn Hog",
+    title: "A Whole Damn Hog",
     description:
       "For Dinner Three, we slow-smoked an entire hog, nose to tail, for 24 hours straight. Nothing left behind, except bones and stories.",
     image:
       "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
   },
   {
-    title: "Matamaal –\nKhaandar Saal",
+    title: "Khaandar Saal",
     description:
       "No bride. No baraat. Just the unforgettable spread of a Kashmiri Pandit wedding feast.",
     image:
