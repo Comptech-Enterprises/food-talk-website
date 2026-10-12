@@ -71,7 +71,7 @@ export default function HeroVideo() {
               <div className="absolute inset-0 bg-black/15 group-hover:bg-black/25 transition-colors duration-300 pointer-events-none" />
 
               {/* Bottom Editorial Tag & Sound Control */}
-              <div className="absolute bottom-5 sm:bottom-7 left-3 sm:left-6 right-3 sm:right-6 z-30 flex items-center justify-between gap-2 pointer-events-auto">
+              <div className="absolute bottom-0 left-0 right-0 z-30 pt-10 pb-5 sm:pb-7 px-3 sm:px-6 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-center justify-between gap-2 pointer-events-auto">
                 <span className="font-display text-[9px] sm:text-[11px] md:text-xs font-bold tracking-[0.16em] uppercase text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] truncate">
                   {video.title}
                 </span>
