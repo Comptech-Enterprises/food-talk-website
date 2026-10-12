@@ -1,30 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import LineReveal from "./LineReveal";
 import Reveal from "./Reveal";
 
 export default function WorkWithUs() {
   return (
     <section
       id="work-with-us"
-      className="relative scroll-mt-20 py-16 md:py-24 border-b border-line overflow-hidden bg-bg"
+      className="relative scroll-mt-20 py-12 md:py-16 border-b border-line overflow-hidden bg-bg"
     >
-      <div className="relative mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16 text-left">
-        <LineReveal
-          as="h2"
-          className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-white mb-8"
-          lines={[
-            <span>
-              WORK <span className="text-gradient">WITH US</span>
-            </span>,
-          ]}
-        />
-
-        <Reveal delay={150}>
+      <div className="relative mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16 flex justify-center">
+        <Reveal>
           <Link
             href="/brand-partners"
-            className="group inline-flex items-center gap-3 bg-accent text-black px-8 sm:px-10 py-4 text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wider rounded-xl hover:bg-accent-soft hover:shadow-[0_0_25px_var(--accent-glow)] hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer font-display"
+            className="group inline-flex items-center gap-3 bg-accent text-black px-9 sm:px-12 py-4 sm:py-5 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-xl hover:bg-accent-soft hover:shadow-[0_0_25px_var(--accent-glow)] hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer font-display"
           >
             <span>Partner with Us</span>
             <svg
