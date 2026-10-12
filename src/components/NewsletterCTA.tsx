@@ -85,13 +85,6 @@ export default function NewsletterCTA() {
                 </span>,
               ]}
             />
-
-            <Reveal delay={200} variant="up">
-              <p className="mt-6 text-base sm:text-lg text-muted max-w-lg leading-relaxed font-sans">
-                Curated dinners, chef collaborations, and private tastings — all
-                delivered straight to your inbox before they sell out.
-              </p>
-            </Reveal>
           </div>
 
           {/* Right Column: Theme-Adapted Form Card */}
