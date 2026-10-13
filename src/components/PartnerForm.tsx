@@ -1,26 +1,62 @@
 "use client";
 
-import type { FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 
 const INPUT =
-  "w-full bg-transparent border-b-2 border-fg/25 py-4 text-lg placeholder:text-muted/60 focus:outline-none focus:border-fg transition-colors";
-const LABEL = "block text-xs font-bold tracking-[0.15em] uppercase text-muted mb-1";
+  "w-full bg-transparent border-b-2 border-white/20 py-3.5 sm:py-4 text-base sm:text-lg text-white placeholder:text-muted/60 focus:outline-none focus:border-accent transition-colors font-sans";
+const LABEL = "block text-xs font-bold tracking-[0.15em] uppercase text-muted mb-1 font-display";
 
 export default function PartnerForm() {
+  const [submitted, setSubmitted] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setSubmitted(true);
+  }
+
+  if (submitted) {
+    return (
+      <div className="py-8 text-center space-y-4">
+        <div className="w-14 h-14 mx-auto rounded-full bg-accent/20 border border-accent/40 flex items-center justify-center text-accent text-2xl font-bold">
+          ✓
+        </div>
+        <h3 className="font-display text-xl sm:text-2xl font-bold uppercase text-white">
+          THANK YOU!
+        </h3>
+        <p className="text-sm text-muted font-sans leading-relaxed max-w-sm mx-auto">
+          We&apos;ve received your details and will get in touch with you shortly.
+        </p>
+        <button
+          type="button"
+          onClick={() => {
+            setSubmitted(false);
+            setName("");
+            setEmail("");
+            setPhone("");
+          }}
+          className="text-xs uppercase font-bold text-accent hover:underline tracking-wider pt-2 font-display cursor-pointer"
+        >
+          Submit another response
+        </button>
+      </div>
+    );
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="space-y-8">
+    <form onSubmit={onSubmit} noValidate className="space-y-6 sm:space-y-8">
       <div>
-        <label htmlFor="name" className={LABEL}>
+        <label htmlFor="partner-name" className={LABEL}>
           Name
         </label>
         <input
-          id="name"
+          id="partner-name"
           name="name"
           type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           autoComplete="name"
           required
           placeholder="Your name"
@@ -29,13 +65,15 @@ export default function PartnerForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className={LABEL}>
+        <label htmlFor="partner-email" className={LABEL}>
           Email
         </label>
         <input
-          id="email"
+          id="partner-email"
           name="email"
           type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           autoComplete="email"
           required
           placeholder="you@example.com"
@@ -44,13 +82,15 @@ export default function PartnerForm() {
       </div>
 
       <div>
-        <label htmlFor="phone" className={LABEL}>
+        <label htmlFor="partner-phone" className={LABEL}>
           Phone number
         </label>
         <input
-          id="phone"
+          id="partner-phone"
           name="phone"
           type="tel"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
           autoComplete="tel"
           required
           placeholder="+91"
@@ -60,7 +100,7 @@ export default function PartnerForm() {
 
       <button
         type="submit"
-        className="w-full border border-fg bg-fg text-bg py-5 text-base font-bold tracking-wider hover:bg-transparent hover:text-fg transition-colors cursor-pointer"
+        className="w-full bg-accent text-black py-4 sm:py-5 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-xl hover:bg-accent-soft hover:shadow-[0_0_25px_var(--accent-glow)] hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer font-display"
       >
         SUBMIT
       </button>

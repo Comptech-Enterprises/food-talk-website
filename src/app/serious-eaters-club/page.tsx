@@ -3,6 +3,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsletterCTA from "@/components/NewsletterCTA";
+import WorkWithUs from "@/components/WorkWithUs";
 import Reveal from "@/components/Reveal";
 import Parallax from "@/components/Parallax";
 import LineReveal from "@/components/LineReveal";
@@ -53,8 +54,8 @@ export default function SeriousEatersClub() {
         <section className="relative min-h-[580px] sm:min-h-[640px] md:h-[85vh] md:min-h-[680px] overflow-hidden flex flex-col justify-end pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 border-b border-line">
           <Parallax className="absolute inset-0" speed={0.35} scale={1.3}>
             <Image
-              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2000&q=80"
-              alt="Candlelit dinner table"
+              src="/serious-eaters-photo.jpg"
+              alt="Serious Eaters Club chef-led dinner setting"
               fill
               priority
               sizes="100vw"
@@ -167,6 +168,17 @@ export default function SeriousEatersClub() {
             </Reveal>
           </div>
         </section>
+
+        <WorkWithUs
+          eyebrow="SERIOUS EATERS CLUB"
+          titleLines={[
+            "JOIN THE",
+            <span key="highlight" className="text-gradient">
+              TABLE.
+            </span>,
+          ]}
+          intro="Want to attend our next chef-led dinner or partner with Serious Eaters Club? Leave your details and we will get in touch."
+        />
 
         <NewsletterCTA />
       </main>
