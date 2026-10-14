@@ -152,6 +152,8 @@ export default function LiquidStudioPage() {
           </div>
         </section>
 
+        <NewsletterCTA />
+
         {/* Form embedded directly on the page */}
         <WorkWithUs
           eyebrow="LIQUID STUDIO"
@@ -163,8 +165,6 @@ export default function LiquidStudioPage() {
           ]}
           intro="Interested in bringing Liquid Studio to your venue, featuring your spirits brand, or joining our guest list? Leave your details and we will get in touch."
         />
-
-        <NewsletterCTA />
       </main>
       <Footer />
     </>

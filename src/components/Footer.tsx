@@ -4,7 +4,7 @@ import Link from "next/link";
 const FOOTER_LINKS = [
   { label: "ABOUT US", href: "/#about" },
   { label: "OUR EXPERIENCES", href: "/#experiences" },
-  { label: "WORK WITH US", href: "/#work-with-us" },
+  { label: "PARTNER WITH US", href: "/#partner-with-us" },
 ];
 
 export default function Footer() {

@@ -151,28 +151,21 @@ export default function HeroVideo() {
           );
         })}
 
-        {/* Mobile bottom bar: Editorial tag, slide indicators, and sound button */}
+        {/* Mobile bottom bar: slide indicators and sound button */}
         <div className="absolute bottom-6 left-4 right-4 z-30 flex items-center justify-between gap-3 pointer-events-auto">
-          {/* Active video title */}
-          <div className="flex flex-col gap-1.5">
-            <span className="font-display text-[10px] sm:text-xs font-bold tracking-[0.18em] uppercase text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-              {HERO_VIDEOS[mobileIndex].title}
-            </span>
-
-            {/* Segmented slide indicators */}
-            <div className="flex items-center gap-1.5">
-              {HERO_VIDEOS.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setMobileIndex(i)}
-                  aria-label={`Go to video ${i + 1}`}
-                  className={`h-1 rounded-full transition-all duration-300 ${
-                    i === mobileIndex ? "w-6 bg-accent" : "w-1.5 bg-white/40"
-                  }`}
-                />
-              ))}
-            </div>
+          {/* Segmented slide indicators */}
+          <div className="flex items-center gap-1.5">
+            {HERO_VIDEOS.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setMobileIndex(i)}
+                aria-label={`Go to video ${i + 1}`}
+                className={`h-1 rounded-full transition-all duration-300 ${
+                  i === mobileIndex ? "w-6 bg-accent" : "w-1.5 bg-white/40"
+                }`}
+              />
+            ))}
           </div>
 
           {/* Sound toggle button */}
@@ -231,12 +224,8 @@ export default function HeroVideo() {
               {/* Subtle hover wash */}
               <div className="absolute inset-0 bg-black/15 group-hover:bg-black/25 transition-colors duration-300 pointer-events-none" />
 
-              {/* Bottom Editorial Tag & Sound Control */}
-              <div className="absolute bottom-0 left-0 right-0 z-30 pt-10 pb-5 sm:pb-7 px-4 sm:px-6 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-center justify-between gap-2 pointer-events-auto">
-                <span className="font-display text-[10px] md:text-xs font-bold tracking-[0.16em] uppercase text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] truncate">
-                  {video.title}
-                </span>
-
+              {/* Bottom Sound Control */}
+              <div className="absolute bottom-0 left-0 right-0 z-30 pt-10 pb-5 sm:pb-7 px-4 sm:px-6 bg-gradient-to-t from-black/60 via-black/15 to-transparent flex items-center justify-end pointer-events-auto">
                 <button
                   type="button"
                   onClick={(e) => toggleDesktopSound(idx, e)}
