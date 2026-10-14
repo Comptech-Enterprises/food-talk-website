@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const NAV_LINKS = [
   { label: "ABOUT US", href: "/#about" },
   { label: "OUR EXPERIENCES", href: "/#experiences" },
-  { label: "WORK WITH US", href: "/#work-with-us" },
+  { label: "PARTNER WITH US", href: "/#partner-with-us" },
 ];
 
 export default function Navbar({ tone = "light" }: { tone?: "light" | "dark" }) {
@@ -59,10 +59,10 @@ export default function Navbar({ tone = "light" }: { tone?: "light" | "dark" }) 
             OUR EXPERIENCES
           </Link>
           <Link
-            href="/#work-with-us"
+            href="/#partner-with-us"
             className="bg-accent text-black px-5 py-2 rounded-full font-display text-xs font-bold tracking-wider uppercase hover:bg-accent-soft hover:shadow-[0_0_20px_var(--accent-glow)] active:scale-95 transition-all"
           >
-            WORK WITH US
+            PARTNER WITH US
           </Link>
         </div>
 

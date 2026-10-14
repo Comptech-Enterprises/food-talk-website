@@ -152,6 +152,8 @@ export default function CookoutPage() {
           </div>
         </section>
 
+        <NewsletterCTA />
+
         {/* Form embedded directly on the page */}
         <WorkWithUs
           eyebrow="COOKOUT"
@@ -163,8 +165,6 @@ export default function CookoutPage() {
           ]}
           intro="Want to collaborate, sponsor, or bring your kitchen to our next Cookout festival? Leave your details and we will get in touch."
         />
-
-        <NewsletterCTA />
       </main>
       <Footer />
     </>

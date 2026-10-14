@@ -169,6 +169,8 @@ export default function SeriousEatersClub() {
           </div>
         </section>
 
+        <NewsletterCTA />
+
         <WorkWithUs
           eyebrow="SERIOUS EATERS CLUB"
           titleLines={[
@@ -179,8 +181,6 @@ export default function SeriousEatersClub() {
           ]}
           intro="Want to attend our next chef-led dinner or partner with Serious Eaters Club? Leave your details and we will get in touch."
         />
-
-        <NewsletterCTA />
       </main>
       <Footer />
     </>

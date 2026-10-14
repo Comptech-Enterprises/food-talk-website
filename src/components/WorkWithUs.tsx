@@ -10,13 +10,13 @@ type WorkWithUsProps = {
 };
 
 export default function WorkWithUs({
-  id = "work-with-us",
-  eyebrow = "PARTNER WITH US",
+  id = "partner-with-us",
+  eyebrow,
   titleLines,
   intro = "Want your brand at our tables? Put your brand in front of people who care deeply about food, drink and culture. Leave your details and we will get in touch.",
 }: WorkWithUsProps) {
   const lines = titleLines || [
-    "WORK",
+    "PARTNER",
     <span key="highlight" className="text-gradient">
       WITH US.
     </span>,
@@ -27,6 +27,9 @@ export default function WorkWithUs({
       id={id}
       className="relative scroll-mt-20 py-16 md:py-24 border-b border-line overflow-hidden bg-bg"
     >
+      {/* Anchor for backward compatibility with #work-with-us */}
+      <div id="work-with-us" className="absolute -top-20" aria-hidden="true" />
+
       {/* Ambient background glow */}
       <div
         aria-hidden="true"
@@ -37,12 +40,14 @@ export default function WorkWithUs({
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left Column: Heading & Info */}
           <div className="lg:col-span-6 flex flex-col justify-center text-left">
-            <Reveal variant="left">
-              <p className="font-display text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 flex items-center gap-2">
-                <span className="w-5 h-0.5 bg-accent inline-block" />
-                {eyebrow}
-              </p>
-            </Reveal>
+            {eyebrow && (
+              <Reveal variant="left">
+                <p className="font-display text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 flex items-center gap-2">
+                  <span className="w-5 h-0.5 bg-accent inline-block" />
+                  {eyebrow}
+                </p>
+              </Reveal>
+            )}
 
             <LineReveal
               as="h2"
