@@ -44,8 +44,8 @@ export default function AboutSection() {
             <Reveal delay={300}>
               <div className="group relative aspect-[16/10] sm:aspect-[4/3] md:aspect-[16/10] w-full overflow-hidden rounded-2xl border border-line shadow-2xl bg-surface">
                 <Image
-                  src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80"
-                  alt="Chef plating food with microgreens"
+                  src="/about-experience.jpg"
+                  alt="Food Talk dining experience table setting"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"

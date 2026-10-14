@@ -9,8 +9,7 @@ const EXPERIENCES = [
     tagline: "Once in a while, a table appears for people who already understand.",
     description:
       "Chef-led dinners built on season, intent and conversation. A room of guests who care deeply about why something is cooked the way it is.",
-    image:
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
+    image: "/serious-eaters-photo.jpg",
     cta: { label: "KNOW MORE", href: "/serious-eaters-club" },
   },
   {
@@ -18,18 +17,16 @@ const EXPERIENCES = [
     tagline: "Some foods are meant to be eaten quietly. This isn’t it.",
     description:
       "Our flagship outdoor festival built around fire, smoke and serious appetite. Pitmasters and chefs from across the country, open flames, slow smoke, fast hands.",
-    image:
-      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80",
-    cta: { label: "COMING SOON", href: "" },
+    image: "/cookout-photo.jpg",
+    cta: { label: "KNOW MORE", href: "/cookout" },
   },
   {
     title: "LIQUID STUDIO",
     tagline: "Not every night needs a dance floor. Some need a bar worth standing at.",
     description:
       "A recurring nightlife format built around drink and sound. Guest bartenders, curated sound, intimate spaces. A studio, not a stage.",
-    image:
-      "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80",
-    cta: { label: "COMING SOON", href: "" },
+    image: "/liquid-studio-photo.jpg",
+    cta: { label: "KNOW MORE", href: "/liquid-studio" },
   },
 ];
 
