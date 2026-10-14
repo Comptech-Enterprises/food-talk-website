@@ -157,12 +157,6 @@ export default function LiquidStudioPage() {
         {/* Form embedded directly on the page */}
         <WorkWithUs
           eyebrow="LIQUID STUDIO"
-          titleLines={[
-            "COLLABORATE WITH",
-            <span key="highlight" className="text-gradient">
-              LIQUID STUDIO.
-            </span>,
-          ]}
           intro="Interested in bringing Liquid Studio to your venue, featuring your spirits brand, or joining our guest list? Leave your details and we will get in touch."
         />
       </main>

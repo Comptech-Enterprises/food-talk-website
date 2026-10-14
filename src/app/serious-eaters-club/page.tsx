@@ -173,12 +173,6 @@ export default function SeriousEatersClub() {
 
         <WorkWithUs
           eyebrow="SERIOUS EATERS CLUB"
-          titleLines={[
-            "JOIN THE",
-            <span key="highlight" className="text-gradient">
-              TABLE.
-            </span>,
-          ]}
           intro="Want to attend our next chef-led dinner or partner with Serious Eaters Club? Leave your details and we will get in touch."
         />
       </main>
