@@ -14,7 +14,7 @@ const STEPS = [
   },
   {
     num: "02",
-    title: "GET EARLY ACCESS\nTO EVERY EXPERIENCE",
+    title: "GET ACCESS\nTO OUR EXPERIENCE.",
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8 sm:w-10 sm:h-10 text-accent" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
@@ -26,7 +26,7 @@ const STEPS = [
   },
   {
     num: "03",
-    title: "BOOK YOUR SPOT.",
+    title: "SHOW UP.",
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8 sm:w-10 sm:h-10 text-accent" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M8 22h8" />
