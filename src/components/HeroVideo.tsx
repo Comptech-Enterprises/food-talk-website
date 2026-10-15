@@ -6,19 +6,19 @@ const HERO_VIDEOS = [
   {
     id: 1,
     src: "/hero-1.mp4",
-    poster: "/hero-1-poster.jpg",
+    poster: "/hero-1-poster.webp",
     title: "SERIOUS EATERS CLUB",
   },
   {
     id: 2,
     src: "/hero-2.mp4",
-    poster: "/hero-2-poster.jpg",
+    poster: "/hero-2-poster.webp",
     title: "CURATED EXPERIENCES",
   },
   {
     id: 3,
     src: "/hero-3.mp4",
-    poster: "/hero-3-poster.jpg",
+    poster: "/hero-3-poster.webp",
     title: "FOOD TALK ORIGINALS",
   },
 ];
