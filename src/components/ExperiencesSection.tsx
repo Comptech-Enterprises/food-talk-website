@@ -25,7 +25,7 @@ const EXPERIENCES = [
     tagline: "Not every night needs a dance floor. Some need a bar worth standing at.",
     description:
       "A recurring nightlife format built around drink and sound. Guest bartenders, curated sound, intimate spaces. A studio, not a stage.",
-    image: "/liquid-studio-photo.jpg",
+    image: "/liquid-studio-photo.webp",
     cta: { label: "KNOW MORE", href: "/liquid-studio" },
   },
 ];

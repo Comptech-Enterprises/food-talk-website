@@ -68,13 +68,6 @@ export default function NewsletterCTA() {
         <div className="grid md:grid-cols-12 gap-10 md:gap-14 items-center">
           {/* Left Column: Heading */}
           <div className="md:col-span-6 lg:col-span-7 text-left">
-            <Reveal variant="left">
-              <p className="font-display text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 flex items-center gap-2">
-                <span className="w-5 h-0.5 bg-accent inline-block" />
-                JOIN THE CLUB
-              </p>
-            </Reveal>
-
             <LineReveal
               as="h2"
               className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.95] tracking-tight text-white"

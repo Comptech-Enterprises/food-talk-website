@@ -157,7 +157,6 @@ export default function CookoutPage() {
         {/* Form embedded directly on the page */}
         <WorkWithUs
           eyebrow="COOKOUT"
-          intro="Want to collaborate, sponsor, or bring your kitchen to our next Cookout festival? Leave your details and we will get in touch."
         />
       </main>
       <Footer />

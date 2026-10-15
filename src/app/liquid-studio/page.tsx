@@ -46,7 +46,7 @@ export default function LiquidStudioPage() {
         <section className="relative min-h-[580px] sm:min-h-[640px] md:h-[85vh] md:min-h-[680px] overflow-hidden flex flex-col justify-end pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 border-b border-line">
           <Parallax className="absolute inset-0" speed={0.35} scale={1.3}>
             <Image
-              src="/liquid-studio-photo.jpg"
+              src="/liquid-studio-photo.webp"
               alt="Liquid Studio cocktail bar setting"
               fill
               priority
@@ -157,7 +157,6 @@ export default function LiquidStudioPage() {
         {/* Form embedded directly on the page */}
         <WorkWithUs
           eyebrow="LIQUID STUDIO"
-          intro="Interested in bringing Liquid Studio to your venue, featuring your spirits brand, or joining our guest list? Leave your details and we will get in touch."
         />
       </main>
       <Footer />

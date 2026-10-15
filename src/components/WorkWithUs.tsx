@@ -6,14 +6,12 @@ type WorkWithUsProps = {
   id?: string;
   eyebrow?: string;
   titleLines?: (string | React.ReactNode)[];
-  intro?: string;
 };
 
 export default function WorkWithUs({
   id = "partner-with-us",
   eyebrow,
   titleLines,
-  intro = "Want your brand at our tables? Put your brand in front of people who care deeply about food, drink and culture. Leave your details and we will get in touch.",
 }: WorkWithUsProps) {
   const lines = titleLines || [
     "PARTNER",
@@ -54,12 +52,6 @@ export default function WorkWithUs({
               className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.95] tracking-tight text-white"
               lines={lines}
             />
-
-            <Reveal delay={250}>
-              <p className="mt-6 text-base sm:text-lg leading-relaxed text-muted font-normal font-sans max-w-xl">
-                {intro}
-              </p>
-            </Reveal>
           </div>
 
           {/* Right Column: Embedded Form */}
