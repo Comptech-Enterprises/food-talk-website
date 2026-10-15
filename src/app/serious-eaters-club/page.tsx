@@ -19,29 +19,25 @@ const PAST_DINNERS = [
     title: "Tsukemen Dinner",
     description:
       "An Izakaya style takeover where steaming bowls of tsukemen ramen, set the tone for everything that came after.",
-    image:
-      "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80",
+    images: ["/dinners/zuru-zuru-1.webp", "/dinners/zuru-zuru-2.webp"],
   },
   {
     title: "Toddy Shop Night",
     description:
       "Kerala’s Toddy Shops are famous for their pours, but this time it was the fiery, soulful food that did the talking.",
-    image:
-      "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80",
+    images: ["/dinners/mahabelly-1.webp", "/dinners/mahabelly-2.webp"],
   },
   {
     title: "A Whole Damn Hog",
     description:
       "For Dinner Three, we slow-smoked an entire hog, nose to tail, for 24 hours straight. Nothing left behind, except bones and stories.",
-    image:
-      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+    images: ["/dinners/h-man-1.webp", "/dinners/h-man-2.webp"],
   },
   {
     title: "Khaandar Saal",
     description:
       "No bride. No baraat. Just the unforgettable spread of a Kashmiri Pandit wedding feast.",
-    image:
-      "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=600&q=80",
+    images: ["/dinners/matamaal-1.webp", "/dinners/matamaal-2.webp"],
   },
 ];
 
@@ -139,15 +135,24 @@ export default function SeriousEatersClub() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {PAST_DINNERS.map((dinner, i) => (
-                <Reveal key={dinner.title} delay={i * 150}>
-                  <div className="group flex flex-col text-left rounded-2xl border border-line bg-surface p-5 hover:border-accent/40 hover:bg-surface-2 transition-all duration-300">
+                <Reveal key={dinner.title} delay={i * 150} className="h-full">
+                  <div className="group flex h-full flex-col text-left rounded-2xl border border-line bg-surface p-5 hover:border-accent/40 hover:bg-surface-2 transition-all duration-300">
                     <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-black/40 mb-4">
                       <Image
-                        src={dinner.image}
+                        src={dinner.images[0]}
                         alt={dinner.title}
                         fill
                         sizes="(max-width: 768px) 50vw, 25vw"
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                      />
+                      <Image
+                        src={dinner.images[1]}
+                        alt=""
+                        aria-hidden="true"
+                        fill
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                        className="dinner-alt object-cover opacity-0 transition-transform duration-700 ease-out group-hover:scale-108"
+                        style={{ animationDelay: `${i * 1.5}s` }}
                       />
                     </div>
                     <h3 className="font-display text-base font-bold text-white group-hover:text-accent transition-colors leading-tight uppercase">

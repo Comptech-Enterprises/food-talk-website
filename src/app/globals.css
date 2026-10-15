@@ -162,6 +162,15 @@ body {
     clip-path: inset(0 0 0 0);
   }
 
+  @keyframes dinner-alt-fade {
+    0%, 42% { opacity: 0; }
+    50%, 92% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  .dinner-alt {
+    animation: dinner-alt-fade 9s ease-in-out infinite;
+  }
+
   @keyframes kenburns {
     from {
       transform: scale(1.14);
