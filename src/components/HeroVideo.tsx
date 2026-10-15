@@ -151,7 +151,7 @@ export default function HeroVideo() {
           );
         })}
 
-        {/* Mobile bottom bar: slide indicators and sound button */}
+        {/* Mobile bottom bar: slide indicators, branding, and sound button */}
         <div className="absolute bottom-6 left-4 right-4 z-30 flex items-center justify-between gap-3 pointer-events-auto">
           {/* Segmented slide indicators */}
           <div className="flex items-center gap-1.5">
@@ -168,28 +168,34 @@ export default function HeroVideo() {
             ))}
           </div>
 
-          {/* Sound toggle button */}
-          <button
-            type="button"
-            onClick={toggleMobileSound}
-            aria-label={mobileMuted ? "Unmute audio" : "Mute audio"}
-            className={`p-2.5 rounded-full backdrop-blur-md transition-all duration-300 cursor-pointer shadow-lg shrink-0 ${
-              !mobileMuted
-                ? "bg-accent text-bg-dark shadow-[0_0_14px_rgba(229,217,250,0.8)] scale-105"
-                : "bg-black/60 text-white/85 hover:text-white border border-white/20"
-            }`}
-          >
-            {!mobileMuted ? (
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-              </svg>
-            ) : (
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-              </svg>
-            )}
-          </button>
+          <div className="flex items-center gap-3">
+            <span className="font-display text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+              Food Talk India
+            </span>
+
+            {/* Sound toggle button */}
+            <button
+              type="button"
+              onClick={toggleMobileSound}
+              aria-label={mobileMuted ? "Unmute audio" : "Mute audio"}
+              className={`p-2.5 rounded-full backdrop-blur-md transition-all duration-300 cursor-pointer shadow-lg shrink-0 ${
+                !mobileMuted
+                  ? "bg-accent text-bg-dark shadow-[0_0_14px_rgba(229,217,250,0.8)] scale-105"
+                  : "bg-black/60 text-white/85 hover:text-white border border-white/20"
+              }`}
+            >
+              {!mobileMuted ? (
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                </svg>
+              ) : (
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -224,8 +230,13 @@ export default function HeroVideo() {
               {/* Subtle hover wash */}
               <div className="absolute inset-0 bg-black/15 group-hover:bg-black/25 transition-colors duration-300 pointer-events-none" />
 
-              {/* Bottom Sound Control */}
-              <div className="absolute bottom-0 left-0 right-0 z-30 pt-10 pb-5 sm:pb-7 px-4 sm:px-6 bg-gradient-to-t from-black/60 via-black/15 to-transparent flex items-center justify-end pointer-events-auto">
+              {/* Bottom Sound Control & Branding */}
+              <div className="absolute bottom-0 left-0 right-0 z-30 pt-10 pb-5 sm:pb-7 px-4 sm:px-6 bg-gradient-to-t from-black/60 via-black/15 to-transparent flex items-center justify-end gap-3.5 pointer-events-auto">
+                {idx === HERO_VIDEOS.length - 1 && (
+                  <span className="font-display text-[11px] md:text-xs font-bold tracking-[0.2em] uppercase text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+                    Food Talk India
+                  </span>
+                )}
                 <button
                   type="button"
                   onClick={(e) => toggleDesktopSound(idx, e)}
