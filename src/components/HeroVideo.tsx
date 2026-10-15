@@ -168,8 +168,8 @@ export default function HeroVideo() {
             ))}
           </div>
 
-          <div className="flex items-center gap-3">
-            <span className="font-display text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+          <div className="flex flex-col items-end gap-1.5">
+            <span className="font-display text-[9px] sm:text-[10px] font-bold tracking-[0.16em] uppercase text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] pointer-events-none select-none">
               Food Talk India
             </span>
 
@@ -231,33 +231,35 @@ export default function HeroVideo() {
               <div className="absolute inset-0 bg-black/15 group-hover:bg-black/25 transition-colors duration-300 pointer-events-none" />
 
               {/* Bottom Sound Control & Branding */}
-              <div className="absolute bottom-0 left-0 right-0 z-30 pt-10 pb-5 sm:pb-7 px-4 sm:px-6 bg-gradient-to-t from-black/60 via-black/15 to-transparent flex items-center justify-end gap-3.5 pointer-events-auto">
-                {idx === HERO_VIDEOS.length - 1 && (
-                  <span className="font-display text-[11px] md:text-xs font-bold tracking-[0.2em] uppercase text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                    Food Talk India
-                  </span>
-                )}
-                <button
-                  type="button"
-                  onClick={(e) => toggleDesktopSound(idx, e)}
-                  aria-label={isUnmuted ? "Mute audio" : "Unmute audio"}
-                  className={`p-1.5 sm:p-2 rounded-full backdrop-blur-md transition-all duration-300 cursor-pointer shadow-lg shrink-0 ${
-                    isUnmuted
-                      ? "bg-accent text-bg-dark shadow-[0_0_14px_rgba(229,217,250,0.8)] scale-110"
-                      : "bg-black/60 text-white/80 hover:text-white hover:bg-black/90 border border-white/15 opacity-70 group-hover:opacity-100"
-                  }`}
-                >
-                  {isUnmuted ? (
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                    </svg>
-                  ) : (
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-                    </svg>
+              <div className="absolute bottom-0 left-0 right-0 z-30 pt-10 pb-5 sm:pb-7 px-4 sm:px-6 bg-gradient-to-t from-black/60 via-black/15 to-transparent flex items-end justify-end pointer-events-auto">
+                <div className="flex flex-col items-end gap-1.5">
+                  {idx === HERO_VIDEOS.length - 1 && (
+                    <span className="font-display text-[9px] md:text-[10px] font-bold tracking-[0.16em] uppercase text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] pointer-events-none select-none">
+                      Food Talk India
+                    </span>
                   )}
-                </button>
+                  <button
+                    type="button"
+                    onClick={(e) => toggleDesktopSound(idx, e)}
+                    aria-label={isUnmuted ? "Mute audio" : "Unmute audio"}
+                    className={`p-1.5 sm:p-2 rounded-full backdrop-blur-md transition-all duration-300 cursor-pointer shadow-lg shrink-0 ${
+                      isUnmuted
+                        ? "bg-accent text-bg-dark shadow-[0_0_14px_rgba(229,217,250,0.8)] scale-110"
+                        : "bg-black/60 text-white/80 hover:text-white hover:bg-black/90 border border-white/15 opacity-70 group-hover:opacity-100"
+                    }`}
+                  >
+                    {isUnmuted ? (
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                      </svg>
+                    ) : (
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                      </svg>
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
           );
