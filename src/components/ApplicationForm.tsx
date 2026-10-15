@@ -43,14 +43,44 @@ export default function ApplicationForm() {
       return;
     }
 
+    const phone = (data.get("phone") as string)?.trim();
+    const portfolio = (data.get("portfolio") as string)?.trim();
+    const experience = (data.get("experience") as string)?.trim();
+    const message = (data.get("message") as string)?.trim();
+
     setStatus("submitting");
 
-    // TODO: wire to Zoho CRM (create a Lead/Candidate record) via an API route.
-    // For now, simulate a successful submit.
-    await new Promise((r) => setTimeout(r, 700));
+    try {
+      const res = await fetch("/api/submit-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          mobile: phone,
+          company: "Job Applicant",
+          inquiryType: `Careers — ${position}`,
+          leadSource: "Food Talk India — Careers",
+          message,
+          extra: {
+            position,
+            yearsOfExperience: experience || "Not specified",
+            portfolioOrLinkedIn: portfolio || "Not provided",
+          },
+        }),
+      });
 
-    setStatus("done");
-    form.reset();
+      const resData = await res.json();
+      if (!res.ok) {
+        throw new Error(resData.error || "Submission failed. Please try again.");
+      }
+
+      setStatus("done");
+      form.reset();
+    } catch (err: any) {
+      setStatus("error");
+      setErrorMsg(err.message || "Failed to submit application. Please try again.");
+    }
   }
 
   if (status === "done") {

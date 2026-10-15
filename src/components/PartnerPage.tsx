@@ -57,7 +57,7 @@ export default function PartnerPage({ eyebrow, title, intro, points }: PartnerPa
             <Reveal variant="right" delay={300}>
               <div className="bg-bg text-fg border border-fg/15 rounded-sm p-8 md:p-12 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.25)]">
                 <h2 className="display text-[clamp(1.75rem,3vw,2.5rem)] mb-8 text-center lg:text-left">GET IN TOUCH</h2>
-                <PartnerForm />
+                <PartnerForm inquiryType={title.join(" ")} />
               </div>
             </Reveal>
           </div>

@@ -24,6 +24,8 @@ export default function NewsletterCTA() {
   const [selectedCities, setSelectedCities] = useState<string[]>([]);
   const [cityError, setCityError] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const toggleCity = (city: string) => {
     setCityError(false);
@@ -32,14 +34,46 @@ export default function NewsletterCTA() {
     );
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (selectedCities.length === 0) {
       setCityError(true);
       return;
     }
 
-    setSubmitted(true);
+    setCityError(false);
+    setErrorMsg("");
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/submit-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: email.split("@")[0],
+          email,
+          mobile: `${selectedCountry.code} ${phone}`,
+          company: "Newsletter Subscriber",
+          inquiryType: "Newsletter Signup",
+          leadSource: "Food Talk India — Homepage Newsletter",
+          extra: {
+            country: selectedCountry.name,
+            selectedCities,
+          },
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to sign up.");
+      }
+
+      setSubmitted(true);
+    } catch (err: any) {
+      setErrorMsg(err.message || "Failed to sign up. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -246,14 +280,20 @@ export default function NewsletterCTA() {
                           Please select at least one city.
                         </p>
                       )}
+                      {errorMsg && (
+                        <p className="mt-2 text-xs text-red-400 font-sans">
+                          {errorMsg}
+                        </p>
+                      )}
                     </div>
 
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      className="w-full bg-accent text-black py-3.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider rounded-lg hover:bg-accent-soft hover:shadow-[0_0_20px_var(--accent-glow)] active:scale-[0.99] transition-all cursor-pointer font-display mt-3"
+                      disabled={loading}
+                      className="w-full bg-accent text-black py-3.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider rounded-lg hover:bg-accent-soft hover:shadow-[0_0_20px_var(--accent-glow)] active:scale-[0.99] transition-all cursor-pointer font-display mt-3 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      SIGN UP
+                      {loading ? "SIGNING UP…" : "SIGN UP"}
                     </button>
                   </form>
                 )}
