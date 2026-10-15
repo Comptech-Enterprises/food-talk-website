@@ -35,7 +35,7 @@ export default function NewsletterForm() {
           mobile: `+91 ${phone}`,
           company: "Newsletter Subscriber",
           inquiryType: "Newsletter Signup",
-          leadSource: "Food Talk India — Newsletter",
+          leadSource: "Food Talk Website",
           extra: {
             selectedCities: selected,
           },

@@ -26,7 +26,7 @@ export default function AdvertiseForm() {
         body: JSON.stringify({
           ...formData,
           inquiryType: "Advertise With Us",
-          leadSource: "Food Talk India — Advertise",
+          leadSource: "Food Talk Website",
         }),
       });
 

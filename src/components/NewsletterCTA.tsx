@@ -55,7 +55,7 @@ export default function NewsletterCTA() {
           mobile: `${selectedCountry.code} ${phone}`,
           company: "Newsletter Subscriber",
           inquiryType: "Newsletter Signup",
-          leadSource: "Food Talk India — Homepage Newsletter",
+          leadSource: "Food Talk Website",
           extra: {
             country: selectedCountry.name,
             selectedCities,

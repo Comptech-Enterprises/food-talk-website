@@ -39,7 +39,7 @@ export default function PartnerForm({
         body: JSON.stringify({
           ...formData,
           inquiryType,
-          leadSource: `Food Talk India — ${inquiryType}`,
+          leadSource: "Food Talk Website",
         }),
       });
 

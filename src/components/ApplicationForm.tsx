@@ -60,7 +60,7 @@ export default function ApplicationForm() {
           mobile: phone,
           company: "Job Applicant",
           inquiryType: `Careers — ${position}`,
-          leadSource: "Food Talk India — Careers",
+          leadSource: "Food Talk Website",
           message,
           extra: {
             position,
