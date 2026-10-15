@@ -42,8 +42,10 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${poppins.variable} ${roboto.variable} h-full antialiased`}
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
     >
-      <body className="min-h-full flex flex-col bg-bg text-fg font-body">
+      <body className="min-h-full flex flex-col bg-bg text-fg font-body" suppressHydrationWarning>
         {children}
       </body>
     </html>
