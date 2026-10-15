@@ -36,6 +36,17 @@ export default function NewsletterCTA() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      setErrorMsg("Please enter a valid email address.");
+      return;
+    }
+
+    const digits = phone.replace(/\D/g, "");
+    if (digits.length < 8 || digits.length > 15) {
+      setErrorMsg("Please enter a valid phone number (8–15 digits).");
+      return;
+    }
+
     if (selectedCities.length === 0) {
       setCityError(true);
       return;

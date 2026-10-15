@@ -22,8 +22,19 @@ export default function NewsletterForm() {
     setErrorMsg("");
     setLoading(true);
 
-    const email = fd.get("email") as string;
-    const phone = fd.get("phone") as string;
+    const email = (fd.get("email") as string)?.trim();
+    const phone = (fd.get("phone") as string)?.trim();
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setErrorMsg("Please enter a valid email address.");
+      return;
+    }
+
+    const digits = phone.replace(/\D/g, "");
+    if (digits.length !== 10) {
+      setErrorMsg("Please enter a valid 10-digit mobile number.");
+      return;
+    }
 
     try {
       const res = await fetch("/api/submit-lead", {

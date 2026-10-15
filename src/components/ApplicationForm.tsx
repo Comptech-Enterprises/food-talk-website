@@ -44,7 +44,22 @@ export default function ApplicationForm() {
     }
 
     const phone = (data.get("phone") as string)?.trim();
+    if (phone) {
+      const digits = phone.replace(/\D/g, "");
+      if (digits.length < 8 || digits.length > 15) {
+        setStatus("error");
+        setErrorMsg("Please enter a valid phone number (8–15 digits).");
+        return;
+      }
+    }
+
     const portfolio = (data.get("portfolio") as string)?.trim();
+    if (portfolio && !/^https?:\/\//i.test(portfolio)) {
+      setStatus("error");
+      setErrorMsg("Please enter a valid link starting with http:// or https://");
+      return;
+    }
+
     const experience = (data.get("experience") as string)?.trim();
     const message = (data.get("message") as string)?.trim();
 

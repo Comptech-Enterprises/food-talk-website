@@ -2,6 +2,9 @@
 
 import { useState, type FormEvent } from "react";
 
+const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+
 export default function AdvertiseForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -9,22 +12,86 @@ export default function AdvertiseForm() {
     company: "",
     mobile: "",
     message: "",
+    _hp: "",
   });
+
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
-  const [error, setError] = useState("");
+  const [generalError, setGeneralError] = useState("");
+
+  const validateField = (field: string, value: string): string => {
+    switch (field) {
+      case "name":
+        if (!value.trim()) return "Full name is required.";
+        if (value.trim().length < 2) return "Name must be at least 2 characters.";
+        return "";
+      case "email":
+        if (!value.trim()) return "Email address is required.";
+        if (!EMAIL_REGEX.test(value.trim()))
+          return "Please enter a valid email address.";
+        return "";
+      case "company":
+        if (!value.trim()) return "Company name is required.";
+        if (value.trim().length < 2)
+          return "Company name must be at least 2 characters.";
+        return "";
+      case "mobile": {
+        if (!value.trim()) return "Phone number is required.";
+        const digits = value.replace(/\D/g, "");
+        if (digits.length < 8 || digits.length > 15) {
+          return "Please enter a valid phone number (8–15 digits).";
+        }
+        return "";
+      }
+      default:
+        return "";
+    }
+  };
+
+  const handleBlur = (field: string) => {
+    const error = validateField(field, formData[field as keyof typeof formData] || "");
+    setFieldErrors((prev) => ({ ...prev, [field]: error }));
+  };
+
+  const handleChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (fieldErrors[field]) {
+      const error = validateField(field, value);
+      setFieldErrors((prev) => ({ ...prev, [field]: error }));
+    }
+  };
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setGeneralError("");
+
+    const errors: Record<string, string> = {
+      name: validateField("name", formData.name),
+      email: validateField("email", formData.email),
+      company: validateField("company", formData.company),
+      mobile: validateField("mobile", formData.mobile),
+    };
+
+    if (Object.values(errors).some((err) => !!err)) {
+      setFieldErrors(errors);
+      return;
+    }
+
+    setFieldErrors({});
     setLoading(true);
-    setError("");
 
     try {
       const res = await fetch("/api/submit-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...formData,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          company: formData.company.trim(),
+          mobile: formData.mobile.trim(),
+          message: formData.message.trim(),
+          _hp: formData._hp,
           inquiryType: "Advertise With Us",
           leadSource: "Food Talk Website",
         }),
@@ -42,9 +109,10 @@ export default function AdvertiseForm() {
         company: "",
         mobile: "",
         message: "",
+        _hp: "",
       });
     } catch (err: any) {
-      setError(err.message || "Something went wrong. Please try again.");
+      setGeneralError(err.message || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -74,31 +142,52 @@ export default function AdvertiseForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {error && (
+    <form onSubmit={handleSubmit} noValidate className="space-y-6">
+      {/* Honeypot field */}
+      <input
+        type="text"
+        name="_hp"
+        value={formData._hp}
+        onChange={(e) => handleChange("_hp", e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
+
+      {generalError && (
         <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-xs sm:text-sm text-red-400 font-sans leading-relaxed">
-          {error}
+          {generalError}
         </div>
       )}
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="adv-name" className="mb-2 block text-xs uppercase tracking-widest text-muted">
-            Name
+            Name *
           </label>
           <input
             id="adv-name"
             name="name"
             required
             value={formData.name}
-            onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
-            className="w-full rounded-xl border border-line bg-bg-elevated px-4 py-3 text-fg placeholder:text-muted-dim outline-none transition-colors focus:border-accent"
+            onChange={(e) => handleChange("name", e.target.value)}
+            onBlur={() => handleBlur("name")}
+            className={`w-full rounded-xl border bg-bg-elevated px-4 py-3 text-fg placeholder:text-muted-dim outline-none transition-colors ${
+              fieldErrors.name
+                ? "border-red-500/80 focus:border-red-500"
+                : "border-line focus:border-accent"
+            }`}
             placeholder="Jane Doe"
           />
+          {fieldErrors.name && (
+            <p className="mt-1 text-xs text-red-400 font-sans">{fieldErrors.name}</p>
+          )}
         </div>
+
         <div>
           <label htmlFor="adv-email" className="mb-2 block text-xs uppercase tracking-widest text-muted">
-            Email
+            Email *
           </label>
           <input
             id="adv-email"
@@ -106,31 +195,48 @@ export default function AdvertiseForm() {
             type="email"
             required
             value={formData.email}
-            onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
-            className="w-full rounded-xl border border-line bg-bg-elevated px-4 py-3 text-fg placeholder:text-muted-dim outline-none transition-colors focus:border-accent"
+            onChange={(e) => handleChange("email", e.target.value)}
+            onBlur={() => handleBlur("email")}
+            className={`w-full rounded-xl border bg-bg-elevated px-4 py-3 text-fg placeholder:text-muted-dim outline-none transition-colors ${
+              fieldErrors.email
+                ? "border-red-500/80 focus:border-red-500"
+                : "border-line focus:border-accent"
+            }`}
             placeholder="jane@brand.com"
           />
+          {fieldErrors.email && (
+            <p className="mt-1 text-xs text-red-400 font-sans">{fieldErrors.email}</p>
+          )}
         </div>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="adv-company" className="mb-2 block text-xs uppercase tracking-widest text-muted">
-            Company
+            Company *
           </label>
           <input
             id="adv-company"
             name="company"
             required
             value={formData.company}
-            onChange={(e) => setFormData((p) => ({ ...p, company: e.target.value }))}
-            className="w-full rounded-xl border border-line bg-bg-elevated px-4 py-3 text-fg placeholder:text-muted-dim outline-none transition-colors focus:border-accent"
+            onChange={(e) => handleChange("company", e.target.value)}
+            onBlur={() => handleBlur("company")}
+            className={`w-full rounded-xl border bg-bg-elevated px-4 py-3 text-fg placeholder:text-muted-dim outline-none transition-colors ${
+              fieldErrors.company
+                ? "border-red-500/80 focus:border-red-500"
+                : "border-line focus:border-accent"
+            }`}
             placeholder="Acme Foods"
           />
+          {fieldErrors.company && (
+            <p className="mt-1 text-xs text-red-400 font-sans">{fieldErrors.company}</p>
+          )}
         </div>
+
         <div>
           <label htmlFor="adv-mobile" className="mb-2 block text-xs uppercase tracking-widest text-muted">
-            Mobile
+            Mobile *
           </label>
           <input
             id="adv-mobile"
@@ -138,10 +244,18 @@ export default function AdvertiseForm() {
             type="tel"
             required
             value={formData.mobile}
-            onChange={(e) => setFormData((p) => ({ ...p, mobile: e.target.value }))}
-            className="w-full rounded-xl border border-line bg-bg-elevated px-4 py-3 text-fg placeholder:text-muted-dim outline-none transition-colors focus:border-accent"
+            onChange={(e) => handleChange("mobile", e.target.value)}
+            onBlur={() => handleBlur("mobile")}
+            className={`w-full rounded-xl border bg-bg-elevated px-4 py-3 text-fg placeholder:text-muted-dim outline-none transition-colors ${
+              fieldErrors.mobile
+                ? "border-red-500/80 focus:border-red-500"
+                : "border-line focus:border-accent"
+            }`}
             placeholder="+91 98765 43210"
           />
+          {fieldErrors.mobile && (
+            <p className="mt-1 text-xs text-red-400 font-sans">{fieldErrors.mobile}</p>
+          )}
         </div>
       </div>
 
@@ -153,9 +267,9 @@ export default function AdvertiseForm() {
           id="adv-message"
           name="message"
           rows={5}
-          required
+          maxLength={5000}
           value={formData.message}
-          onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))}
+          onChange={(e) => handleChange("message", e.target.value)}
           className="w-full resize-none rounded-xl border border-line bg-bg-elevated px-4 py-3 text-fg placeholder:text-muted-dim outline-none transition-colors focus:border-accent"
           placeholder="Tell us about your campaign or partnership idea…"
         />
