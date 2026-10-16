@@ -37,19 +37,13 @@ export default function NewsletterForm() {
     }
 
     try {
-      const res = await fetch("/api/submit-lead", {
+      const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: email.split("@")[0],
           email,
-          mobile: `+91 ${phone}`,
-          company: "Newsletter Subscriber",
-          inquiryType: "Newsletter Signup",
-          leadSource: "Food Talk Website",
-          extra: {
-            selectedCities: selected,
-          },
+          phone,
+          selectedCities: selected,
         }),
       });
 
