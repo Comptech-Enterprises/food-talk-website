@@ -51,7 +51,7 @@ export default function SeriousEatersClub() {
         <section className="relative min-h-[580px] sm:min-h-[640px] md:h-[85vh] md:min-h-[680px] overflow-hidden flex flex-col justify-end pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 border-b border-line">
           <Parallax className="absolute inset-0" speed={0.35} scale={1.3}>
             <Image
-              src={r2("/serious-eaters-photo.webp")}
+              src="/serious-eaters-photo.webp"
               alt="Serious Eaters Club chef-led dinner setting"
               fill
               priority
