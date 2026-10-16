@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { r2 } from "@/lib/media";
 
 const NAV_LINKS = [
   { label: "ABOUT US", href: "/#about" },
@@ -21,7 +22,6 @@ export default function Navbar({ tone = "light" }: { tone?: "light" | "dark" }) 
   }, []);
 
   const onDark = tone === "light" || open || scrolled;
-  const ink = onDark ? "text-white" : "text-fg";
   const bar = onDark ? "bg-white" : "bg-fg";
 
   return (
@@ -35,7 +35,7 @@ export default function Navbar({ tone = "light" }: { tone?: "light" | "dark" }) 
       <div className="mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16 flex items-center justify-between">
         <Link href="/">
           <Image
-            src="/logo.webp"
+            src={r2("/logo.webp")}
             alt="Food Talk India"
             width={160}
             height={52}

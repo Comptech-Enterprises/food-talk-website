@@ -1,6 +1,7 @@
 import Image from "next/image";
 import LineReveal from "./LineReveal";
 import Reveal from "./Reveal";
+import { r2 } from "@/lib/media";
 
 export default function AboutSection() {
   return (
@@ -44,7 +45,7 @@ export default function AboutSection() {
             <Reveal delay={300}>
               <div className="group relative aspect-[16/10] sm:aspect-[4/3] md:aspect-[16/10] w-full overflow-hidden rounded-2xl border border-line shadow-2xl bg-surface">
                 <Image
-                  src="/about-experience.jpg"
+                  src={r2("/about-experience.webp")}
                   alt="Food Talk dining experience table setting"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"

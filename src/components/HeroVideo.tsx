@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import { r2 } from "@/lib/media";
 
 const HERO_VIDEOS = [
-  { id: 1, src: "/hero-1.mp4", poster: "/hero-1-poster.webp" },
-  { id: 2, src: "/hero-2.mp4", poster: "/hero-2-poster.webp" },
-  { id: 3, src: "/hero-3.mp4", poster: "/hero-3-poster.webp" },
+  { id: 1, src: r2("/hero-1.mp4"), poster: r2("/hero-1-poster.webp") },
+  { id: 2, src: r2("/hero-2.mp4"), poster: r2("/hero-2-poster.webp") },
+  { id: 3, src: r2("/hero-3.mp4"), poster: r2("/hero-3-poster.webp") },
 ];
 
 export default function HeroVideo() {

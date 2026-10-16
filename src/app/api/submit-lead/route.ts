@@ -117,10 +117,11 @@ export async function POST(req: NextRequest) {
       { error: "Zoho API error", details: zohoData },
       { status: 500 }
     );
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Zoho lead submission error:", err);
+    const message = err instanceof Error ? err.message : "Failed to submit lead";
     return NextResponse.json(
-      { error: err.message || "Failed to submit lead" },
+      { error: message },
       { status: 500 }
     );
   }

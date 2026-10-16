@@ -74,8 +74,9 @@ export default function NewsletterCTA() {
       }
 
       setSubmitted(true);
-    } catch (err: any) {
-      setErrorMsg(err.message || "Failed to sign up. Please try again.");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Failed to sign up. Please try again.";
+      setErrorMsg(message);
     } finally {
       setLoading(false);
     }

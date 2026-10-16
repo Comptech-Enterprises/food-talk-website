@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, useRef } from "react";
 import LineReveal from "./LineReveal";
 import Reveal from "./Reveal";
+import { r2 } from "@/lib/media";
 
 const EXPERIENCES = [
   {
@@ -12,7 +13,7 @@ const EXPERIENCES = [
     tagline: "Once in a while, a table appears for people who already understand.",
     description:
       "Chef-led dinners built on season, intent and conversation. A room of guests who care deeply about why something is cooked the way it is.",
-    image: "/serious-eaters-photo.jpg",
+    image: r2("/serious-eaters-photo.webp"),
     cta: { label: "KNOW MORE", href: "/serious-eaters-club" },
   },
   {
@@ -20,7 +21,7 @@ const EXPERIENCES = [
     tagline: "Some foods are meant to be eaten quietly. This isn’t it.",
     description:
       "Our flagship outdoor festival built around fire, smoke and serious appetite. Pitmasters and chefs from across the country, open flames, slow smoke, fast hands.",
-    image: "/cookout-photo.jpg",
+    image: r2("/cookout-photo.webp"),
     cta: { label: "COMING SOON", href: "" },
   },
   {
@@ -28,7 +29,7 @@ const EXPERIENCES = [
     tagline: "Not every night needs a dance floor. Some need a bar worth standing at.",
     description:
       "A recurring nightlife format built around drink and sound. Guest bartenders, curated sound, intimate spaces. A studio, not a stage.",
-    image: "/liquid-studio-photo.webp",
+    image: r2("/liquid-studio-photo.webp"),
     cta: { label: "COMING SOON", href: "" },
   },
 ];
@@ -86,7 +87,7 @@ export default function ExperiencesSection() {
           as="h2"
           className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-left text-fg mb-10 md:mb-14"
           lines={[
-            <span>
+            <span key="our-experiences">
               OUR <span className="text-gradient">EXPERIENCES</span>
             </span>,
           ]}

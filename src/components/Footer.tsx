@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { r2 } from "@/lib/media";
 
 const FOOTER_LINKS = [
   { label: "ABOUT US", href: "/#about" },
@@ -15,7 +16,7 @@ export default function Footer() {
         <div className="flex flex-col items-center md:items-start gap-2">
           <Link href="/">
             <Image
-              src="/logo.webp"
+              src={r2("/logo.webp")}
               alt="Food Talk India"
               width={130}
               height={42}

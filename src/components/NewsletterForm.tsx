@@ -60,8 +60,9 @@ export default function NewsletterForm() {
 
       setSent(true);
       setTimeout(() => setSent(false), 5000);
-    } catch (err: any) {
-      setErrorMsg(err.message || "Failed to subscribe. Please try again.");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Failed to subscribe. Please try again.";
+      setErrorMsg(message);
     } finally {
       setLoading(false);
     }

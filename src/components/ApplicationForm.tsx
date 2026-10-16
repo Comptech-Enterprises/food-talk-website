@@ -92,9 +92,10 @@ export default function ApplicationForm() {
 
       setStatus("done");
       form.reset();
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStatus("error");
-      setErrorMsg(err.message || "Failed to submit application. Please try again.");
+      const message = err instanceof Error ? err.message : "Failed to submit application. Please try again.";
+      setErrorMsg(message);
     }
   }
 

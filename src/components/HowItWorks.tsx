@@ -59,7 +59,7 @@ export default function HowItWorks() {
           as="h2"
           className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-center md:text-left text-white mb-12 md:mb-16"
           lines={[
-            <span>
+            <span key="how-it-works">
               HOW IT <span className="text-gradient">WORKS</span>
             </span>,
           ]}

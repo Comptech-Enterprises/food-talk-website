@@ -111,8 +111,9 @@ export default function AdvertiseForm() {
         message: "",
         _hp: "",
       });
-    } catch (err: any) {
-      setGeneralError(err.message || "Something went wrong. Please try again.");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      setGeneralError(message);
     } finally {
       setLoading(false);
     }

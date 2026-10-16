@@ -133,9 +133,10 @@ export default function PartnerForm({
         message: "",
         _hp: "",
       });
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStatus("error");
-      setGeneralError(err.message || "Failed to submit. Please try again.");
+      const message = err instanceof Error ? err.message : "Failed to submit. Please try again.";
+      setGeneralError(message);
     }
   }
 

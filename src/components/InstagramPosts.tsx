@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 import ReelCard from "./ReelCard";
 import ReelStrip from "./ReelStrip";
 
-const { reels, url, handle } = instagram;
+const { reels, url } = instagram;
 
 export default function InstagramPosts() {
   return (

@@ -25,8 +25,8 @@ export default function LineReveal({
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setShown(true);
-      return;
+      const t = setTimeout(() => setShown(true), 0);
+      return () => clearTimeout(t);
     }
     if (immediate) {
       const t = setTimeout(() => setShown(true), 60);

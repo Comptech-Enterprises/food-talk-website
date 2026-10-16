@@ -7,6 +7,7 @@ import WorkWithUs from "@/components/WorkWithUs";
 import Reveal from "@/components/Reveal";
 import Parallax from "@/components/Parallax";
 import LineReveal from "@/components/LineReveal";
+import { r2 } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "Liquid Studio | Food Talk India",
@@ -46,7 +47,7 @@ export default function LiquidStudioPage() {
         <section className="relative min-h-[580px] sm:min-h-[640px] md:h-[85vh] md:min-h-[680px] overflow-hidden flex flex-col justify-end pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 border-b border-line">
           <Parallax className="absolute inset-0" speed={0.35} scale={1.3}>
             <Image
-              src="/liquid-studio-photo.webp"
+              src={r2("/liquid-studio-photo.webp")}
               alt="Liquid Studio cocktail bar setting"
               fill
               priority
