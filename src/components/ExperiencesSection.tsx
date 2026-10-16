@@ -21,7 +21,7 @@ const EXPERIENCES = [
     description:
       "Our flagship outdoor festival built around fire, smoke and serious appetite. Pitmasters and chefs from across the country, open flames, slow smoke, fast hands.",
     image: "/cookout-photo.jpg",
-    cta: { label: "KNOW MORE", href: "/cookout" },
+    cta: { label: "COMING SOON", href: "" },
   },
   {
     title: "LIQUID STUDIO",
@@ -29,7 +29,7 @@ const EXPERIENCES = [
     description:
       "A recurring nightlife format built around drink and sound. Guest bartenders, curated sound, intimate spaces. A studio, not a stage.",
     image: "/liquid-studio-photo.webp",
-    cta: { label: "KNOW MORE", href: "/liquid-studio" },
+    cta: { label: "COMING SOON", href: "" },
   },
 ];
 
