@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import LineReveal from "./LineReveal";
 import Reveal from "./Reveal";
 
@@ -76,7 +76,16 @@ function ExperienceCard({ exp, i }: { exp: (typeof EXPERIENCES)[number]; i: numb
 }
 
 export default function ExperiencesSection() {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const next = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % EXPERIENCES.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 4000);
+    return () => clearInterval(timer);
+  }, [next]);
 
   return (
     <section id="experiences" className="scroll-mt-20 py-16 md:py-24 border-b border-line overflow-hidden">
@@ -91,17 +100,33 @@ export default function ExperiencesSection() {
           ]}
         />
 
-        {/* Mobile: horizontal scroll slider */}
-        <div
-          ref={scrollRef}
-          className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-6 px-6 pb-4"
-          style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
-        >
-          {EXPERIENCES.map((exp, i) => (
-            <div key={exp.title} className="snap-start shrink-0 w-[80vw] max-w-[340px]">
-              <ExperienceCard exp={exp} i={i} />
-            </div>
-          ))}
+        {/* Mobile: auto-scrolling carousel */}
+        <div className="md:hidden relative overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+          >
+            {EXPERIENCES.map((exp, i) => (
+              <div key={exp.title} className="shrink-0 w-full px-1">
+                <ExperienceCard exp={exp} i={i} />
+              </div>
+            ))}
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {EXPERIENCES.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setActiveIndex(i)}
+                aria-label={`Go to experience ${i + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === activeIndex ? "w-6 bg-accent" : "w-1.5 bg-white/30"
+                }`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Desktop: 3-column grid */}

@@ -103,7 +103,7 @@ export default function HeroVideo() {
               {/* Text overlay on first slide */}
               {idx === 0 && (
                 <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none px-6">
-                  <h1 className="font-display text-6xl font-black uppercase tracking-tight text-white leading-[1.15] text-center">
+                  <h1 className="font-display text-7xl font-black uppercase tracking-[-0.03em] text-white leading-[1] text-center">
                     FOOD
                     <br />
                     TALK
@@ -116,20 +116,6 @@ export default function HeroVideo() {
           );
         })}
 
-        {/* Slide indicators */}
-        <div className="absolute bottom-6 left-0 right-0 z-30 flex items-center justify-center gap-1.5 pointer-events-auto">
-          {HERO_VIDEOS.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setMobileIndex(i)}
-              aria-label={`Go to video ${i + 1}`}
-              className={`h-1 rounded-full transition-all duration-300 ${
-                i === mobileIndex ? "w-6 bg-accent" : "w-1.5 bg-white/40"
-              }`}
-            />
-          ))}
-        </div>
       </div>
 
       {/* DESKTOP VIEW: 3 full-height vertical columns in a row */}
@@ -157,16 +143,6 @@ export default function HeroVideo() {
           </div>
         ))}
 
-        {/* Text overlay — spans full hero, bottom-left */}
-        <div className="absolute inset-0 z-20 flex items-end pointer-events-none px-6 sm:px-10 md:px-14 lg:px-16 pb-16 sm:pb-20">
-          <h1 className="font-display text-[clamp(2.5rem,6.5vw,5.5rem)] font-black uppercase tracking-tight text-white leading-[1.15]">
-            FOOD
-            <br />
-            TALK
-            <br />
-            <span className="text-gradient">INDIA</span>
-          </h1>
-        </div>
       </div>
     </div>
   );
