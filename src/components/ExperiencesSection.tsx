@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useRef } from "react";
 import LineReveal from "./LineReveal";
 import Reveal from "./Reveal";
 
@@ -77,15 +77,7 @@ function ExperienceCard({ exp, i }: { exp: (typeof EXPERIENCES)[number]; i: numb
 
 export default function ExperiencesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const next = useCallback(() => {
-    setActiveIndex((prev) => (prev + 1) % EXPERIENCES.length);
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(next, 4000);
-    return () => clearInterval(timer);
-  }, [next]);
+  const touchStartX = useRef<number | null>(null);
 
   return (
     <section id="experiences" className="scroll-mt-20 py-16 md:py-24 border-b border-line overflow-hidden">
@@ -100,8 +92,18 @@ export default function ExperiencesSection() {
           ]}
         />
 
-        {/* Mobile: auto-scrolling carousel */}
-        <div className="md:hidden relative overflow-hidden">
+        {/* Mobile: manual swipe carousel */}
+        <div
+          className="md:hidden relative overflow-hidden"
+          onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null) return;
+            const diff = touchStartX.current - e.changedTouches[0].clientX;
+            if (diff > 50) setActiveIndex((prev) => Math.min(prev + 1, EXPERIENCES.length - 1));
+            else if (diff < -50) setActiveIndex((prev) => Math.max(prev - 1, 0));
+            touchStartX.current = null;
+          }}
+        >
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
