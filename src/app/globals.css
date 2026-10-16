@@ -1,55 +1,72 @@
 @import "tailwindcss";
 
-/* ============================================================
-   Food Talk — design tokens
-   Faithful to the original: near-black canvas, pure-white type,
-   ghost outlines. A single warm accent (borrowed from the
-   mustard/amber in the hero photography) is used sparingly.
-   ============================================================ */
 :root {
-  --bg: #0d0d0d;
-  --bg-elevated: #161616;
-  --bg-card: #1a1a1a;
+  --bg: #000000;
+  --bg-dark: #000000;
+  --surface: #0d0d0d;
+  --surface-2: #121212;
+  --surface-3: #1c1c1c;
+  --border: #212121;
   --fg: #ffffff;
-  --muted: #9a9a9a;
-  --muted-dim: #6b6b6b;
-  --line: rgba(255, 255, 255, 0.14);
-  --line-strong: rgba(255, 255, 255, 0.3);
-  --accent: #e8b23a; /* warm amber */
-  --accent-ink: #0d0d0d;
+  --fg-light: #ffffff;
+  --muted: #c0c6cc;
+  --muted-light: #e2e8f0;
+  --muted-2: #888888;
+  --line: #212121;
+  --line-dark: #212121;
+  --accent: #8b7fe8;
+  --accent-soft: #b8a8f0;
+  --accent-deep: #6c5ce7;
+  --accent-ink: #000000;
+  --accent-glow: rgba(139, 127, 232, 0.4);
 }
 
 @theme inline {
   --color-bg: var(--bg);
-  --color-bg-elevated: var(--bg-elevated);
-  --color-bg-card: var(--bg-card);
+  --color-bg-dark: var(--bg-dark);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border: var(--border);
   --color-fg: var(--fg);
+  --color-fg-light: var(--fg-light);
   --color-muted: var(--muted);
-  --color-muted-dim: var(--muted-dim);
+  --color-muted-light: var(--muted-light);
+  --color-muted-2: var(--muted-2);
   --color-line: var(--line);
-  --color-line-strong: var(--line-strong);
+  --color-line-dark: var(--line-dark);
   --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-deep: var(--accent-deep);
+  --color-accent-ink: var(--accent-ink);
 
-  --font-display: var(--font-archivo);
-  --font-sans: var(--font-inter);
+  --font-display: var(--font-poppins);
+  --font-body: var(--font-roboto);
+  --font-sans: var(--font-roboto);
 
   --breakpoint-xs: 30rem;
 }
 
-* {
-  border-color: var(--line);
+@layer base {
+  * {
+    border-color: var(--line);
+  }
 }
 
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 ::selection {
@@ -57,7 +74,6 @@ body {
   color: var(--accent-ink);
 }
 
-/* Thin, unobtrusive scrollbar that suits the dark canvas */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -65,43 +81,44 @@ body {
   background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: #ccc;
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #383838;
+  background: #aaa;
 }
 
-/* Utilities ------------------------------------------------- */
 .display {
   font-family: var(--font-display), system-ui, sans-serif;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: -0.02em;
   line-height: 0.95;
+  text-transform: uppercase;
 }
 
 .eyebrow {
   font-size: 0.75rem;
-  letter-spacing: 0.28em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--muted);
 }
 
-/* Fine grain / vignette overlay used over hero imagery */
-.film-grain::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.03) 1px,
-    transparent 1px
-  );
-  background-size: 3px 3px;
-  mix-blend-mode: overlay;
+.section-title {
+  font-family: var(--font-archivo), sans-serif;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
-/* Marquee -------------------------------------------------- */
+.text-gradient {
+  background-image: linear-gradient(135deg, #8b7fe8 0%, #b8a8f0 50%, #e0c8f2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @keyframes marquee-x {
   from {
     transform: translateX(0);
@@ -111,69 +128,63 @@ body {
   }
 }
 .marquee-track {
-  animation: marquee-x 10s linear infinite;
+  animation: marquee-x 20s linear infinite;
   will-change: transform;
 }
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-.marquee-reverse {
-  animation-direction: reverse;
-}
 
-/* Reveal-on-scroll (progressive enhancement; visible by default) */
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;
-    transform: translateY(22px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(48px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+      clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal[data-variant="left"] {
+    transform: translateX(-80px);
+  }
+  .reveal[data-variant="right"] {
+    transform: translateX(80px);
+  }
+  .reveal[data-variant="scale"] {
+    transform: scale(0.9) translateY(24px);
+  }
+  .reveal[data-variant="mask"] {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0 0 100% 0);
   }
   .reveal.is-visible {
     opacity: 1;
     transform: none;
   }
-}
+  .reveal[data-variant="mask"].is-visible {
+    clip-path: inset(0 0 0 0);
+  }
 
-/* Platform icon animations */
-@keyframes platform-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-@keyframes platform-glow-pulse {
-  0%, 100% { opacity: 0.15; transform: scale(1); }
-  50% { opacity: 0.35; transform: scale(1.15); }
-}
-@keyframes platform-ring-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-@keyframes count-up-fade {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: none; }
-}
-.platform-card {
-  --float-delay: 0s;
-}
-.platform-card .platform-icon-wrap {
-  animation: platform-float 4s ease-in-out var(--float-delay) infinite;
-}
-.platform-card .platform-glow {
-  animation: platform-glow-pulse 4s ease-in-out var(--float-delay) infinite;
-}
-.platform-card .platform-ring {
-  animation: platform-ring-spin 20s linear infinite;
-}
-.reveal.is-visible .platform-card .platform-stat {
-  animation: count-up-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  @keyframes dinner-alt-fade {
+    0%, 42% { opacity: 0; }
+    50%, 92% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  .dinner-alt {
+    animation: dinner-alt-fade 9s ease-in-out infinite;
+  }
+
+  @keyframes kenburns {
+    from {
+      transform: scale(1.14);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  .kenburns {
+    animation: kenburns 2.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .platform-card .platform-icon-wrap,
-  .platform-card .platform-glow,
-  .platform-card .platform-ring {
-    animation: none;
-  }
   .marquee-track {
     animation: none;
   }

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { r2 } from "@/lib/media";
 
 type LogoProps = {
   className?: string;
@@ -11,7 +12,7 @@ export default function Logo({ className = "", withWordmark = true }: LogoProps)
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <Image
-        src="/logo.webp"
+        src={r2("/logo.webp")}
         alt="Food Talk"
         width={576}
         height={576}

@@ -5,10 +5,12 @@ import { useState, type FormEvent } from "react";
 const cities = ["Delhi-NCR", "Mumbai", "Bangalore"] as const;
 
 export default function NewsletterForm() {
+  const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [cityError, setCityError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const selected = cities.filter((c) => fd.getAll("city").includes(c));
@@ -17,14 +19,47 @@ export default function NewsletterForm() {
       return;
     }
     setCityError(false);
+    setErrorMsg("");
+    setLoading(true);
 
-    const subject = encodeURIComponent("Newsletter signup — Food Talk India");
-    const body = encodeURIComponent(
-      `Email: ${fd.get("email")}\nPhone: +91 ${fd.get("phone")}\nCities: ${selected.join(", ")}`
-    );
-    window.location.href = `mailto:info@theanthem.in?subject=${subject}&body=${body}`;
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
+    const email = (fd.get("email") as string)?.trim();
+    const phone = (fd.get("phone") as string)?.trim();
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setErrorMsg("Please enter a valid email address.");
+      return;
+    }
+
+    const digits = phone.replace(/\D/g, "");
+    if (digits.length !== 10) {
+      setErrorMsg("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          phone,
+          selectedCities: selected,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Subscription failed.");
+      }
+
+      setSent(true);
+      setTimeout(() => setSent(false), 5000);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Failed to subscribe. Please try again.";
+      setErrorMsg(message);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -91,14 +126,18 @@ export default function NewsletterForm() {
         {cityError ? (
           <p className="mt-2 text-xs text-accent">Pick at least one city.</p>
         ) : null}
+        {errorMsg ? (
+          <p className="mt-2 text-xs text-red-400">{errorMsg}</p>
+        ) : null}
       </fieldset>
 
       <button
         type="submit"
-        className="group relative inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-accent px-8 py-4 text-sm font-bold uppercase tracking-wider text-[color:var(--accent-ink)] transition-transform hover:-translate-y-0.5 active:translate-y-0"
+        disabled={loading}
+        className="group relative inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-accent px-8 py-4 text-sm font-bold uppercase tracking-wider text-[color:var(--accent-ink)] transition-transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         <span className="relative z-10">
-          {sent ? "Opening mail client…" : "Subscribe"}
+          {sent ? "Subscribed! ✓" : loading ? "Subscribing…" : "Subscribe"}
         </span>
         <span
           aria-hidden

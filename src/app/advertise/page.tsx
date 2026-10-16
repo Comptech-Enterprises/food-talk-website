@@ -208,9 +208,9 @@ export default function AdvertisePage() {
             <Reveal>
               <blockquote className="mx-auto max-w-3xl text-center">
                 <p className="display text-[clamp(1.5rem,3.5vw,2.5rem)] leading-snug text-fg/90">
-                  "We don't do ads.{" "}
+                  &ldquo;We don&apos;t do ads.{" "}
                   <span className="text-accent">We tell stories</span> — your
-                  brand just happens to be the hero."
+                  brand just happens to be the hero.&rdquo;
                 </p>
                 <footer className="mt-8 text-sm text-muted">
                   — The Food Talk India Team
@@ -228,7 +228,7 @@ export default function AdvertisePage() {
                 <Reveal>
                   <p className="eyebrow mb-5 text-accent/70">Get In Touch</p>
                   <h2 className="display text-[clamp(1.8rem,4vw,3rem)]">
-                    Let's cook up<br />
+                    Let&apos;s cook up<br />
                     something{" "}
                     <span className="italic text-accent">great.</span>
                   </h2>
