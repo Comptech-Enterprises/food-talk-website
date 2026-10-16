@@ -9,9 +9,7 @@ async function getAccessToken(): Promise<string> {
   const refreshToken = process.env.ZOHO_REFRESH_TOKEN;
 
   if (!clientId || !clientSecret || !refreshToken) {
-    throw new Error(
-      "Zoho CRM environment variables (ZOHO_CLIENT_ID, ZOHO_CLIENT_SECRET, ZOHO_REFRESH_TOKEN) are not configured."
-    );
+    throw new Error("Zoho CRM credentials not configured.");
   }
 
   const res = await fetch("https://accounts.zoho.in/oauth/v2/token", {
@@ -36,85 +34,50 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
 
-    // Honeypot check for spam bots
     if (body.botField || body.aG9uZXlwb3Q || body._hp) {
-      // Silently return success to mislead bots without polluting CRM
       return NextResponse.json({ success: true });
     }
 
-    const {
-      name,
-      email,
-      company,
-      mobile,
-      phone,
-      message,
-      inquiryType,
-      leadSource,
-      extra,
-    } = body;
+    const { name, email, company, mobile, phone, message, inquiryType, leadSource, extra } = body;
 
-    // 1. Email Validation
     if (!email || typeof email !== "string" || !EMAIL_REGEX.test(email.trim())) {
-      return NextResponse.json(
-        { error: "Please provide a valid email address." },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Please provide a valid email address." }, { status: 400 });
     }
 
-    // 2. Name Validation (if provided)
     const trimmedName = typeof name === "string" ? name.trim() : "";
     if (trimmedName && trimmedName.length > 120) {
-      return NextResponse.json(
-        { error: "Name must be under 120 characters." },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Name must be under 120 characters." }, { status: 400 });
     }
 
-    // 3. Company Validation (if provided)
     const trimmedCompany = typeof company === "string" ? company.trim() : "";
     if (trimmedCompany && trimmedCompany.length > 200) {
-      return NextResponse.json(
-        { error: "Company name must be under 200 characters." },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Company name must be under 200 characters." }, { status: 400 });
     }
 
-    // 4. Phone Validation (if provided)
     const rawPhone = mobile || phone;
     let contactPhone = "";
     if (rawPhone && typeof rawPhone === "string") {
       const digits = rawPhone.replace(/\D/g, "");
       if (digits.length < 7 || digits.length > 16) {
-        return NextResponse.json(
-          { error: "Please enter a valid phone number (between 7 and 15 digits)." },
-          { status: 400 }
-        );
+        return NextResponse.json({ error: "Please enter a valid phone number." }, { status: 400 });
       }
       contactPhone = rawPhone.trim();
     }
 
-    // 5. Message Validation (if provided)
     if (message && typeof message === "string" && message.length > 5000) {
-      return NextResponse.json(
-        { error: "Message must be under 5,000 characters." },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Message must be under 5,000 characters." }, { status: 400 });
     }
 
     const contactName = trimmedName || email.trim().split("@")[0] || "Website Lead";
-    const contactCompanyFinal = trimmedCompany || "Individual / Not specified";
+    const contactCompany = trimmedCompany || "Individual / Not specified";
 
     const descriptionParts = [
       inquiryType ? `Inquiry / Type: ${inquiryType}` : null,
       message && typeof message === "string" ? `Message: ${message.trim()}` : null,
       extra
-        ? `Additional Details:\n${
-            typeof extra === "string" ? extra : JSON.stringify(extra, null, 2)
-          }`
+        ? `Additional Details:\n${typeof extra === "string" ? extra : JSON.stringify(extra, null, 2)}`
         : null,
     ].filter(Boolean);
-
     const description = descriptionParts.join("\n\n");
 
     const accessToken = await getAccessToken();
@@ -131,7 +94,7 @@ export async function POST(req: NextRequest) {
           {
             Last_Name: contactName,
             Email: email.trim().toLowerCase(),
-            Company: contactCompanyFinal,
+            Company: contactCompany,
             Phone: contactPhone,
             Description: description,
             Lead_Source: leadSource || "Food Talk Website",
