@@ -13,7 +13,7 @@ const EXPERIENCES = [
     tagline: "Once in a while, a table appears for people who already understand.",
     description:
       "Chef-led dinners built on season, intent and conversation. A room of guests who care deeply about why something is cooked the way it is.",
-    image: r2("/serious-eaters-photo.webp"),
+    image: r2("/serious-eaters-hero.webp"),
     cta: { label: "KNOW MORE", href: "/serious-eaters-club" },
   },
   {
