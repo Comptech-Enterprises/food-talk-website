@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 import LineReveal from "./LineReveal";
 import Reveal from "./Reveal";
 
@@ -30,7 +33,51 @@ const EXPERIENCES = [
   },
 ];
 
+function ExperienceCard({ exp, i }: { exp: (typeof EXPERIENCES)[number]; i: number }) {
+  return (
+    <Reveal delay={i * 150} className="h-full">
+      <article className="group flex flex-col h-full text-left transition-all duration-300 rounded-2xl border border-line bg-surface p-5 sm:p-6 hover:border-accent/40 hover:bg-surface-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
+        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl mb-5 bg-black/40">
+          <Image
+            src={exp.image}
+            alt={exp.title}
+            fill
+            sizes="(min-width: 768px) 33vw, 80vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+          />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
+        </div>
+        <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight uppercase text-white group-hover:text-accent transition-colors">
+          {exp.title}<span className="text-accent opacity-0 group-hover:opacity-100 transition-opacity">.</span>
+        </h3>
+        <p className="mt-2 font-serif italic text-sm sm:text-base text-accent-soft/90">
+          {exp.tagline}
+        </p>
+        <p className="mt-3 text-xs sm:text-sm text-muted leading-relaxed font-sans flex-1">
+          {exp.description}
+        </p>
+        <div className="mt-6">
+          {exp.cta.href ? (
+            <Link
+              href={exp.cta.href}
+              className="inline-block border border-line bg-surface-3 px-6 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase text-white hover:border-accent hover:text-accent hover:shadow-[0_0_15px_var(--accent-glow)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
+            >
+              {exp.cta.label}
+            </Link>
+          ) : (
+            <span className="inline-block border border-line/60 bg-surface px-6 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase text-muted-2">
+              {exp.cta.label}
+            </span>
+          )}
+        </div>
+      </article>
+    </Reveal>
+  );
+}
+
 export default function ExperiencesSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   return (
     <section id="experiences" className="scroll-mt-20 py-16 md:py-24 border-b border-line overflow-hidden">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-16">
@@ -44,55 +91,23 @@ export default function ExperiencesSection() {
           ]}
         />
 
-        {/* 3-Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 lg:gap-8">
+        {/* Mobile: horizontal scroll slider */}
+        <div
+          ref={scrollRef}
+          className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-6 px-6 pb-4"
+          style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
+        >
           {EXPERIENCES.map((exp, i) => (
-            <Reveal key={exp.title} delay={i * 150}>
-              <article className="group flex flex-col h-full text-left transition-all duration-300 rounded-2xl border border-line bg-surface p-5 sm:p-6 hover:border-accent/40 hover:bg-surface-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
-                {/* Image */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl mb-5 bg-black/40">
-                  <Image
-                    src={exp.image}
-                    alt={exp.title}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
-                  />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
-                </div>
+            <div key={exp.title} className="snap-start shrink-0 w-[80vw] max-w-[340px]">
+              <ExperienceCard exp={exp} i={i} />
+            </div>
+          ))}
+        </div>
 
-                {/* Title */}
-                <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight uppercase text-white group-hover:text-accent transition-colors">
-                  {exp.title}<span className="text-accent opacity-0 group-hover:opacity-100 transition-opacity">.</span>
-                </h3>
-
-                {/* Tagline */}
-                <p className="mt-2 font-serif italic text-sm sm:text-base text-accent-soft/90">
-                  {exp.tagline}
-                </p>
-
-                {/* Description */}
-                <p className="mt-3 text-xs sm:text-sm text-muted leading-relaxed font-sans flex-1">
-                  {exp.description}
-                </p>
-
-                {/* CTA Button */}
-                <div className="mt-6">
-                  {exp.cta.href ? (
-                    <Link
-                      href={exp.cta.href}
-                      className="inline-block border border-line bg-surface-3 px-6 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase text-white hover:border-accent hover:text-accent hover:shadow-[0_0_15px_var(--accent-glow)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
-                    >
-                      {exp.cta.label}
-                    </Link>
-                  ) : (
-                    <span className="inline-block border border-line/60 bg-surface px-6 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase text-muted-2">
-                      {exp.cta.label}
-                    </span>
-                  )}
-                </div>
-              </article>
-            </Reveal>
+        {/* Desktop: 3-column grid */}
+        <div className="hidden md:grid grid-cols-3 gap-6 lg:gap-8">
+          {EXPERIENCES.map((exp, i) => (
+            <ExperienceCard key={exp.title} exp={exp} i={i} />
           ))}
         </div>
 

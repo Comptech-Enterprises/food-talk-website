@@ -16,19 +16,19 @@ export const metadata: Metadata = {
 
 const PAST_DINNERS = [
   {
-    title: "Tsukemen Dinner",
+    title: "The Tsukemen Table",
     description:
       "An Izakaya style takeover where steaming bowls of tsukemen ramen, set the tone for everything that came after.",
     images: ["/dinners/zuru-zuru-1.webp", "/dinners/zuru-zuru-2.webp"],
   },
   {
-    title: "Toddy Shop Night",
+    title: "Toddy Shop Supper",
     description:
       "Kerala’s Toddy Shops are famous for their pours, but this time it was the fiery, soulful food that did the talking.",
     images: ["/dinners/mahabelly-1.webp", "/dinners/mahabelly-2.webp"],
   },
   {
-    title: "A Whole Damn Hog",
+    title: "Nose-to-Tail BBQ",
     description:
       "For Dinner Three, we slow-smoked an entire hog, nose to tail, for 24 hours straight. Nothing left behind, except bones and stories.",
     images: ["/dinners/h-man-1.webp", "/dinners/h-man-2.webp"],
@@ -50,7 +50,7 @@ export default function SeriousEatersClub() {
         <section className="relative min-h-[580px] sm:min-h-[640px] md:h-[85vh] md:min-h-[680px] overflow-hidden flex flex-col justify-end pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 border-b border-line">
           <Parallax className="absolute inset-0" speed={0.35} scale={1.3}>
             <Image
-              src="/serious-eaters-photo.jpg"
+              src="/serious-eaters-photo.webp"
               alt="Serious Eaters Club chef-led dinner setting"
               fill
               priority

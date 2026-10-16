@@ -37,9 +37,9 @@ export default function Navbar({ tone = "light" }: { tone?: "light" | "dark" }) 
           <Image
             src="/logo.webp"
             alt="Food Talk India"
-            width={120}
-            height={40}
-            className="h-10 sm:h-12 w-auto brightness-0 invert"
+            width={160}
+            height={52}
+            className="h-12 sm:h-14 w-auto brightness-0 invert"
             priority
           />
         </Link>

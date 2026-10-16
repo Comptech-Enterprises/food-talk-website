@@ -99,6 +99,19 @@ export default function HeroVideo() {
                 className="w-full h-full object-cover object-center"
                 aria-hidden
               />
+
+              {/* Text overlay on first slide */}
+              {idx === 0 && (
+                <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none px-6">
+                  <h1 className="font-display text-6xl font-black uppercase tracking-tight text-white leading-[1.15] text-center">
+                    FOOD
+                    <br />
+                    TALK
+                    <br />
+                    <span className="text-gradient">INDIA</span>
+                  </h1>
+                </div>
+              )}
             </div>
           );
         })}
@@ -140,8 +153,20 @@ export default function HeroVideo() {
 
             {/* Subtle hover wash */}
             <div className="absolute inset-0 bg-black/15 group-hover:bg-black/25 transition-colors duration-300 pointer-events-none" />
+
           </div>
         ))}
+
+        {/* Text overlay — spans full hero, bottom-left */}
+        <div className="absolute inset-0 z-20 flex items-end pointer-events-none px-6 sm:px-10 md:px-14 lg:px-16 pb-16 sm:pb-20">
+          <h1 className="font-display text-[clamp(2.5rem,6.5vw,5.5rem)] font-black uppercase tracking-tight text-white leading-[1.15]">
+            FOOD
+            <br />
+            TALK
+            <br />
+            <span className="text-gradient">INDIA</span>
+          </h1>
+        </div>
       </div>
     </div>
   );
