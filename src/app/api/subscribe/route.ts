@@ -17,56 +17,6 @@ function formatBrevoPhone(raw: string): string {
   return digits;
 }
 
-async function syncToZohoLead(email: string, phone: string, cities?: string[]) {
-  const clientId = process.env.ZOHO_CLIENT_ID;
-  const clientSecret = process.env.ZOHO_CLIENT_SECRET;
-  const refreshToken = process.env.ZOHO_REFRESH_TOKEN;
-  if (!clientId || !clientSecret || !refreshToken) return;
-
-  try {
-    const tokenRes = await fetch("https://accounts.zoho.in/oauth/v2/token", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        grant_type: "refresh_token",
-        client_id: clientId,
-        client_secret: clientSecret,
-        refresh_token: refreshToken,
-      }),
-    });
-    const tokenData = await tokenRes.json();
-    if (!tokenData.access_token) return;
-
-    const apiDomain = process.env.ZOHO_API_DOMAIN || "https://www.zohoapis.in";
-    const leadPayload = {
-      data: [
-        {
-          Last_Name: email.split("@")[0] || "Subscriber",
-          Email: email.trim().toLowerCase(),
-          Phone: phone ? `+${formatBrevoPhone(phone)}` : "",
-          Company: "Newsletter Subscriber",
-          Lead_Source: "Food Talk Website",
-          LEADCF1: "Food Talk",
-          Lead_Status: "Not Contacted",
-          Description: cities?.length ? `Subscribed Cities: ${cities.join(", ")}` : "Newsletter Signup",
-        },
-      ],
-      trigger: ["approval", "workflow", "blueprint"],
-    };
-
-    await fetch(`${apiDomain}/crm/v2/Leads`, {
-      method: "POST",
-      headers: {
-        Authorization: `Zoho-oauthtoken ${tokenData.access_token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(leadPayload),
-    });
-  } catch (err) {
-    console.error("Zoho newsletter lead sync error:", err);
-  }
-}
-
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -129,9 +79,6 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: "Failed to subscribe. Please try again." }, { status: 500 });
       }
     }
-
-    // Sync to Zoho CRM in background
-    syncToZohoLead(email, phone, selectedCities).catch(() => {});
 
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
