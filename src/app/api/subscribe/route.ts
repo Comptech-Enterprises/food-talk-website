@@ -57,24 +57,39 @@ export async function POST(req: NextRequest) {
 
     const listId = Number(process.env.BREVO_LIST_ID || 25);
 
-    const res = await fetch("https://api.brevo.com/v3/contacts", {
-      method: "POST",
-      headers: {
-        "api-key": apiKey,
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        email: email.trim().toLowerCase(),
-        attributes,
-        listIds: [listId],
-        updateEnabled: true,
-      }),
-    });
+    const saveContact = (attrs: Record<string, unknown>) =>
+      fetch("https://api.brevo.com/v3/contacts", {
+        method: "POST",
+        headers: {
+          "api-key": apiKey,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          email: email.trim().toLowerCase(),
+          attributes: attrs,
+          listIds: [listId],
+          updateEnabled: true,
+        }),
+      });
+
+    let res = await saveContact(attributes);
 
     if (!res.ok) {
-      const errData = await res.json().catch(() => ({}));
-      if (errData.code !== "duplicate_parameter") {
+      let errData = await res.json().catch(() => ({}));
+
+      // Brevo allows one contact per phone number; keep the email even if the number is taken.
+      const ids: string[] = errData?.metadata?.duplicate_identifiers ?? [];
+      if (errData.code === "duplicate_parameter" && ids.some((id) => id === "SMS" || id === "WHATSAPP")) {
+        console.warn("Phone already used by another Brevo contact, saving without phone:", email);
+        const rest = { ...attributes };
+        delete rest.SMS;
+        delete rest.WHATSAPP;
+        res = await saveContact(rest);
+        errData = res.ok ? {} : await res.json().catch(() => ({}));
+      }
+
+      if (!res.ok && errData.code !== "duplicate_parameter") {
         console.error("Brevo API error:", res.status, errData);
         return NextResponse.json({ error: "Failed to subscribe. Please try again." }, { status: 500 });
       }
