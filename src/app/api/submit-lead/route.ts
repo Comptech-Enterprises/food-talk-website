@@ -82,6 +82,7 @@ export async function POST(req: NextRequest) {
 
     const accessToken = await getAccessToken();
     const apiDomain = process.env.ZOHO_API_DOMAIN || "https://www.zohoapis.in";
+    const ownerId = process.env.ZOHO_LEAD_OWNER_ID;
 
     const zohoRes = await fetch(`${apiDomain}/crm/v2/Leads`, {
       method: "POST",
@@ -100,6 +101,7 @@ export async function POST(req: NextRequest) {
             Lead_Source: leadSource || "Food Talk Website",
             Lead_Status: "Not Contacted",
             LEADCF1: "Food Talk",
+            ...(ownerId ? { Owner: { id: ownerId } } : {}),
           },
         ],
       }),
